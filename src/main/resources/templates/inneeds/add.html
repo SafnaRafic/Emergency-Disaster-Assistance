@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments::head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<form method="post" style="max-width:600px;">
+
+    <h2 >In Need Requirement Form</h2>
+    <div class="form-group">
+        &ensp;<label th:for="name">Name</label>
+        <span class="required-field"></span>
+        <input class="form-control" th:field="${inneed.name}" />
+        <span th:errors="${inneed.name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="address">Address</label>
+        <span class="required-field"></span>
+        <input class="form-control" th:field="${inneed.address}">
+        <span th:errors="${inneed.address}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="city">City</label>
+        <span class="required-field"></span>
+        <input class="form-control" th:field="${inneed.city}">
+        <span class="error" th:errors="${inneed.city}"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="state">State</label>
+        <span class="required-field"></span>
+        <input class="form-control" th:field="${inneed.state}">
+        <span th:errors="${inneed.state}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="zipcode">Zipcode</label>
+        <span class="required-field"></span>
+        <input class="form-control" th:field="${inneed.zipcode}">
+        <span th:errors="${inneed.zipcode}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="contactNo" > Contact Number</label>
+        <span class="required-field"></span>
+        <input class="form-control" th:field="${inneed.contactNo}">
+        <span th:errors="${inneed.contactNo}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="emailId" > Email Id</label>
+        <input class="form-control" th:field="${inneed.emailId}">
+        <span th:errors="${inneed.emailId}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label> Type Of Disaster</label>
+        <select id="Disaster" th:field="${inneed.disasterType}">
+            <option value="earthquake">EarthQuake</option>
+            <option value="hurricane">Hurricane</option>
+            <option value="flood">Flood</option>
+            <option value="tornado">Tornado</option>
+            <option value="tsunami">Tsunami</option>
+            <option value="wildfire">Wild Fire</option>
+            <option value="extremeheat">Extreme Heat</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label >In Need :  </label>
+        <span class="required-field"></span>
+<!--        <div class="col-md-4">-->
+        <input type="checkbox" value="food" id="food" th:field="${inneed.in_need}">
+        <label for="food">Food</label><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="water" id="water" th:field="${inneed.in_need}">
+        <label for="water">Water</label><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="firstaid" id="firstaid" th:field="${inneed.in_need}">
+        <label for="firstaid">First Aid</label><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="rescue" id="rescue" th:field="${inneed.in_need}">
+        <label for="rescue">Rescue</label><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('hygiene'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Hygiene Products
+        &ensp;<label> Specify </label>
+        <input id="hygiene" name="in_need" disabled="disabled"/><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('tools'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Tools.
+        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<label> Specify </label>
+        <input id="tools" name="in_need" disabled="disabled"/><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('clothing'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Clothing.
+        &emsp;&emsp;&emsp;&emsp;&ensp;<label>Specify </label>
+        <input id="clothing" name="in_need" disabled="disabled"/><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('cleaningProduct'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Cleaning Product
+        &ensp;&nbsp;<label>Specify </label>
+        <input id="cleaningProduct" name="in_need" disabled="disabled"/><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('others'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Other...
+        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<label> Specify </label>
+        <input id="others" name="in_need" disabled="disabled"/><br>
+<!--         <&#45;&#45;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="hygiene" id="hygiene" th:field="${inneed.requiredResource}">&ndash;&gt;-->
+<!--        <label for="hygiene">Hygiene Products</label>-->
+<!--        <label>. Please specify: </label><input/><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="tools" id="tools" th:field="${inneed.requiredResource}">-->
+<!--        <label for="tools">Tools</label>-->
+<!--        <label>. Please specify: </label><input/><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="clothing" id="clothing" th:field="${inneed.requiredResource}">-->
+<!--        <label for="clothing">Clothing</label>-->
+<!--        <label>. Please specify: </label><input/><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="cleaning" id="cleaning" th:field="${inneed.requiredResource}">-->
+<!--        <label for="cleaning">Cleaning Products</label>-->
+<!--        <label>. Please specify: </label><input /><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<label>Others specify: </label><input/>-->
+
+    </div>
+    <div class="form-group">
+        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<label >Required Quantity</label>
+        <span class="required-field"></span>
+        &emsp;&emsp;&emsp;&emsp;<input th:field="${inneed.quantity}" >
+    </div>
+    <input type="submit" class="btn btn-primary center-block btn-lg" >Submit</input>
+
+
+</form>
+
+
+</body>
+</html>
