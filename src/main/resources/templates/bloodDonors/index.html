@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<nav th:replace="fragments :: page-header"></nav>
+<h1>Blood Donors List</h1>
+<table class="table table-striped">
+    <thead>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip Code</th>
+    <th>Contact Number</th>
+    <th>Blood Group</th>
+    <th>Delete</th>
+    <th>Update</th>
+
+    </thead>
+    <tr th:each="donor : ${donors}">
+        <td th:text="${donor.name}"></td>
+        <td th:text="${donor.address}"></td>
+        <td th:text="${donor.city}"></td>
+        <td th:text="${donor.state}"></td>
+        <td th:text="${donor.zipcode}"></td>
+        <td th:text="${donor.contactNo}"></td>
+        <td th:text="${donor.bloodGroup}"></td>
+
+
+        <!--        <td><a th:href="@{/list/jobs(column=location,value=${position.name})}" >View</a></td>-->
+                <td><a th:href="@{/bloodDonors/delete/{id}(id=${donor.id})}">Delete</a></td>
+                <td><a th:href="@{/bloodDonors/update/{id}(id=${donor.id})}">Update</a></td>
+    </tr>
+</table>

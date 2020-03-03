@@ -1,58 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace="fragments::head">
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container  body-content">
+
 
 <nav th:replace="fragments :: page-header"></nav>
-<form method="post" style="max-width:600px;">
-<div class="container-fluid">
-    <h2 style="text-align:center;"><strong><i>Volunteer Registration Form</i></strong></h2>
+
+<form method="post" th:action="@{/volunteers/update}">
+    <h1>Update Volunteer</h1>
     <div class="form-group">
-        <label th:for="name">Name</label>
-        <span class="required-field"></span>
+        <label th:for="name"> Name</label>
         <input class="form-control" th:field="${volunteer.name}" />
         <span th:errors="${volunteer.name}" class="error"></span>
     </div>
+
     <div class="form-group">
-        <label th:for="address">Address</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.address}">
+        <label th:for="address"> Address</label>
+        <input class="form-control" th:field="${volunteer.address}" />
         <span th:errors="${volunteer.address}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="city">City</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.city}">
-        <span class="error" th:errors="${volunteer.city}"></span>
+        <label th:for="city"> City</label>
+        <input class="form-control" th:field="${volunteer.city}" />
+        <span th:errors="${volunteer.city}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="state">State</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.state}">
+        <label th:for="state"> State</label>
+        <input class="form-control" th:field="${volunteer.state}" />
         <span th:errors="${volunteer.state}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="zipcode">Zipcode</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.zipcode}">
+        <label th:for="zipcode"> Zip code</label>
+        <input class="form-control" th:field="${volunteer.zipcode}" />
         <span th:errors="${volunteer.zipcode}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="contactNo" > Contact Number</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.contactNo}">
+        <label th:for="contactNo"> Contact No</label>
+        <input class="form-control" th:field="${volunteer.contactNo}" />
         <span th:errors="${volunteer.contactNo}" class="error"></span>
     </div>
+
     <div class="form-group">
-        <label th:for="emailId" > Email Id</label>
-        <input class="form-control" th:field="${volunteer.emailId}">
-        <span th:errors="${volunteer.emailId}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label> Days Of Availability</label>
-        <span class="required-field"></span><br>
-<!--        <select id="Disaster">-->
+        <label th:for="daysOfAvailability"> Days Of Availability</label><br>
+
+        <!--        <select id="Disaster">-->
 
         &emsp;&emsp;<input type="checkbox" value="Any days" id="any" th:field="${volunteer.daysOfAvailability}">
         <label for="any">Any</label><br>
@@ -73,8 +64,8 @@
     </div>
 
     <div class="form-group">
-        <label> Volunteer Category</label>
-        <span class="required-field"></span>
+        <label th:for="volunteerCategory"> Volunteer Category</label>
+
         <select class="form-control" id="category"  th:field="${volunteer.volunteerCategory}">
             <option value="DayVolunteer">Day Volunteer</option>
             <option value="Residential">Residential Volunteer</option>
@@ -82,22 +73,19 @@
     </div>
 
     <div class="form-check">
-        <label>Time Availability</label>
-        <span class="required-field"></span><br>
+        <label th:for="timeAvailability">Time Availability</label><br>
+
         &emsp;&emsp;<input type="checkbox" value="AnyTime" id="anyTime" th:field="${volunteer.timeAvailability}">
         <label for="anyTime">Any Time</label><br>
         &emsp;&emsp;<input type="checkbox" value="8am-Noon" id="am" th:field="${volunteer.timeAvailability}">
         <label for="am">8 Am to Noon</label><br>
         &emsp;&emsp;<input type="checkbox" value="1pm-5pm" id="pm" th:field="${volunteer.timeAvailability}">
         <label for="pm">1 Pm to 5 Pm</label><br>
-
-<!--        <input type="checkbox" value="pm" id="pm">-->
-<!--        <label th:for="${timeAvailability}">5pm - 10pm</label>-->
     </div>
-    <input class="btn btn-primary center-block btn-lg" type="submit" value="Submit">
-</div>
-</form>
 
+    <input type="hidden" th:value="${volunteer.id}" name="volunteerId">
+    <input type="submit" value="Update Volunteer" />
+</form>
 
 </body>
 </html>

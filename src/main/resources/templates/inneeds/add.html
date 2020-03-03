@@ -5,10 +5,10 @@
 <body>
 <nav th:replace="fragments :: page-header"></nav>
 <form method="post" style="max-width:600px;">
-
-    <h2 >In Need Requirement Form</h2>
+<div class="container-fluid">
+    <h2 style="text-align:center;"><strong><i>In Need Requirement Form</i></strong></h2>
     <div class="form-group">
-        &ensp;<label th:for="name">Name</label>
+        <label th:for="name">Name</label>
         <span class="required-field"></span>
         <input class="form-control" th:field="${inneed.name}" />
         <span th:errors="${inneed.name}" class="error"></span>
@@ -109,7 +109,7 @@
     </div>
     <input type="submit" class="btn btn-primary center-block btn-lg" >Submit</input>
 
-
+</div>
 </form>
 
 

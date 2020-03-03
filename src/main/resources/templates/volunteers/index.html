@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<nav th:replace="fragments :: page-header"></nav>
+<h1>Volunteers List</h1>
+<table class="table table-striped">
+    <thead>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip Code</th>
+    <th>Contact Number</th>
+    <th>Days Of Availability</th>
+    <th>Volunteer Category</th>
+    <th>Time Availability</th>
+    <th>Delete</th>
+    <th>Update</th>
+
+    </thead>
+    <tr th:each="volunteer : ${volunteers}">
+        <td th:text="${volunteer.name}"></td>
+        <td th:text="${volunteer.address}"></td>
+        <td th:text="${volunteer.city}"></td>
+        <td th:text="${volunteer.state}"></td>
+        <td th:text="${volunteer.zipcode}"></td>
+        <td th:text="${volunteer.contactNo}"></td>
+        <td th:text="${volunteer.daysOfAvailability}"></td>
+        <td th:text="${volunteer.volunteerCategory}"></td>
+        <td th:text="${volunteer.timeAvailability}"></td>
+
+<!--        <td><a th:href="@{/list/jobs(column=location,value=${position.name})}" >View</a></td>-->
+        <td><a th:href="@{/volunteers/delete/{id}(id=${volunteer.id})}">Delete</a></td>
+        <td><a th:href="@{/volunteers/update/{id}(id=${volunteer.id})}">Update</a></td>
+    </tr>
+</table>
+<!--<a th:href="@{/positions/add}"><button class="btn btn-primary">Add Position</button></a>-->
+
+
+
+</body>
+</html>

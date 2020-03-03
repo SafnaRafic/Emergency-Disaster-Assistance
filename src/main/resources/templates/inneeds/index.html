@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<nav th:replace="fragments :: page-header"></nav>
+<h1>In-Need List</h1>
+<table class="table table-striped">
+    <thead>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip Code</th>
+    <th>Contact Number</th>
+    <th>Disaster Type</th>
+    <th>In-Need</th>
+    <th>Quantity</th>
+    <th>Delete</th>
+    <th>Update</th>
+
+    </thead>
+    <tr th:each="inneed : ${inneeds}">
+        <td th:text="${inneed.name}"></td>
+        <td th:text="${inneed.address}"></td>
+        <td th:text="${inneed.city}"></td>
+        <td th:text="${inneed.state}"></td>
+        <td th:text="${inneed.zipcode}"></td>
+        <td th:text="${inneed.contactNo}"></td>
+        <td th:text="${inneed.disasterType}"></td>
+        <td th:text="${inneed.in_need}"></td>
+        <td th:text="${inneed.quantity}"></td>
+        <td><a th:href="@{/inneeds/delete/{id}(id=${inneed.id})}">Delete</a></td>
+        <td><a th:href="@{/inneeds/update/{id}(id=${inneed.id})}">Update</a></td>
+    </tr>
+</table>

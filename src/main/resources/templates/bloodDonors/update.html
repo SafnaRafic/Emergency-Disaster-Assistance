@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container  body-content">
+
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<form method="post" th:action="@{/bloodDonors/update}">
+    <h1>Update Blood Donor</h1>
+    <div class="form-group">
+        <label th:for="name"> Name</label>
+        <input class="form-control" th:field="${bloodDonor.name}" />
+        <span th:errors="${bloodDonor.name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="address"> Address</label>
+        <input class="form-control" th:field="${bloodDonor.address}" />
+        <span th:errors="${bloodDonor.address}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="city"> City</label>
+        <input class="form-control" th:field="${bloodDonor.city}" />
+        <span th:errors="${bloodDonor.city}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="state"> State</label>
+        <input class="form-control" th:field="${bloodDonor.state}" />
+        <span th:errors="${bloodDonor.state}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="zipcode"> Zip code</label>
+        <input class="form-control" th:field="${bloodDonor.zipcode}" />
+        <span th:errors="${bloodDonor.zipcode}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="contactNo"> Contact No</label>
+        <input class="form-control" th:field="${bloodDonor.contactNo}" />
+        <span th:errors="${bloodDonor.contactNo}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="bloodGroup">Blood Group</label>
+        <input class="form-control" th:field="${bloodDonor.bloodGroup}" />
+        <span th:errors="${bloodDonor.bloodGroup}" class="error"></span>
+    </div>
+    <input type="hidden" th:value="${bloodDonor.id}" name="donorId">
+    <input type="submit" value="Update Donor" />
+</form>
+
+</body>
+</html>
