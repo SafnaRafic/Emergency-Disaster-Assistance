@@ -41,8 +41,12 @@
 
     <div class="form-group">
         <label th:for="bloodGroup">Blood Group</label>
-        <input class="form-control" th:field="${bloodDonor.bloodGroup}" />
-        <span th:errors="${bloodDonor.bloodGroup}" class="error"></span>
+        <select name="groupId">
+            <option th:each="group : ${bloodGroups}"
+                    th:text="${group.bloodGroup}"
+                    th:value="${group.id}"></option>
+        </select>
+
     </div>
     <input type="hidden" th:value="${bloodDonor.id}" name="donorId">
     <input type="submit" value="Update Donor" />

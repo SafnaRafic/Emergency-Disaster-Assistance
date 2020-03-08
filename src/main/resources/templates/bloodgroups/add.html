@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments::head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<form method="post" style="max-width:600px;">
+    <div class="container-fluid">
+
+        <h2 style="text-align:center;"><strong><i>Blood Group Form</i></strong></h2>
+        <div class="form-group">
+            <label th:for="bloodType">Blood Group</label>
+            <span class="required-field"></span>
+            <input class="form-control" th:field="${bloodGroup.bloodType}" />
+            <span th:errors="${bloodGroup.bloodType}" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label th:for="description">Description</label>
+            <span class="required-field"></span>
+            <input class="form-control" th:field="${bloodGroup.description}" />
+            <span th:errors="${bloodGroup.description}" class="error"></span>
+        </div>
+        <input class="btn btn-primary center-block btn-lg" type="Submit" value="Submit">
+
+
+</body>
+</html>

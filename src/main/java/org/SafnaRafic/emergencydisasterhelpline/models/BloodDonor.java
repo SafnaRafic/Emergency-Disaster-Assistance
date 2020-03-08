@@ -1,24 +1,34 @@
 package org.SafnaRafic.emergencydisasterhelpline.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 public class BloodDonor extends AbstractEntity {
-    @NotBlank(message = "Blood group os required")
-    private String bloodGroup;
+    @ManyToOne
+    @JoinColumn(name="bloodGroup")
+    private BloodGroup bloodGroup;
 
     //getter and setter
-    public String getBloodGroup() {
+
+    public BloodGroup getBloodGroup() {
         return bloodGroup;
     }
 
-    public void setBloodGroup(String bloodGroup) {
+    public void setBloodGroup(BloodGroup bloodGroup) {
         this.bloodGroup = bloodGroup;
     }
+
 
     // No arg constructor
 
     public BloodDonor() {
+    }
+
+    public BloodDonor(BloodGroup bloodGroup) {
+        super();
+        this.bloodGroup = bloodGroup;
     }
 }

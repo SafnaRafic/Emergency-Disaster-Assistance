@@ -26,11 +26,13 @@
         <td th:text="${donor.state}"></td>
         <td th:text="${donor.zipcode}"></td>
         <td th:text="${donor.contactNo}"></td>
+
         <td th:text="${donor.bloodGroup}"></td>
 
 
         <!--        <td><a th:href="@{/list/jobs(column=location,value=${position.name})}" >View</a></td>-->
-                <td><a th:href="@{/bloodDonors/delete/{id}(id=${donor.id})}">Delete</a></td>
-                <td><a th:href="@{/bloodDonors/update/{id}(id=${donor.id})}">Update</a></td>
+        <td><a th:href="@{/bloodDonors/delete/{id}(id=${donor.id})}">Delete</a></td>
+        <td><a th:href="@{/bloodDonors/update/{id}(id=${donor.id})}">Update</a></td>
     </tr>
 </table>
+
