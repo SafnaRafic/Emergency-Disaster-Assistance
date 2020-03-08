@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments::head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class="container body-content">
+<form th:action="@{/search/results}" method="post">
+    <h2> Search by: </h2>
+    <p>
+        <span th:each ="column :${columns}">
+            <input type="radio" name="searchType" th:id="${column.key}" th:value="${column.key}" th:checked="${column.key == 'all' }" />
+<!--            th:checked="${column.key == 'all' "-->
+            <label th:for="${column.key}" th:text="${column.value}"></label>
+        </span>
+    </p>
+
+    <p>
+        <label th:for="searchTerm"> Keyword </label>
+        <input type="text" name="searchTerm" id="searchTerm">
+    </p>
+    <input type="submit" value="Search">
+</form>
+    <hr/>
+<table class="listing">
+    <tr th:each="donor : ${bloodDonors}">
+        <td>
+            <p>
+                Name:
+                <label th:text="${donor.name}"></label>
+            </p>
+            <p>
+                Blood Group:
+                <label th:text="${donor.bloodGroup}"></label>
+            </p>
+            <p>
+                Zipcode:
+                <label th:text="${donor.zipcode}"></label>
+            </p>
+            <p>
+                Email-Id:
+                <label th:text="${donor.emailId}"></label>
+            </p>
+        </td>
+    </tr>
+</table>
+</div>
+
+
+</body>
+</html>
