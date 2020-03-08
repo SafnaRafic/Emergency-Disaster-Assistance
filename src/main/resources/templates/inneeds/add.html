@@ -3,6 +3,7 @@
 <head th:replace="fragments::head">
 </head>
 <body>
+
 <nav th:replace="fragments :: page-header"></nav>
 <form method="post" style="max-width:600px;">
 <div class="container-fluid">
@@ -87,19 +88,7 @@
         &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('others'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Other...
         &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<label> Specify </label>
         <input id="others" name="in_need" disabled="disabled"/><br>
-<!--         <&#45;&#45;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="hygiene" id="hygiene" th:field="${inneed.requiredResource}">&ndash;&gt;-->
-<!--        <label for="hygiene">Hygiene Products</label>-->
-<!--        <label>. Please specify: </label><input/><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="tools" id="tools" th:field="${inneed.requiredResource}">-->
-<!--        <label for="tools">Tools</label>-->
-<!--        <label>. Please specify: </label><input/><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="clothing" id="clothing" th:field="${inneed.requiredResource}">-->
-<!--        <label for="clothing">Clothing</label>-->
-<!--        <label>. Please specify: </label><input/><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="cleaning" id="cleaning" th:field="${inneed.requiredResource}">-->
-<!--        <label for="cleaning">Cleaning Products</label>-->
-<!--        <label>. Please specify: </label><input /><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<label>Others specify: </label><input/>-->
+
 
     </div>
     <div class="form-group">
