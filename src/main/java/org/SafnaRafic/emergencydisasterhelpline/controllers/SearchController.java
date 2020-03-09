@@ -26,7 +26,7 @@ public class SearchController {
     static HashMap<String, String> columnChoices = new HashMap<>();
 
     public SearchController() {
-        columnChoices.put("all", "All");
+//        columnChoices.put("all", "All");
         columnChoices.put("zipcode", "Zipcode");
         columnChoices.put("bloodgroup", "BloodGroup");
 

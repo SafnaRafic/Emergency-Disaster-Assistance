@@ -79,12 +79,12 @@ body, html {
 
 
 
-.bg {
+.jumbotron {
   /* The image used */
 
-  background-image: url("https://media.treehugger.com/assets/images/2011/10/lightening-storm.jpg");
+  background-image: url("https://images.unsplash.com/photo-1475776408506-9a5371e7a068?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
   /* Full height */
-  /*height: 100%;*/
+  /*height: 100%;
 
   /* Center and scale the image nicely */
   /*background-position: center;
@@ -124,4 +124,24 @@ body {
     letter-spacing: .1px;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+      padding-top: 56px;
+
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+.center_div{
+    margin: 0 auto;
+    width:80% /* value of your choice which suits your alignment */
 }

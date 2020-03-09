@@ -1,68 +1,228 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
 <head th:replace="fragments :: head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 </head>
+
 <body>
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="container">
+<!--    <h2>Portfolio Heading</h2>-->
 
-    <h2>Individual Disaster Assistance</h2>
-    <p >&emsp;Emergency Disaster Assistance can
-        help support your recovery from a major disaster. If you're ready to apply now for
-        disaster assistance or would like more information on the types of assistance available please visit <a
-                th:href="@{https://www.disasterassistance.gov/}">disasterassistance.gov .</a>
-        There is a limited timeframe to apply for assistance, so do not wait to apply. Not sure if
-        you are in an area declared for disaster assistance? Visit <a th:href="@{https://www.disasterassistance.gov/}">disasterassistance.gov .</a> and enter your address to find out
-        if your area is declared for Individual Assistance
-    </p>
-    <h2>For immediate assistance.</h2>
-    <p>
+<!--    <div class="row">-->
+<!--        <div class="col-lg-4 col-sm-6 portfolio-item">-->
+<!--            <div class="card h-100">-->
+<!--                <a href="#"><img class="card-img-top" src="https://missoulacurrent.com/wp-content/uploads/2019/10/DRIMS_homepage_image_5-1.jpg" alt=""></a>-->
+<!--                <div class="card-body">-->
+<!--                    <h4 class="card-title">-->
+<!--                        <a href="#">Project One</a>-->
+<!--                    </h4>-->
+<!--                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 col-sm-6 portfolio-item">-->
+<!--            <div class="card h-100">-->
+<!--                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+<!--                <div class="card-body">-->
+<!--                    <h4 class="card-title">-->
+<!--                        <a href="#">Project Two</a>-->
+<!--                    </h4>-->
+<!--                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 col-sm-6 portfolio-item">-->
+<!--            <div class="card h-100">-->
+<!--                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+<!--                <div class="card-body">-->
+<!--                    <h4 class="card-title">-->
+<!--                        <a href="#">Project Three</a>-->
+<!--                    </h4>-->
+<!--                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 col-sm-6 portfolio-item">-->
+<!--            <div class="card h-100">-->
+<!--                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+<!--                <div class="card-body">-->
+<!--                    <h4 class="card-title">-->
+<!--                        <a href="#">Project Four</a>-->
+<!--                    </h4>-->
+<!--                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 col-sm-6 portfolio-item">-->
+<!--            <div class="card h-100">-->
+<!--                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+<!--                <div class="card-body">-->
+<!--                    <h4 class="card-title">-->
+<!--                        <a href="#">Project Five</a>-->
+<!--                    </h4>-->
+<!--                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 col-sm-6 portfolio-item">-->
+<!--            <div class="card h-100">-->
+<!--                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+<!--                <div class="card-body">-->
+<!--                    <h4 class="card-title">-->
+<!--                        <a href="#">Project Six</a>-->
+<!--                    </h4>-->
+<!--                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        Our disaster assistance partners can provide help with immediate needs.
-    <ul>
-        <li>
-            <strong><i>Emergency Medical Assistance:</i></strong>
-            Please dial 9-1-1.
-        </li>
-        <br>
-        <li><strong><i>Emergency Shelter:</i></strong>>
-            Locate options by zip code by visiting the <a href="https://www.redcross.org/find-help/shelter" >American Red Cross</a>, or <a href="https://www.salvationarmyusa.org/usn/housing-and-homeless-services">Salvation Army</a>, or by
-            texting SHELTER and your zip code (for example, “SHELTER 01234”) to 4FEMA (43362). For Spanish text REFUGIO
-            and
-            your zip code. (Standard text message rates apply.)
-        </li>
-        <br>
-        <li><strong><i>Immediate Needs:</i></strong>
-            Contact your <a href="https://www.salvationarmyusa.org/usn/housing-and-homeless-services">local emergency management agency</a> for help or referral to trusted disaster
-            assistance partners serving your area.
-        </li>
-
-    </ul>
-    </p>
+    <!-- /.row -->
 
 
-       <h2>General:</h2>
-    <h3>What You Can Do</h3>
-    <p>
-        <strong>Planning</strong> - Preparing for natural disasters can greatly reduce the risks to health and the environment. Hurricanes or floods can contaminate drinking water sources. Forest fires or volcanoes harm air quality. Tornadoes or earthquakes, by damaging factories or storage facilities, can release contaminants where people live or into the environment.
-<ul>
-    <li><i>Individuals and homeowners </i>can plan ahead to protect health for themselves and family members.</li>
-    <li><i>Communities, schools, and businesses </i>can plan ahead to reduce risks and possible costs of storm-related spills or cleanup.</li>
-    <li>  Learn about<a th:href="@{https://www.ready.gov/plan}">making an emergency plan</a> , from Ready.gov </li>
-</ul>
-    <ul>
-    <li><strong>Recovery </strong>- Understanding risks will help speed recovery efforts and help keep problems from becoming worse. Improper use of portable generators or heating devices can release deadly carbon monoxide to indoor air. Ice-melting agents used improperly can pollute waterways. Large amounts of debris can present serious disposal problems for state and local communities. Owners or operators of damaged facilities may be responsible for reporting spills.
-<li>
-    <li>Individuals and homeowners</i> can learn more about what, and what not, to do to protect health of themselves and family.</li>
-   <li><i>Communities, schools, and businesses</i> can learn more about address large-scale risks and be aware of any legal requirements they may have under applicable regulations.
-</li>
-    </ul>
+<div class="container-fluid">
 
-    </p>
+<div class="row">
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <h4 class="card-header">Volunteer</h4>
+            <a th:href="@{/volunteers/add}"><img class="card-img-top" src="https://missoulacurrent.com/wp-content/uploads/2019/10/DRIMS_homepage_image_5-1.jpg" alt="" height="300" width="360"></a>
+<!--            <div class="card-body" style="background-image: url('https://missoulacurrent.com/wp-content/uploads/2019/10/DRIMS_homepage_image_5-1.jpg')">-->
+<!--                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>-->
+<!--            </div>-->
+            <br>
+            <br>
+            <div class="card-footer">
+
+                <a th:href="@{/volunteers/add}" class="btn btn-primary">Register</a>
+                &emsp;<a th:href="@{/volunteers/add}" class="btn btn-primary">Search</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <h4 class="card-header">Blood Donor</h4>
+            <a th:href="@{/bloodDonors/add}"><img class="card-img-top" src="https://www.pr-medicalevents.com/wp-content/uploads/2016/06/post-img.jpg" alt="" height="300" width="360"></a>
+<!--            <div class="card-body">-->
+<!--                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>-->
+<!--            </div>-->
+
+            <br><br>
+            <div class="card-footer">
+                <a th:href="@{/bloodDonors/add}" class="btn btn-primary">Register</a>
+                &emsp;<a th:href="@{/search}" class="btn btn-primary">Search</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <h4 class="card-header">Seeking Assistance</h4>
+            <a th:href="@{/inneeds/add}"><img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTN5O4ENNpK0PMc6FJcwpaQzQZAykTqWHyCtcS5nGhVwU8z4T5O" alt="" height="300" width="360"></a>
+<!--            <div class="card-body">-->
+<!--                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>-->
+<!--            </div>-->
+
+            <br><br>
+            <div class="card-footer">
+                <a th:href="@{/inneeds/add}" class="btn btn-primary">Help Needed </a>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container">-->
+
+<!--    <h2>Individual Disaster Assistance</h2>-->
+<!--    <p >&emsp;Emergency Disaster Assistance can-->
+<!--        help support your recovery from a major disaster. If you're ready to apply now for-->
+<!--        disaster assistance or would like more information on the types of assistance available please visit <a-->
+<!--                th:href="@{https://www.disasterassistance.gov/}">disasterassistance.gov .</a>-->
+<!--        There is a limited timeframe to apply for assistance, so do not wait to apply. Not sure if-->
+<!--        you are in an area declared for disaster assistance? Visit <a th:href="@{https://www.disasterassistance.gov/}">disasterassistance.gov .</a> and enter your address to find out-->
+<!--        if your area is declared for Individual Assistance-->
+<!--    </p>-->
+<!--    <h2>For immediate assistance.</h2>-->
+<!--    <p>-->
+
+<!--        Our disaster assistance partners can provide help with immediate needs.-->
+<!--    <ul>-->
+<!--        <li>-->
+<!--            <strong><i>Emergency Medical Assistance:</i></strong>-->
+<!--            Please dial 9-1-1.-->
+<!--        </li>-->
+<!--        <br>-->
+<!--        <li><strong><i>Emergency Shelter:</i></strong>>-->
+<!--            Locate options by zip code by visiting the <a href="https://www.redcross.org/find-help/shelter" >American Red Cross</a>, or <a href="https://www.salvationarmyusa.org/usn/housing-and-homeless-services">Salvation Army</a>, or by-->
+<!--            texting SHELTER and your zip code (for example, “SHELTER 01234”) to 4FEMA (43362). For Spanish text REFUGIO-->
+<!--            and-->
+<!--            your zip code. (Standard text message rates apply.)-->
+<!--        </li>-->
+<!--        <br>-->
+<!--        <li><strong><i>Immediate Needs:</i></strong>-->
+<!--            Contact your <a href="https://www.salvationarmyusa.org/usn/housing-and-homeless-services">local emergency management agency</a> for help or referral to trusted disaster-->
+<!--            assistance partners serving your area.-->
+<!--        </li>-->
+
+<!--    </ul>-->
+<!--    </p>-->
+
+
+<!--       <h2>General:</h2>-->
+<!--    <h3>What You Can Do</h3>-->
+<!--    <p>-->
+<!--        <strong>Planning</strong> - Preparing for natural disasters can greatly reduce the risks to health and the environment. Hurricanes or floods can contaminate drinking water sources. Forest fires or volcanoes harm air quality. Tornadoes or earthquakes, by damaging factories or storage facilities, can release contaminants where people live or into the environment.-->
+<!--<ul>-->
+<!--    <li><i>Individuals and homeowners </i>can plan ahead to protect health for themselves and family members.</li>-->
+<!--    <li><i>Communities, schools, and businesses </i>can plan ahead to reduce risks and possible costs of storm-related spills or cleanup.</li>-->
+<!--    <li>  Learn about<a th:href="@{https://www.ready.gov/plan}">making an emergency plan</a> , from Ready.gov </li>-->
+<!--</ul>-->
+<!--    <ul>-->
+<!--    <li><strong>Recovery </strong>- Understanding risks will help speed recovery efforts and help keep problems from becoming worse. Improper use of portable generators or heating devices can release deadly carbon monoxide to indoor air. Ice-melting agents used improperly can pollute waterways. Large amounts of debris can present serious disposal problems for state and local communities. Owners or operators of damaged facilities may be responsible for reporting spills.-->
+<!--<li>-->
+<!--    <li>Individuals and homeowners</i> can learn more about what, and what not, to do to protect health of themselves and family.</li>-->
+<!--   <li><i>Communities, schools, and businesses</i> can learn more about address large-scale risks and be aware of any legal requirements they may have under applicable regulations.-->
+<!--</li>-->
+<!--    </ul>-->
+
+<!--    </p>-->
+<!--</div>-->
+<!--</div>-->
+    </div>
 </body>
 </html>

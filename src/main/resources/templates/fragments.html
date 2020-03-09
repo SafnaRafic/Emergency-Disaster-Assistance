@@ -5,6 +5,7 @@
     <link th:href="@{/css/disasters.css}" rel="stylesheet"/>
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 </head>
@@ -12,15 +13,16 @@
 <body>
 
 <div th:fragment="page-header" class="jumbotron text-center" style="margin-bottom:0">
-
-    <h1 style="color:blue;">Emergency Disaster Assistance</h1>
-    <p>Emerge,Contribute and Rejuvenate!</p>
+<!--<div class ="bg">-->
+    <h1 style="color:white;">Emergency Disaster Assistance</h1>
+    <p style="color:orange;">Emerge,Contribute and Rejuvenate!</p>
+<!--</div>-->
 
 </div>
-
 <div th:fragment="page-header" class="navbar navbar-inverse">
     <marquee direction="left" style="color:red;"><b>ALWAYS CALL 911 if you are in immediate danger and need emergency help.</b></marquee>
     <div class="container-fluid">
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
@@ -35,7 +37,6 @@
                 <li ><a th:href="@{/}">Home</a></li>
                 <li><a th:href="@{/inneeds/add}"> In Need</a></li>
                 <li><a th:href="@{/volunteers/add}">Volunteer</a></li>
-                <li><a th:href="@{/volunteers/view}">Volunteer List</a></li>
                 <li class="nav-item dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="true"> <span class="nav-label">Blood Donor</span> <span class="caret"></span></a>
