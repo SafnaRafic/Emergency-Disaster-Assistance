@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container  body-content">
 
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<form method="post" th:action="@{/needs/update}">
+    <h1>Delete Needs</h1>
+    <div class="form-group">
+        <label th:for="need"> Need </label>
+        <input class="form-control" th:field="${needed.need}" />
+        <span th:errors="${needed.need}" class="error"></span>
+    </div>
+
+    <input type="hidden" th:value="${needed.id}" name="needId">
+    <input type="submit" value="Update " />
+</form>
 
 </body>
 </html>

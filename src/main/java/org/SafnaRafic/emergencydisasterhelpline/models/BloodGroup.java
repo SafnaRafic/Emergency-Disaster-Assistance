@@ -11,7 +11,7 @@ public class BloodGroup extends AbstractEntityAdmin {
     @NotNull(message = "BloodGroup is Required")
     private String bloodType;
 
-    private String description;
+
 
     //relationship of BloodDonor and BloodGroup class
     @OneToMany(mappedBy = "bloodGroup" ,cascade = CascadeType.ALL)
@@ -26,13 +26,7 @@ public class BloodGroup extends AbstractEntityAdmin {
         this.bloodType = bloodType;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     //getter for bloodDoonors
     public List<BloodDonor> getBloodDonors() {

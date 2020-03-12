@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+<head th:replace="fragments :: head">
 </head>
 <body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class="container-fluid">
+<table class="table table-striped">
+    <thead>
+    <th>Blood Group</th>
+    <th>Actions</th>
+    </thead>
+    <tr th:each="bloodGroup : ${bloodGroups}">
+        <td th:text="${bloodGroup.bloodType}"></td>
+        <td><a th:href="@{'/bloodgroups/delete/' + ${bloodGroup.id}}"><button class="btn btn-primary">Delete</button> </a>
+            <a th:href="@{'/bloodgroups/update/' + ${bloodGroup.id}}"><button class="btn btn-primary">Update</button> </a></td>
+    </tr>
 
-
+</table>
+    <a th:href="@{/bloodgroups/add}"><button class="brn btn-primary">Add Blood Group</button> </a>
+</div>
 </body>
 </html>

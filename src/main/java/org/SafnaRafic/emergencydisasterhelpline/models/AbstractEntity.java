@@ -34,6 +34,7 @@ public abstract class AbstractEntity {
     @Size(min = 10,max = 10,message = "This entry can only contain numbers")
     private String contactNo;
 
+    @NotBlank(message = "Email is required")
     @Email(message = "Invalid email. Try again.")
     private String emailId;
 

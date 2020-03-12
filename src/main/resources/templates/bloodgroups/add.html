@@ -14,14 +14,10 @@
             <input class="form-control" th:field="${bloodGroup.bloodType}" />
             <span th:errors="${bloodGroup.bloodType}" class="error"></span>
         </div>
-        <div class="form-group">
-            <label th:for="description">Description</label>
-            <span class="required-field"></span>
-            <input class="form-control" th:field="${bloodGroup.description}" />
-            <span th:errors="${bloodGroup.description}" class="error"></span>
-        </div>
-        <input class="btn btn-primary center-block btn-lg" type="Submit" value="Submit">
 
+        <input class="btn btn-primary center-block btn-lg" type="Submit" value="Submit">
+    </div>
+</form>
 
 </body>
 </html>

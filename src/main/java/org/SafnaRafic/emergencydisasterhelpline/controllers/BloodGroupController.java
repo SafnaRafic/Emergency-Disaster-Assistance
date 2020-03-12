@@ -8,12 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("bloodgroups")
@@ -34,6 +32,58 @@ public class BloodGroupController {
             return "bloodgroups/add";
         }
         bloodGroupRepository.save(newBloodGroup);
-        return "redirect:/";
+        return "redirect:/bloodgroups/index";
     }
+
+    @GetMapping("index")
+    public String displayBloodGroupIndex(Model model){
+        model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
+        return "bloodgroups/index";
+    }
+
+    @GetMapping("delete/{bloodGroupId}")
+    public String displayDeleteBloodGroup(Model model, @PathVariable int bloodGroupId ){
+        Optional<BloodGroup> bloodGroupOptional=bloodGroupRepository.findById(bloodGroupId);
+        if(bloodGroupOptional.isPresent()){
+            BloodGroup bloodGroup=bloodGroupOptional.get();
+            model.addAttribute("bloodGroup",bloodGroup);
+        }
+        return "bloodgroups/delete";
+    }
+
+    @PostMapping("delete")
+    public String processDeleteBloodGroup(Model model,@RequestParam int bloodGroupId) {
+        Optional<BloodGroup> bloodGroupOptional = bloodGroupRepository.findById(bloodGroupId);
+        if (bloodGroupOptional.isPresent()) {
+            BloodGroup bloodGroup = bloodGroupOptional.get();
+            bloodGroupRepository.delete(bloodGroup);
+            return "redirect:/";
+        }
+        return "bloodgroups/index";
+    }
+
+    @GetMapping("update/{bloodGroupId}")
+    public String displayupdateDeleteBloodGroup(Model model, @PathVariable int bloodGroupId){
+        Optional<BloodGroup> bloodGroupOptional=bloodGroupRepository.findById(bloodGroupId);
+        if(bloodGroupOptional.isPresent()){
+            BloodGroup bloodGroup=bloodGroupOptional.get();
+            model.addAttribute("bloodGroup",bloodGroup);
+            return "bloodgroups/update";
+        }else {
+            return "redirect:";
+        }
+    }
+
+    @PostMapping("update")
+    public String processUpdateBloodGroup(Model model,@RequestParam int bloodGroupId,@RequestParam String bloodType) {
+        Optional<BloodGroup> bloodGroupOptional = bloodGroupRepository.findById(bloodGroupId);
+        if (bloodGroupOptional.isPresent()) {
+            BloodGroup bloodGroup = bloodGroupOptional.get();
+            bloodGroup.setBloodType(bloodType);
+            bloodGroupRepository.save(bloodGroup);
+            return "redirect:/bloodgroups/index";
+        }
+        return "bloodgroups/delete";
+    }
+
 }
