@@ -29,7 +29,14 @@
         <td th:text="${inneed.zipcode}"></td>
         <td th:text="${inneed.contactNo}"></td>
         <td th:text="${inneed.disasterType}"></td>
-        <td th:text="${inneed.in_need}"></td>
+        <td>
+            <ul>
+                <li th:each="needy : ${inneed.needs}">
+                    <span th:text="${needy.need}"></span>
+                </li>
+            </ul>
+
+        </td>
         <td th:text="${inneed.quantity}"></td>
         <td><a th:href="@{/inneeds/delete/{id}(id=${inneed.id})}">Delete</a></td>
         <td><a th:href="@{/inneeds/update/{id}(id=${inneed.id})}">Update</a></td>

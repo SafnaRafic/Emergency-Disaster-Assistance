@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments:: head"></head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+        <th>Need</th>
+        <th>Delete</th>
+        <th>Update</th>
+        </thead>
+        <tr th:each="needy : ${needs}">
+            <td th:text="${needy.need}"></td>
+            <td th:text="${needy.name}"></td>
+            <td th:text="${needy.name}"></td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

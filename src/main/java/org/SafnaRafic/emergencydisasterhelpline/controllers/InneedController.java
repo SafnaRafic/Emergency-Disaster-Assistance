@@ -48,6 +48,7 @@ public class InneedController {
     public String displayAllInneeds(Model model) {
 
         model.addAttribute("inneeds", inneedRepository.findAll());
+        model.addAttribute("needs",neededRepository.findAll());
         return "inneeds/index";
     }
 
