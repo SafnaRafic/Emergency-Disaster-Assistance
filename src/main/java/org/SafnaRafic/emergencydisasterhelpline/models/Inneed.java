@@ -10,8 +10,8 @@ import java.util.List;
 public class Inneed extends AbstractEntity {
 
     //Relationship of Inneed and Needed class
-
-    @ManyToMany(mappedBy ="inneed",cascade = CascadeType.ALL)
+//(mappedBy ="inneed",cascade = CascadeType.ALL)
+    @ManyToMany
     private List<Needed> needs;
 
     //Fields
