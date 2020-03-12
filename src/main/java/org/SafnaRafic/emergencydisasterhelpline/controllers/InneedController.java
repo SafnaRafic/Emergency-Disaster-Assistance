@@ -62,6 +62,12 @@ public class InneedController {
         }
         return "inneeds/view";
     }
+    @GetMapping("sponsor")
+    public String displaySponsorNeeds(Model model){
+        model.addAttribute("inneeds",inneedRepository.findAll());
+        model.addAttribute("needs",neededRepository.findAll());
+        return "inneeds/sponsor";
+    }
 
     @GetMapping("delete/{inneedId}")
     public String displayDeleteInneedForm(Model model,@PathVariable int inneedId) {
@@ -94,6 +100,8 @@ public class InneedController {
         if (inneedToUpdate.isPresent()) {
             Inneed inneed = (Inneed) inneedToUpdate.get();
             model.addAttribute("inneed", inneed);
+            model.addAttribute("needs",neededRepository.findAll());
+
             return "inneeds/update";
         } else {
             return "redirect:";

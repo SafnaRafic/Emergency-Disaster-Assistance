@@ -2,6 +2,7 @@ package org.SafnaRafic.emergencydisasterhelpline.controllers;
 
 import org.SafnaRafic.emergencydisasterhelpline.models.BloodDonor;
 import org.SafnaRafic.emergencydisasterhelpline.models.BloodGroup;
+import org.SafnaRafic.emergencydisasterhelpline.models.Inneed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.BloodDonorRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.BloodGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,25 @@ public class BloodDonorController {
         model.addAttribute("donors", bloodDonorRepository.findAll());
         model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
         return "bloodDonors/index";
+    }
+
+//    @GetMapping("view/{id}")
+//    public String displayViewBloodDonor(Model model,@PathVariable int id){
+//        Optional<BloodDonor> optionalBloodDonor=bloodDonorRepository.findById(id);
+//        if(optionalBloodDonor.isPresent()){
+//            BloodDonor bloodDonor=(BloodDonor) optionalBloodDonor.get();
+//            model.addAttribute("bloodDonor",bloodDonor);
+//        }
+//        return "bloodDonors/view";
+//    }
+    @GetMapping("view/{id}")
+    public String displayViewInneed(Model model, @PathVariable int id){
+        Optional<BloodDonor> optBloodDonor=bloodDonorRepository.findById(id);
+        if(optBloodDonor.isPresent()){
+            BloodDonor bloodDonor=(BloodDonor) optBloodDonor.get();
+            model.addAttribute("bloodDonor",bloodDonor);
+        }
+        return "bloodDonors/view";
     }
 
     @GetMapping("delete/{donorId}")

@@ -14,9 +14,17 @@
         <span th:errors="${inneed.name}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="in_need"> In_need</label>
-        <input class="form-control" th:field="${inneed.in_need}" />
-        <span th:errors="${inneed.in_need}" class="error"></span>
+
+        <label >In Need :  </label>
+        <span class="required-field"></span>
+
+        <th:block th:each="needy : ${needs}">
+            <input type="checkbox" name="needs" th:value="${needy.id}">
+            <label th:text="${needy.need}"></label><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        </th:block>
+        <span th:errors="${inneed.emailId}" class="error"></span>
+    </div>
     </div>
     <div class="quantity">
         <label th:for="quantity">Quantity</label>
