@@ -2,8 +2,10 @@ package org.SafnaRafic.emergencydisasterhelpline.controllers;
 
 import org.SafnaRafic.emergencydisasterhelpline.models.BloodDonor;
 import org.SafnaRafic.emergencydisasterhelpline.models.Inneed;
+import org.SafnaRafic.emergencydisasterhelpline.models.Needed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.BloodDonorRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.InneedRepository;
+import org.SafnaRafic.emergencydisasterhelpline.models.data.NeededRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("inneeds")
@@ -19,19 +22,25 @@ public class InneedController {
     @Autowired
     private InneedRepository inneedRepository;
 
+    @Autowired
+    private NeededRepository neededRepository;
+
     @GetMapping("add")
     public String displayAddInneedForm(Model model) {
         model.addAttribute(new Inneed());
+        model.addAttribute("needs",neededRepository.findAll());
         return "inneeds/add";
     }
 
     @PostMapping("add")
-    public String processAddInneedForm(@ModelAttribute @Valid Inneed newInneed,
+    public String processAddInneedForm(@ModelAttribute @Valid Inneed newInneed, @RequestParam List<Integer> needs,
                                       Errors errors, Model model) {
 
         if (errors.hasErrors()) {
             return "inneeds/add";
         }
+        List<Needed> needObj = (List<Needed>) neededRepository.findAllById(needs);
+        newInneed.setNeeds(needObj);
         inneedRepository.save(newInneed);
         return "redirect:/";
     }
@@ -81,14 +90,15 @@ public class InneedController {
     }
 
     @PostMapping("update")
-    public String processUpdateInneedForm(int inneedId, String name, String in_need,int quantity) {
+    public String processUpdateInneedForm(int inneedId, String name, List<Integer> needId,int quantity) {
 
         Optional inneedToUpdate = inneedRepository.findById(inneedId);
             if (inneedToUpdate.isPresent()) {
             Inneed inneed = (Inneed) inneedToUpdate.get();
             inneed.setName(name);
-           inneed.setIn_need(in_need);
-           inneed.setQuantity(quantity);
+            List<Needed> needObj = (List<Needed>) neededRepository.findAllById(needId);
+            inneed.setNeeds(needObj);
+            inneed.setQuantity(quantity);
             inneedRepository.save(inneed);
             return "redirect:/inneeds/index";
         }

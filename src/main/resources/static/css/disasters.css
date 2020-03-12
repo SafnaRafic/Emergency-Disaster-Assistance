@@ -145,3 +145,7 @@ body {
     margin: 0 auto;
     width:80% /* value of your choice which suits your alignment */
 }
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}

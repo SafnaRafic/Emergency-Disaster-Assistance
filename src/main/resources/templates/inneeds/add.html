@@ -65,30 +65,36 @@
     <div class="form-group">
         <label >In Need :  </label>
         <span class="required-field"></span>
+
+        <th:block th:each="needy : ${needs}">
+            <input type="checkbox" name="needs" th:value="${needy.id}">
+            <label th:text="${needy.need}"></label>
+        </th:block>
 <!--        <div class="col-md-4">-->
-        <input type="checkbox" value="food" id="food" th:field="${inneed.in_need}">
-        <label for="food">Food</label><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="water" id="water" th:field="${inneed.in_need}">
-        <label for="water">Water</label><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="firstaid" id="firstaid" th:field="${inneed.in_need}">
-        <label for="firstaid">First Aid</label><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="rescue" id="rescue" th:field="${inneed.in_need}">
-        <label for="rescue">Rescue</label><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('hygiene'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Hygiene Products
-        &ensp;<label> Specify </label>
-        <input id="hygiene" name="in_need" disabled="disabled"/><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('tools'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Tools.
-        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<label> Specify </label>
-        <input id="tools" name="in_need" disabled="disabled"/><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('clothing'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Clothing.
-        &emsp;&emsp;&emsp;&emsp;&ensp;<label>Specify </label>
-        <input id="clothing" name="in_need" disabled="disabled"/><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('cleaningProduct'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Cleaning Product
-        &ensp;&nbsp;<label>Specify </label>
-        <input id="cleaningProduct" name="in_need" disabled="disabled"/><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('others'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Other...
-        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<label> Specify </label>
-        <input id="others" name="in_need" disabled="disabled"/><br>
+
+<!--        <input type="checkbox" value="food" id="food" th:field="${inneed.in_need}">-->
+<!--        <label for="food">Food</label><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="water" id="water" th:field="${inneed.in_need}">-->
+<!--        <label for="water">Water</label><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="firstaid" id="firstaid" th:field="${inneed.in_need}">-->
+<!--        <label for="firstaid">First Aid</label><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="rescue" id="rescue" th:field="${inneed.in_need}">-->
+<!--        <label for="rescue">Rescue</label><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('hygiene'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Hygiene Products-->
+<!--        &ensp;<label> Specify </label>-->
+<!--        <input id="hygiene" name="in_need" disabled="disabled"/><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('tools'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Tools.-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<label> Specify </label>-->
+<!--        <input id="tools" name="in_need" disabled="disabled"/><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('clothing'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Clothing.-->
+<!--        &emsp;&emsp;&emsp;&emsp;&ensp;<label>Specify </label>-->
+<!--        <input id="clothing" name="in_need" disabled="disabled"/><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('cleaningProduct'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Cleaning Product-->
+<!--        &ensp;&nbsp;<label>Specify </label>-->
+<!--        <input id="cleaningProduct" name="in_need" disabled="disabled"/><br>-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('others'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Other...-->
+<!--        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<label> Specify </label>-->
+<!--        <input id="others" name="in_need" disabled="disabled"/><br>-->
 
 
     </div>

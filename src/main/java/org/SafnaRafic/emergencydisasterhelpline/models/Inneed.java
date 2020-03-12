@@ -1,22 +1,27 @@
 package org.SafnaRafic.emergencydisasterhelpline.models;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Inneed extends AbstractEntity {
 
-    private String disasterType;
+    //Relationship of Inneed and Needed class
 
-    @NotBlank(message = "Please Specify your Needs")
-    private String in_need;
+    @ManyToMany(mappedBy ="inneed",cascade = CascadeType.ALL)
+    private List<Needed> needs;
+
+    //Fields
+
+    private String disasterType;
 
     @NotNull(message = "Please Specify the quantity")
     private int quantity;
 
-    // getter and setter
-
+    // getter and setter for fields
 
     public String getDisasterType() {
         return disasterType;
@@ -24,14 +29,6 @@ public class Inneed extends AbstractEntity {
 
     public void setDisasterType(String disasterType) {
         this.disasterType = disasterType;
-    }
-
-    public String getIn_need() {
-        return in_need;
-    }
-
-    public void setIn_need(String in_need) {
-        this.in_need = in_need;
     }
 
     public int getQuantity() {
@@ -42,6 +39,15 @@ public class Inneed extends AbstractEntity {
         this.quantity = quantity;
     }
 
+    //getter for inneed field
+
+    public List<Needed> getNeeds() {
+        return needs;
+    }
+
+    public void setNeeds(List<Needed> needs) {
+        this.needs = needs;
+    }
     // No arg constructor
 
     public Inneed() {
