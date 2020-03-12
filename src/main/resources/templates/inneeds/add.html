@@ -14,45 +14,46 @@
         <span class="required-field"></span>
         <input class="form-control" th:field="${inneed.name}" />
         <span th:errors="${inneed.name}" class="error"></span>
+
     </div>
     <div class="form-group">
         <label th:for="address">Address</label>
         <span class="required-field"></span>
-        <input class="form-control" th:field="${inneed.address}">
+        <input class="form-control" th:field="${inneed.address}" >
         <span th:errors="${inneed.address}" class="error"></span>
     </div>
     <div class="form-group">
         <label th:for="city">City</label>
         <span class="required-field"></span>
-        <input class="form-control" th:field="${inneed.city}">
+        <input class="form-control" th:field="${inneed.city}" >
         <span class="error" th:errors="${inneed.city}"></span>
     </div>
     <div class="form-group">
         <label th:for="state">State</label>
         <span class="required-field"></span>
-        <input class="form-control" th:field="${inneed.state}">
+        <input class="form-control" th:field="${inneed.state}" >
         <span th:errors="${inneed.state}" class="error"></span>
     </div>
     <div class="form-group">
         <label th:for="zipcode">Zipcode</label>
         <span class="required-field"></span>
-        <input class="form-control" th:field="${inneed.zipcode}">
+        <input class="form-control" th:field="${inneed.zipcode}" >
         <span th:errors="${inneed.zipcode}" class="error"></span>
     </div>
     <div class="form-group">
         <label th:for="contactNo" > Contact Number</label>
         <span class="required-field"></span>
-        <input class="form-control" th:field="${inneed.contactNo}">
+        <input class="form-control" th:field="${inneed.contactNo}" >
         <span th:errors="${inneed.contactNo}" class="error"></span>
     </div>
     <div class="form-group">
         <label th:for="emailId" > Email Id</label>
-        <input class="form-control" th:field="${inneed.emailId}">
+        <input type="email" class="form-control" th:field="${inneed.emailId}" >
         <span th:errors="${inneed.emailId}" class="error"></span>
     </div>
     <div class="form-group">
         <label> Type Of Disaster</label>
-        <select id="Disaster" th:field="${inneed.disasterType}">
+        <select id="Disaster" th:field="${inneed.disasterType}" >
             <option value="earthquake">EarthQuake</option>
             <option value="hurricane">Hurricane</option>
             <option value="flood">Flood</option>
@@ -68,40 +69,21 @@
 
         <th:block th:each="needy : ${needs}">
             <input type="checkbox" name="needs" th:value="${needy.id}">
-            <label th:text="${needy.need}"></label>
+            <label th:text="${needy.need}"></label><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
         </th:block>
-<!--        <div class="col-md-4">-->
+        <span th:errors="${inneed.emailId}" class="error"></span>
+    </div>
 
-<!--        <input type="checkbox" value="food" id="food" th:field="${inneed.in_need}">-->
-<!--        <label for="food">Food</label><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="water" id="water" th:field="${inneed.in_need}">-->
-<!--        <label for="water">Water</label><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="firstaid" id="firstaid" th:field="${inneed.in_need}">-->
-<!--        <label for="firstaid">First Aid</label><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" value="rescue" id="rescue" th:field="${inneed.in_need}">-->
-<!--        <label for="rescue">Rescue</label><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('hygiene'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Hygiene Products-->
-<!--        &ensp;<label> Specify </label>-->
 <!--        <input id="hygiene" name="in_need" disabled="disabled"/><br>-->
 <!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('tools'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Tools.-->
 <!--        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<label> Specify </label>-->
-<!--        <input id="tools" name="in_need" disabled="disabled"/><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('clothing'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Clothing.-->
-<!--        &emsp;&emsp;&emsp;&emsp;&ensp;<label>Specify </label>-->
-<!--        <input id="clothing" name="in_need" disabled="disabled"/><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('cleaningProduct'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Cleaning Product-->
-<!--        &ensp;&nbsp;<label>Specify </label>-->
-<!--        <input id="cleaningProduct" name="in_need" disabled="disabled"/><br>-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" onclick="var input = document.getElementById('others'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Other...-->
-<!--        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<label> Specify </label>-->
-<!--        <input id="others" name="in_need" disabled="disabled"/><br>-->
 
-
-    </div>
     <div class="form-group">
-        &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<label >Required Quantity</label>
+
+        <label >Required Quantity</label>
         <span class="required-field"></span>
-        &emsp;&emsp;&emsp;&emsp;<input th:field="${inneed.quantity}" >
+        <input type="number" min="1" max="100" th:field="${inneed.quantity}">
     </div>
     <input type="submit" class="btn btn-primary center-block btn-lg" />
     </div>

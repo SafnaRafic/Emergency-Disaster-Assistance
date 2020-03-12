@@ -1,6 +1,7 @@
 package org.SafnaRafic.emergencydisasterhelpline.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +11,12 @@ public class Needed extends AbstractEntityAdmin{
 
     //fields
 
-    @NotNull(message = "Specify your Need")
+    @NotBlank(message = "Specify your Need")
     private String need;
 
     //relationship of Needed and Inneed class
 //    @JoinColumn(name = "need_id")
+
     @ManyToMany(mappedBy ="needs",cascade = CascadeType.ALL)
     private List<Inneed> inneed=new ArrayList<>();
 

@@ -11,6 +11,7 @@ public class Inneed extends AbstractEntity {
 
     //Relationship of Inneed and Needed class
 //(mappedBy ="inneed",cascade = CascadeType.ALL)
+
     @ManyToMany
     private List<Needed> needs;
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+
+<div class="container-fluid">
+    <p th:text="${'Name : '+ inneed.name}"></p>
+    <p th:text="${'City : '+ inneed.city}"></p>
+    <p th:text="${'State : '+ inneed.state}"></p>
+    <p th:text="${'Zipcode : '+ inneed.zipcode}"></p>
+    <p th:text="${'Contact-no : '+ inneed.contactNo}"></p>
+    <p th:text="${'Email : '+ inneed.emailId}"></p>
+
+    <a th:href="@{/inneeds/index}"><button class="btn btn-primary">Back</button></a>
+</div>
+</body>
+</html>

@@ -6,6 +6,7 @@ import org.SafnaRafic.emergencydisasterhelpline.models.Needed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.BloodDonorRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.InneedRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.NeededRepository;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +51,16 @@ public class InneedController {
         model.addAttribute("inneeds", inneedRepository.findAll());
         model.addAttribute("needs",neededRepository.findAll());
         return "inneeds/index";
+    }
+
+    @GetMapping("view/{id}")
+    public String displayViewInneed(Model model, @PathVariable int id){
+        Optional<Inneed> optInneed=inneedRepository.findById(id);
+        if(optInneed.isPresent()){
+            Inneed inneed=(Inneed)optInneed.get();
+            model.addAttribute("inneed",inneed);
+        }
+        return "inneeds/view";
     }
 
     @GetMapping("delete/{inneedId}")
