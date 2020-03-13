@@ -7,15 +7,18 @@
     <table class="table table-striped">
         <thead>
         <th>Need</th>
-        <th>Delete</th>
-        <th>Update</th>
+        <th>Actions</th>
+
         </thead>
         <tr th:each="needy : ${needs}">
             <td th:text="${needy.need}"></td>
-            <td th:text="${needy.name}"></td>
-            <td th:text="${needy.name}"></td>
+            <td><a th:href="@{'/needs/delete/' + ${needy.id}}"><button class="btn btn-primary">Delete</button> </a>
+                <a th:href="@{'/needs/update/' + ${needy.id}}"><button class="btn btn-primary">Update</button> </a></td>
         </tr>
+
     </table>
+    <a th:href="@{/needs/add}"><button class="brn btn-primary">Add Needs Item</button> </a>
+
 </div>
 
 

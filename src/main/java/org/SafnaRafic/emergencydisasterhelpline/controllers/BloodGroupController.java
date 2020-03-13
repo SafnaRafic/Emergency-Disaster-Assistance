@@ -57,9 +57,9 @@ public class BloodGroupController {
         if (bloodGroupOptional.isPresent()) {
             BloodGroup bloodGroup = bloodGroupOptional.get();
             bloodGroupRepository.delete(bloodGroup);
-            return "redirect:/";
+            return "bloodgroups/index";
         }
-        return "bloodgroups/index";
+        return "bloodgroups/delete";
     }
 
     @GetMapping("update/{bloodGroupId}")
