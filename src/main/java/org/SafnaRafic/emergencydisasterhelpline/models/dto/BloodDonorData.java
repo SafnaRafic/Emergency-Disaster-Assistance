@@ -26,6 +26,10 @@ public class BloodDonorData {
         String theValue;
         if(fieldName.equals("zipcode")){
             theValue=bloodDonor.getZipcode();
+        }else if(fieldName.equals("city")){
+            theValue=bloodDonor.getCity();
+        }else if(fieldName.equals("state")){
+            theValue=bloodDonor.getState();
         }else {
             theValue=bloodDonor.getBloodGroup().toString();
         }
@@ -39,7 +43,12 @@ public class BloodDonorData {
                 results.add(bloodDonor);
             }else if(bloodDonor.getBloodGroup().toString().toLowerCase().contains(value.toLowerCase())){
                 results.add(bloodDonor);
+            }else if(bloodDonor.getCity().toLowerCase().contains(value)){
+                results.add(bloodDonor);
+            }else if(bloodDonor.getState().toLowerCase().contains(value)){
+                results.add(bloodDonor);
             }
+
         }
         return results;
     }

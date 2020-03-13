@@ -36,7 +36,17 @@
             <ul class="nav navbar-nav">
                 <li ><a th:href="@{/}">Home</a></li>
 
-                <li><a th:href="@{/volunteers/add}">Volunteer</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" rolw="button"
+                       aria-haspopup="true" aria-expanded="true">
+                        <span class="nav-label">Volunteer</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                <li><a class="dropdown-item" th:href="@{/volunteers/add}">Register</a></li>
+                <li><a class="dropdown-item" th:href="@{/volunteers/search}">Search</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="true">
@@ -46,6 +56,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/inneeds/add}">Register</a></li>
                         <li><a class="dropdown-item" th:href="@{/inneeds/sponsor}">Sponsor</a></li>
+                        <li><a class="dropdown-item" th:href="@{/searchInneeds}">Search</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -67,7 +78,7 @@
                         <li><a class="dropdown-item" th:href="@{/bloodgroups/index}">Blood Group </a></li>
                         <li><a class="dropdown-item" th:href="@{/needs/index}">Needs</a></li>
                         <li><a class="dropdown-item" th:href="@{/volunteers/index}">Volunteers</a></li>
-                        <li ><a class="dropdown-item" th:href="@{/bloodDonors/index}">Blood Donors </a></li>
+                        <li ><a class="dropdown-item" th:href="@{/bloodDonors/index}">Blood Donors</a></li>
                         <li><a class="dropdown-item" th:href="@{/inneeds/index}">In need List</a></li>
 
 

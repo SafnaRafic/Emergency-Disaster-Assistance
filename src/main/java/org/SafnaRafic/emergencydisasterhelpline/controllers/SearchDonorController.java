@@ -16,19 +16,19 @@ import java.util.HashMap;
 
 @Controller
 @RequestMapping("search")
-public class SearchController {
-//    @Autowired
-//    private BloodGroupRepository bloodGroupRepository;
+public class SearchDonorController {
 
     @Autowired
     private BloodDonorRepository bloodDonorRepository;
 
     static HashMap<String, String> columnChoices = new HashMap<>();
 
-    public SearchController() {
-//        columnChoices.put("all", "All");
-        columnChoices.put("zipcode", "Zipcode");
+    public SearchDonorController() {
+        columnChoices.put("all", "All");
         columnChoices.put("bloodgroup", "BloodGroup");
+        columnChoices.put("city","City");
+        columnChoices.put("state","State");
+        columnChoices.put("zipcode", "Zipcode");
 
     }
 

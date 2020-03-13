@@ -6,6 +6,7 @@ import org.SafnaRafic.emergencydisasterhelpline.models.Needed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.BloodDonorRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.InneedRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.NeededRepository;
+import org.SafnaRafic.emergencydisasterhelpline.models.dto.InneedData;
 import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +27,7 @@ public class InneedController {
 
     @Autowired
     private NeededRepository neededRepository;
+
 
     @GetMapping("add")
     public String displayAddInneedForm(Model model) {

@@ -8,31 +8,52 @@
 <form th:action="@{/search/results}" method="post">
     <h2> Search by: </h2>
     <p>
-        <span th:each ="column :${columns}">
-            <input type="radio" name="searchType" th:id="${column.key}" th:value="${column.key}" th:checked="${column.key == 'bloodGroup' }" />
-<!--            th:checked="${column.key == 'all' "-->
+        <span th:each ="column :${columns}" >
+        <input type="radio"
+            name="searchType"
+            th:id="${column.key}"
+            th:value="${column.key}"
+            th:checked="${column.key == 'all'}"/>
             <label th:for="${column.key}" th:text="${column.value}"></label>
         </span>
+<!--         <select class="form-control" name="searchType" >-->
+<!--             <span th:each ="column :${columns}" >-->
+<!--                <option th:value="${column.key}" th:id="${column.key}" th:text="${column.key}" ></option>-->
+<!--             </span>-->
+<!--         </select>-->
+
     </p>
 
     <p>
-<!--        <label th:for="searchTerm"> Keyword </label>-->
         <input type="text" name="searchTerm" id="searchTerm">
     </p>
     <input type="submit" value="Search">
 </form>
     <hr/>
 <table class="listing">
-    <tr th:each="donor : ${bloodDonors}">
+    <tr th:each="donor,iterationStatus : ${bloodDonors}">
         <td>
             <p>
-                Name:
-                <label th:text="${donor.name}"></label>
+                Donor :
+                <label th:text="${iterationStatus.count}"></label>
             </p>
             <p>
                 Blood Group:
                 <label th:text="${donor.bloodGroup}"></label>
             </p>
+            <p>
+                Name:
+                <label th:text="${donor.name}"></label>
+            </p>
+            <p>
+                City:
+                <label th:text="${donor.city}"></label>
+            </p>
+            <p>
+                State:
+                <label th:text="${donor.state}"></label>
+            </p>
+
             <p>
                 Zipcode:
                 <label th:text="${donor.zipcode}"></label>

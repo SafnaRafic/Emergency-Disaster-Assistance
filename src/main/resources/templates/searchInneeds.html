@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments::head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class="container body-content">
+    <form th:action="@{/searchInneeds/results}" method="post">
+        <h1>In Need Search</h1>
+        <h2>Search By: </h2>
+        <p>
+        <span th:each="column : ${columns}">
+        <input type="radio" th:id="${column.key}" th:value="${column.key}" name="searchType"
+               th:checked="${column.key == 'all'}"/>
+            <label th:for="${column.key}" th:text="${column.value}"></label>
+
+        </span>
+        </p>
+        <p>
+            <label for="searchTerm"></label>
+        <input type="text" name="searchTerm" id="searchTerm"/>
+        </p>
+        <input type="submit" value="Search">
+    </form>
+
+<hr />
+<table class="table table-striped">
+    <thead>
+    <th>Sno</th>
+    <th>Name</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip code</th>
+    <th>Needs</th>
+    <th>Quantity</th>
+    </thead>
+    <tr th:each="inneed,iterationStatus : ${inneeds}">
+        <td th:text=${iterationStatus.count}></td>
+        <td th:text="${inneed.name}"></td>
+        <td th:text="${inneed.city}"></td>
+        <td th:text="${inneed.state}"></td>
+        <td th:text="${inneed.zipcode}"></td>
+
+        <td >
+            <ul th:each="needy : ${inneed.needs}">
+                <li >
+                    <span th:text="${needy.need}"></span>
+                </li>
+            </ul>
+        </td>
+        <td th:text="${inneed.quantity}"></td>
+        
+    </tr>
+
+<!--    <tr th:each="inneed : ${inneeds}">-->
+<!--        <td>-->
+<!--            <p>-->
+<!--                Name :-->
+<!--                <label th:text="${inneed.name}"></label>-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                City :-->
+<!--                <label th:text="${inneed.city}"></label>-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                State :-->
+<!--                <label th:text="${inneed.state}"></label>-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                Zipcode :-->
+<!--                <label th:text="${inneed.zipcode}"></label>-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                Need :-->
+<!--            <ul th:each="needy : ${inneed.needs}">-->
+<!--                <li >-->
+<!--                    <span th:text="${needy.need}"></span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            </p>-->
+<!--        </td>-->
+<!--    </tr>-->
+</table>
+</div>
+</body>
+</html>
