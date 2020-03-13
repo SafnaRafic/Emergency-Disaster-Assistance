@@ -42,6 +42,19 @@ public class VolunteerController {
         return "volunteers/index";
     }
 
+    @GetMapping("view/{id}")
+    public String displayViewVolunteer(Model model,@PathVariable int id){
+        Optional<Volunteer> optionalVolunteer=volunteerRepository.findById(id);
+        if(optionalVolunteer.isPresent()){
+            Volunteer volunteer=optionalVolunteer.get();
+            model.addAttribute("volunteer",volunteer);
+            return "volunteers/view";
+        }else{
+            return "volunteers/index";
+        }
+
+    }
+
     @GetMapping("delete/{volunteerId}")
     public String displayDeleteVolunteerForm(Model model, @PathVariable int volunteerId) {
         Optional volunteerToDelete = volunteerRepository.findById(volunteerId);
