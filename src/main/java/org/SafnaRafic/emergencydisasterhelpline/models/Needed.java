@@ -15,8 +15,6 @@ public class Needed extends AbstractEntityAdmin{
     private String need;
 
     //relationship of Needed and Inneed class
-//    @JoinColumn(name = "need_id")
-
     @ManyToMany(mappedBy ="needs",cascade = CascadeType.ALL)
     private List<Inneed> inneed=new ArrayList<>();
 

@@ -1,12 +1,15 @@
 package org.SafnaRafic.emergencydisasterhelpline.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 public class Volunteer extends AbstractEntity{
-    @NotBlank(message = "Please mention days of availability")
-    private String daysOfAvailability;
+
+    @ManyToMany
+    private List<DaysAvailability> daysAvailability;
 
     @NotBlank(message = "Please mention volunteer Category")
     private String volunteerCategory ;
@@ -18,12 +21,13 @@ public class Volunteer extends AbstractEntity{
 
     //getter and setter
 
-    public String getDaysOfAvailability() {
-        return daysOfAvailability;
+
+    public List<DaysAvailability> getDaysAvailability() {
+        return daysAvailability;
     }
 
-    public void setDaysOfAvailability(String daysOfAvailability) {
-        this.daysOfAvailability = daysOfAvailability;
+    public void setDaysAvailability(List<DaysAvailability> daysAvailability) {
+        this.daysAvailability = daysAvailability;
     }
 
     public String getVolunteerCategory() {

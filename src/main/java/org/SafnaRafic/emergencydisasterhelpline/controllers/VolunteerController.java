@@ -1,7 +1,10 @@
 package org.SafnaRafic.emergencydisasterhelpline.controllers;
 
 import org.SafnaRafic.emergencydisasterhelpline.models.BloodDonor;
+import org.SafnaRafic.emergencydisasterhelpline.models.DaysAvailability;
+import org.SafnaRafic.emergencydisasterhelpline.models.Needed;
 import org.SafnaRafic.emergencydisasterhelpline.models.Volunteer;
+import org.SafnaRafic.emergencydisasterhelpline.models.data.DaysAvailabilityRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.VolunteerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("volunteers")
@@ -18,19 +22,25 @@ public class VolunteerController {
     @Autowired
     private VolunteerRepository volunteerRepository;
 
+    @Autowired
+    private DaysAvailabilityRepository daysAvailabilityRepository;
+
     @GetMapping("add")
     public String displayAddVolunteerForm(Model model) {
         model.addAttribute(new Volunteer());
+        model.addAttribute("daysAvailabilities",daysAvailabilityRepository.findAll());
         return "volunteers/add";
     }
 
     @PostMapping("add")
-    public String processAddVolunteerForm(@ModelAttribute @Valid Volunteer newVolunteer,
+    public String processAddVolunteerForm(@ModelAttribute @Valid Volunteer newVolunteer, @RequestParam List<Integer> days,
                                           Errors errors, Model model) {
 
         if (errors.hasErrors()) {
             return "volunteers/add";
         }
+        List<DaysAvailability> daysAvailabilities = (List<DaysAvailability>) daysAvailabilityRepository.findAllById(days);
+        newVolunteer.setDaysAvailability(daysAvailabilities);
         volunteerRepository.save(newVolunteer);
         return "redirect:/";
     }
@@ -39,6 +49,7 @@ public class VolunteerController {
     public String displayAllVolunteers(Model model) {
 
         model.addAttribute("volunteers", volunteerRepository.findAll());
+        model.addAttribute("daysAvailabilities",daysAvailabilityRepository.findAll());
         return "volunteers/index";
     }
 
@@ -96,7 +107,7 @@ public class VolunteerController {
 
     @PostMapping("update")
     public String processUpdateVolunteerForm(int volunteerId, String name, String address, String city, String state, String zipcode,
-                                             String contactNo,String daysOfAvailability,String timeAvailability,String volunteerCategory) {
+                                             String contactNo, List<DaysAvailability> daysOfAvailability, String timeAvailability, String volunteerCategory) {
 
         Optional volunteerToUpdate = volunteerRepository.findById(volunteerId);
         if (volunteerToUpdate.isPresent()) {
@@ -107,7 +118,7 @@ public class VolunteerController {
             volunteer.setState(state);
             volunteer.setZipcode(zipcode);
             volunteer.setContactNo(contactNo);
-            volunteer.setDaysOfAvailability(daysOfAvailability);
+            volunteer.setDaysAvailability(daysOfAvailability);
             volunteer.setTimeAvailability(timeAvailability);
             volunteer.setVolunteerCategory(volunteerCategory);
             volunteerRepository.save(volunteer);

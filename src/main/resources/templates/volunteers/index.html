@@ -18,7 +18,14 @@
     </thead>
     <tr th:each="volunteer : ${volunteers}">
         <td><a th:href="@{'/volunteers/view/' + ${volunteer.id}}" th:text="${volunteer.name}"></a></td>
-        <td th:text="${volunteer.daysOfAvailability}"></td>
+        <td>
+            <ul>
+            <li th:each="day : ${volunteer.daysAvailability}">
+                <span th:text="${day.days}"></span>
+            </li>
+        </ul>
+
+        </td>
         <td th:text="${volunteer.volunteerCategory}"></td>
         <td th:text="${volunteer.timeAvailability}"></td>
 

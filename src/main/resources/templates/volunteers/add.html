@@ -52,25 +52,29 @@
     <div class="form-group">
         <label> Days Of Availability</label>
         <span class="required-field"></span><br>
-<!--        <select id="Disaster">-->
+        <th:block th:each="day : ${daysAvailabilities}">
+            <input type="checkbox" name="days" th:value="${day.id}">
+            <label th:text="${day.days}"></label>
+        </th:block>
+      <!--        <select id="Disaster">-->
 
-        &emsp;&emsp;<input type="checkbox" value="Any days" id="any" th:field="${volunteer.daysOfAvailability}">
-        <label for="any">Any</label><br>
-        &emsp;&emsp;<input type="checkbox" value="Sunday" id="sunday" th:field="${volunteer.daysOfAvailability}">
-        <label for="sunday">Sunday</label><br>
-        &emsp;&emsp;<input type="checkbox" value="Monday" id="monday" th:field="${volunteer.daysOfAvailability}">
-        <label for="monday">Monday</label><br>
-        &emsp;&emsp;<input type="checkbox" value="Tuesday" id="tuesday" th:field="${volunteer.daysOfAvailability}">
-        <label for="tuesday">Tuesday</label><br>
-        &emsp;&emsp;<input type="checkbox" value="Wednesday" id="wednesday" th:field="${volunteer.daysOfAvailability}">
-        <label for="wednesday">Wednesday</label><br>
-        &emsp;&emsp;<input type="checkbox" value="Thursday" id="thursday" th:field="${volunteer.daysOfAvailability}">
-        <label for="thursday">Thursday</label><br>
-        &emsp;&emsp;<input type="checkbox" value="Friday" id="friday" th:field="${volunteer.daysOfAvailability}">
-        <label for="friday">Friday</label><br>
-        &emsp;&emsp;<input type="checkbox" value="Saturday" id="saturday" th:field="${volunteer.daysOfAvailability}">
-        <label for="saturday">Saturday</label><br>
-    </div>
+<!--        &emsp;&emsp;<input type="checkbox" value="Any days" id="any" th:field="${volunteer.daysOfAvailability}">-->
+<!--        <label for="any">Any</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="Sunday" id="sunday" th:field="${volunteer.daysOfAvailability}">-->
+<!--        <label for="sunday">Sunday</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="Monday" id="monday" th:field="${volunteer.daysOfAvailability}">-->
+<!--        <label for="monday">Monday</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="Tuesday" id="tuesday" th:field="${volunteer.daysOfAvailability}">-->
+<!--        <label for="tuesday">Tuesday</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="Wednesday" id="wednesday" th:field="${volunteer.daysOfAvailability}">-->
+<!--        <label for="wednesday">Wednesday</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="Thursday" id="thursday" th:field="${volunteer.daysOfAvailability}">-->
+<!--        <label for="thursday">Thursday</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="Friday" id="friday" th:field="${volunteer.daysOfAvailability}">-->
+<!--        <label for="friday">Friday</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="Saturday" id="saturday" th:field="${volunteer.daysOfAvailability}">-->
+<!--        <label for="saturday">Saturday</label><br>-->
+<!--    </div>-->
 
     <div class="form-group">
         <label> Volunteer Category</label>
@@ -95,6 +99,7 @@
 <!--        <label th:for="${timeAvailability}">5pm - 10pm</label>-->
     </div>
     <input class="btn btn-primary center-block btn-lg" type="submit" value="Submit">
+</div>
 </div>
 </form>
 
