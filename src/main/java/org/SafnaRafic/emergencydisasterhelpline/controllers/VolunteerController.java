@@ -108,7 +108,7 @@ public class VolunteerController {
 
     @PostMapping("update")
     public String processUpdateVolunteerForm(int volunteerId, String name, String address, String city, String state, String zipcode,
-                                             String contactNo, List<DaysAvailability> daysOfAvailability, String timeAvailability,
+                                             String contactNo,@RequestParam List<Integer> daysAvailability, String timeAvailability,
                                              String volunteerCategory) {
 
         Optional volunteerToUpdate = volunteerRepository.findById(volunteerId);
@@ -120,7 +120,10 @@ public class VolunteerController {
             volunteer.setState(state);
             volunteer.setZipcode(zipcode);
             volunteer.setContactNo(contactNo);
-            volunteer.setDaysAvailability(daysOfAvailability);
+
+            List<DaysAvailability> daysAvailabilities = (List<DaysAvailability>) daysAvailabilityRepository.findAllById(daysAvailability);
+            volunteer.setDaysAvailability(daysAvailabilities);
+
             volunteer.setTimeAvailability(timeAvailability);
             volunteer.setVolunteerCategory(volunteerCategory);
             volunteerRepository.save(volunteer);

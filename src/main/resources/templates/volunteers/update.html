@@ -40,10 +40,10 @@
         <span th:errors="${volunteer.contactNo}" class="error"></span>
     </div>
 
-    <div class="form-group">
-        <label th:for="daysOfAvailability"> Days Of Availability</label><br>
+    <div class="form-check">
+        <label th:for="daysAvailability"> Days Of Availability</label><br>
         <th:block th:each="day : ${daysAvailabilities}">
-            <input type="checkbox" name="days" th:value="${day.id}">
+            <input type="checkbox" name="daysAvailability" th:value="${day.id}">
             <label th:text="${day.days}"></label>
         </th:block>
     </div>
