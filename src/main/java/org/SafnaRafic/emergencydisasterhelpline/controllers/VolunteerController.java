@@ -97,6 +97,7 @@ public class VolunteerController {
         if (volunteerToUpdate.isPresent()) {
             Volunteer volunteer = (Volunteer) volunteerToUpdate.get();
             model.addAttribute("volunteer", volunteer);
+            model.addAttribute("daysAvailabilities",daysAvailabilityRepository.findAll());
             return "volunteers/update";
         } else {
             return "redirect:";
@@ -107,7 +108,8 @@ public class VolunteerController {
 
     @PostMapping("update")
     public String processUpdateVolunteerForm(int volunteerId, String name, String address, String city, String state, String zipcode,
-                                             String contactNo, List<DaysAvailability> daysOfAvailability, String timeAvailability, String volunteerCategory) {
+                                             String contactNo, List<DaysAvailability> daysOfAvailability, String timeAvailability,
+                                             String volunteerCategory) {
 
         Optional volunteerToUpdate = volunteerRepository.findById(volunteerId);
         if (volunteerToUpdate.isPresent()) {

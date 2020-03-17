@@ -14,7 +14,7 @@ public class BloodGroup extends AbstractEntityAdmin {
 
 
     //relationship of BloodDonor and BloodGroup class
-    @OneToMany(mappedBy = "bloodGroup" ,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bloodGroup",cascade = CascadeType.ALL)
     private final List<BloodDonor> bloodDonors=new ArrayList<>();
 
     //getter and setter

@@ -106,6 +106,7 @@ public class BloodDonorController {
         if (donorToUpdate.isPresent()) {
             BloodDonor bloodDonor = (BloodDonor) donorToUpdate.get();
             model.addAttribute("bloodDonor", bloodDonor);
+            model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
             return "bloodDonors/update";
         } else {
             return "redirect:";
@@ -114,7 +115,8 @@ public class BloodDonorController {
     }
 
     @PostMapping("update")
-    public String processUpdateDonorForm(int donorId, String name, String address, String city, String state, String zipcode, String contactNo, BloodGroup bloodGroup) {
+    public String processUpdateDonorForm(int donorId, String name, String address, String city,
+                                         String state, String zipcode, String contactNo,@RequestParam BloodGroup bloodGroup) {
 
         Optional donorToUpdate = bloodDonorRepository.findById(donorId);
         if (donorToUpdate.isPresent()) {

@@ -17,10 +17,7 @@ public class Volunteer extends AbstractEntity{
     @NotBlank(message = "Please mention time of availability")
     private String timeAvailability;
 
-//    private String areaOfExpertise;
-
     //getter and setter
-
 
     public List<DaysAvailability> getDaysAvailability() {
         return daysAvailability;
@@ -45,14 +42,6 @@ public class Volunteer extends AbstractEntity{
     public void setTimeAvailability(String timeAvailability) {
         this.timeAvailability = timeAvailability;
     }
-
-//    public String getAreaOfExpertise() {
-//        return areaOfExpertise;
-//    }
-//
-//    public void setAreaOfExpertise(String areaOfExpertise) {
-//        this.areaOfExpertise = areaOfExpertise;
-//    }
 
     // No arg constructor
     public Volunteer() {
