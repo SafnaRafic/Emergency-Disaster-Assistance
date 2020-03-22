@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div id="sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul>
+        <li><a th:href="@{/bloodDonors/add}">Register</a></li>
+        <li>Search</li>
+    </ul>
+
+</div>
+
+<div class="container-fluid">
+    <p>Blood donors are best</p>
+</div>
+
+
+</body>
+</html>

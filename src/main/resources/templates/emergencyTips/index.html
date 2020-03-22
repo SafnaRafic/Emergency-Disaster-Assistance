@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+        </thead>
+        <tr th:each="tip : ${tips}">
+            <th th:text="${tip.name}"></th>
+            <th th:text="${tip.description}"></th>
+            <th><a th:href="@{'/emergencyTips/delete/' +${tip.id}}"><button class="btn btn-primary">Delete</button></a>
+                <a th:href="@{'/emergencyTips/update/' +${tip.id}}"><button class="btn btn-primary">Update</button></a>
+            </th>
+        </tr>
+
+    </table>
+    <a th:href="@{/emergencyTips/add}"><button class="btn btn-primary">Add EmergencyTips</button></a>
+</div>
+
+</body>
+</html>

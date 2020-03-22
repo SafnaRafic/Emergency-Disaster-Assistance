@@ -8,6 +8,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/js/disaster.js}"></script>
 </head>
 
 <body>
@@ -34,6 +35,8 @@
         <div class="collapse navbar-collapse" id="myNavbar">
 
             <ul class="nav navbar-nav">
+
+
                 <li ><a th:href="@{/}">Home</a></li>
 
                 <li class="nav-item dropdown">
@@ -47,6 +50,7 @@
                 <li><a class="dropdown-item" th:href="@{/volunteers/search}">Search</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="true">
@@ -67,7 +71,7 @@
                         <li ><a class="dropdown-item" th:href="@{/search}">Search </a></li>
                     </ul>
                 </li>
-                <li><a href="#">Emergency Tips</a></li>
+                <li><a th:href="@{/emergencyTips/view}">Emergency Tips</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
 
 <!--Admin Views-->
@@ -82,7 +86,7 @@
                         <li><a class="dropdown-item" th:href="@{/bloodgroups/index}">Blood Group </a></li>
                         <li><a class="dropdown-item" th:href="@{/needs/index}">Needs</a></li>
                         <li><a class="dropdown-item" th:href="@{/daysAvailability/index}">Days Of Availability</a></li>
-
+                        <li><a class="dropdown-item" th:href="@{/emergencyTips/index}">Emergency Tips</a></li>
 
 
 
@@ -90,6 +94,7 @@
                 </li>
 
             </ul>
+
         </div>
     </div>
 

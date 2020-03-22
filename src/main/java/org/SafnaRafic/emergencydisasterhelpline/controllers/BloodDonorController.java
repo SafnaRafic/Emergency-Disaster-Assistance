@@ -135,5 +135,10 @@ public class BloodDonorController {
         return "redirect:/";
     }
 
+    @GetMapping("info")
+    public String displayInfoBloodDonor(Model model){
+        return "bloodDonors/info";
+    }
+
 
 }

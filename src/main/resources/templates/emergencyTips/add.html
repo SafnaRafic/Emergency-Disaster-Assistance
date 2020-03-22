@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body >
+<nav th:replace="fragments :: page-header"></nav>
+<div class="container-fluid">
+    <div class="form-group"></div>
+    <form method="post">
+        <label th:for="name">Emergency Type Name</label>
+        <input class="form-control" th:field="${emergencyTips.name}">
+        <span th:error="${emergencyTips.name}" class="error"></span>
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="${emergencyTips.description}">
+        <span th:error="${emergencyTips.description}" class="error"></span>
+        <input type="submit" value="Add Emergency Tips">
+    </form>
+
+</div>
+
+</body>
+</html>

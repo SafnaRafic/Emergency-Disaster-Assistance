@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class = "container body-content">
+    <th:block th:each="tip : ${tips}">
+        <h3 th:text="${tip.name}"></h3>
+        <p th:text="${tip.description}"></p>
+    </th:block>
+</div>
+</body>
+</html>
