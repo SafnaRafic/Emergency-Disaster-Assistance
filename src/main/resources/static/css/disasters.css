@@ -115,6 +115,13 @@ font-size:16px;
   margin-left: 80px;
 
 }
+.container-fluid{
+
+   margin-bottom: 20px;
+    padding: 10px 10px;
+    left:300px;
+    margin-right:20px;
+    }
 
 body {
     overflow-x: hidden;
@@ -251,6 +258,11 @@ body{
 .wrapper #sidebar ul li:hover{
   background-color: #594f8d;
 }
+.wrapper #sidebar ul li{
+  list-style: none;
+  margin : 10px;
+    margin-left:20px;
+}
 
 .wrapper #sidebar ul li:hover a{
   color: #fff;
@@ -289,10 +301,7 @@ body{
   .social_media{
     display: none !important;
   }*/
-  ul li{
-  margin : 10px;
-  margin-left:20px;
-  }
+
   /* Image aligning left */
 
   .float-img{
@@ -302,3 +311,12 @@ body{
   margin-bottom: 5px;
   padding: 2px;
   }
+
+body,html{
+  background: url(https://tse3.mm.bing.net/th?id=OIP.msJZ4Y5Jld_AJS4kGREWJAHaDe&pid=Api&P=0&w=372&h=175) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100%;
+}

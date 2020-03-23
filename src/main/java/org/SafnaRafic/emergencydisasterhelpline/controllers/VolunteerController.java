@@ -25,6 +25,10 @@ public class VolunteerController {
     @Autowired
     private DaysAvailabilityRepository daysAvailabilityRepository;
 
+    @GetMapping("info")
+    public String displayInfoVolunteerPage(Model model){
+        return "volunteers/info";
+    }
     @GetMapping("add")
     public String displayAddVolunteerForm(Model model) {
         model.addAttribute(new Volunteer());

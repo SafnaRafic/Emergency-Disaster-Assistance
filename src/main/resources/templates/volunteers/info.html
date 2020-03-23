@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class="wrapper">
+    <div id="sidebar">
+        <h2>Volunteer</h2>
+        <ul>
+            <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
+            <li><a th:href="@{/volunteers/add}"><i class="far fa-registered"></i> Register</a></li>
+            <li><a th:href="@{/volunteers/search}"><i class="fas fa-search"></i>Search</a></li>
+        </ul>
+    </div>
+
+    <div class="main_content">
+        <div class="info">
+            <div>
+                <h1 align="center">Volunteer</h1>
+                <img src="http://www.bonifasarts.org/wp-content/uploads/2017/06/Volunteer.jpg"
+                     alt="" height="300" width="360" class="float-img">
+                <p>Volunteer with a recognized organization involved in disaster response or
+                    recovery.</p>
+                <ul>
+                    <li>Volunteer with a non-profit organization and be trained to find meaningful volunteer
+                        opportunities following a disaster.</li>
+                    <li>There are many organizations and faith-based groups that work nationally and in your community,
+                        that have active disaster programs and need volunteers.</li>
+                    <li>These groups offer a wide range of services following a disaster. See National Voluntary
+                        Organizations Active in Disaster <a href="https://www.nvoad.org/">www.nvoad.org</a> for more information and to sign up for volunteer
+                        opportunities.</li>
+
+                </ul>
+
+                <br>
+
+                <br><br><br><br>
+
+            <div class="container-fluid">
+                <label style="font-size:20px;"> Ready to Volunteer ? </label>
+                <a th:href="@{/volunteers/add}"><button class="btn btn-primary btn-lg" >Register</button></a>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

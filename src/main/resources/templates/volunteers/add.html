@@ -5,8 +5,21 @@
 <body>
 
 <nav th:replace="fragments :: page-header"></nav>
+
+<img src="http://4.bp.blogspot.com/-oAtNCjrOPkI/UCn96zzizPI/AAAAAAAAAMo/KnbNDc3kyWo/s1600/Volunteer_become.jpg"
+     alt="" height="300" width="360" style="width:70%">
+<div class="wrapper">
+    <div id="sidebar">
+        <h2>Volunteer</h2>
+        <ul>
+            <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
+            <li><a th:href="@{/volunteers/add}"><i class="far fa-registered"></i> Register</a></li>
+            <li><a th:href="@{/volunteers/search}"><i class="fas fa-search"></i>Search</a></li>
+        </ul>
+    </div>
+</div>
 <form method="post" style="max-width:600px;">
-<div class="container-fluid">
+<div class="container-fluid" style="clear:right;">
     <h2 style="text-align:center;"><strong><i>Volunteer Registration Form</i></strong></h2>
     <div class="form-group">
         <label th:for="name">Name</label>
