@@ -3,22 +3,19 @@
 <head th:fragment="head">
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
     <link th:href="@{/css/disasters.css}" rel="stylesheet"/>
-    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
     <script type="text/javascript" th:src="@{/js/disaster.js}"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 
 <body>
 
 <div th:fragment="page-header" class="jumbotron text-center" style="margin-bottom:0">
-<!--<div class ="bg">-->
     <h1 style="color:white;">Emergency Disaster Assistance</h1>
     <p style="color:orange;">Emerge,Contribute and Rejuvenate!</p>
-<!--</div>-->
-
 </div>
 <div th:fragment="page-header" class="navbar navbar-inverse">
     <marquee direction="left" style="color:red;"><b>ALWAYS CALL 911 if you are in immediate danger and need emergency help.</b></marquee>
@@ -99,7 +96,5 @@
     </div>
 
 </div>
-
-
 </body>
 </html>
