@@ -66,29 +66,15 @@ label {
 		margin-bottom: 0;
 	}
 }
-
+/* Required field specified by */
 .required-field::before {
   content: "*";
   color: red;
 }
-
-body, html {
-  height: 100%;
- }
-
-
-
-
+/* Title Image */
 .jumbotron {
   /* The image used */
-
   background-image: url("https://images.unsplash.com/photo-1475776408506-9a5371e7a068?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
-  /* Full height */
-  /*height: 100%;
-
-  /* Center and scale the image nicely */
-  /*background-position: center;
-  background-repeat: no-repeat;*/
   background-size: cover;
 }
 /* Style the image inside the centered container, if needed */
@@ -97,26 +83,22 @@ body, html {
   border-radius: 50%;
 }
 li {
- /* font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif; */
  font-family: Open Sans,sans-serif;
  font-size:16px;
+ margin-left: 40px;
 }
 p{
-/*font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;*/
 font-size:16px;
-
-
 }
+
 .container{
   border: 1px solid black;
   margin-top: 100px;
   margin-bottom: 100px;
   margin-right: 150px;
   margin-left: 80px;
-
 }
 .container-fluid{
-
    margin-bottom: 20px;
     padding: 10px 10px;
     left:300px;
@@ -156,48 +138,8 @@ body {
     top: 0;
     border-width: 0 0 1px;
 }
-/* Sidebar
-*{
-margin:0px;
-padding:0px;
-font-family: sans-serif;
-}
 
-#sidebar{
-position:fixed;
-width:200px;
-height:100%;
-background:#151719;
-left:-200px;
-}
-
-#sidebar.active{
-left:0px;
-}
-
-
-#sidebar ul li{
-color:rgba(230,230,230,0.9);
-list-style:none;
-padding:15px 10px;
-border-bottom: 1px solid rgba(100,100,100,0.3);
-}
-
-#sidebar .toggle-btn {
-position: absolute;
-left:230px;
-top:20px;
-}
-
-#sidebar .toggle-btn span{
-display:block;
-width:30px;
-height:5px;
-background:#151719;
-margin: 5px 0px;
-}*/
-
-/*Another way*/
+/*Sidebar*/
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 *{
@@ -297,21 +239,15 @@ body{
   #sidebar a {font-size: 18px;}
 }
 
-/*@media (max-height: 500px){
-  .social_media{
-    display: none !important;
-  }*/
-
   /* Image aligning left */
-
-  .float-img{
+.float-img{
   float:left;
   clear:left;
   margin-right:20px;
   margin-bottom: 5px;
   padding: 2px;
   }
-
+/* Background Image */
 body,html{
   background: url(https://tse3.mm.bing.net/th?id=OIP.msJZ4Y5Jld_AJS4kGREWJAHaDe&pid=Api&P=0&w=372&h=175) no-repeat center center fixed;
   -webkit-background-size: cover;
