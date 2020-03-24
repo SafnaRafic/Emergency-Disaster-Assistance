@@ -31,6 +31,7 @@
 </form>
     <hr/>
 <table class="listing">
+    <h4 style="color:red;" th:text="${empty}"></h4>
     <tr th:each="donor,iterationStatus : ${bloodDonors}">
         <td>
             <p>

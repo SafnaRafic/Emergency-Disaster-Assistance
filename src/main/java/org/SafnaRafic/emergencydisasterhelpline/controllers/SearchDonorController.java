@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 @Controller
@@ -48,6 +49,13 @@ public class SearchDonorController {
         }
         model.addAttribute("columns",columnChoices);
         model.addAttribute("bloodDonors",bloodDonors);
+        int counter = 0;
+        for (Object i : bloodDonors) {
+            counter++;
+        }
+        if(counter == 0){
+            model.addAttribute("empty","No results found !");
+        }
         return "search";
     }
 
