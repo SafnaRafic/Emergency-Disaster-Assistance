@@ -46,5 +46,14 @@ public class Volunteer extends AbstractEntity{
     // No arg constructor
     public Volunteer() {
     }
+
+    @Override
+    public String toString() {
+        return "Volunteer{" +
+                "daysAvailability=" + daysAvailability +
+                ", volunteerCategory='" + volunteerCategory + '\'' +
+                ", timeAvailability='" + timeAvailability + '\'' +
+                '}';
+    }
 }
 

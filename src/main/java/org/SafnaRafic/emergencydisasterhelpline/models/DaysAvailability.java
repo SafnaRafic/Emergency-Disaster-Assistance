@@ -13,7 +13,7 @@ public class DaysAvailability extends AbstractEntityAdmin {
     private String days;
 
     @ManyToMany(mappedBy = "daysAvailability", cascade = CascadeType.ALL)
-    private List<Volunteer> volunteer=new ArrayList<>();
+    private final List<Volunteer> volunteer=new ArrayList<>();
 
     //No arg constructor
     public DaysAvailability() {
@@ -33,16 +33,13 @@ public class DaysAvailability extends AbstractEntityAdmin {
         return volunteer;
     }
 
-    public void setVolunteer(List<Volunteer> volunteer) {
-        this.volunteer = volunteer;
-    }
+//    public void setVolunteer(List<Volunteer> volunteer) {
+//        this.volunteer = volunteer;
+//    }
 
     @Override
     public String toString() {
-        return "DaysAvailability{" +
-                "days='" + days + '\'' +
-                ", volunteer=" + volunteer +
-                '}';
+        return days;
     }
 }
 

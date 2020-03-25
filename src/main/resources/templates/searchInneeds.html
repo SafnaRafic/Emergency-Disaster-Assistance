@@ -24,62 +24,34 @@
     </form>
 
 <hr />
-<table class="table table-striped">
-    <thead>
-    <th>Sno</th>
-    <th>Name</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip code</th>
-    <th>Needs</th>
-    <th>Quantity</th>
-    </thead>
+
+<table class="listing">
+    <h4 style="color:red;" th:text="${empty}"></h4>
     <tr th:each="inneed,iterationStatus : ${inneeds}">
-        <td th:text=${iterationStatus.count}></td>
-        <td th:text="${inneed.name}"></td>
-        <td th:text="${inneed.city}"></td>
-        <td th:text="${inneed.state}"></td>
-        <td th:text="${inneed.zipcode}"></td>
+        <td>
+            <p>
+                Person :
+                <label th:text="${iterationStatus.count}"></label>
+            </p>
+            <p>
+                Name :
+                <a th:href="@{'/inneeds/view/' + ${inneed.id}}" th:text="${inneed.name}"></a>
+            </p>
 
-        <td >
-            <ul th:each="needy : ${inneed.needs}">
-                <li >
+            <p>
+                Need :
+                 <ul th:each="needy : ${inneed.needs}">
+                   <li >
                     <span th:text="${needy.need}"></span>
-                </li>
-            </ul>
+                    </li>
+                 </ul>
+            </p>
+            <p>
+                Quantity :
+                <label th:text="${inneed.quantity}"></label>
+            </p>
         </td>
-        <td th:text="${inneed.quantity}"></td>
-
     </tr>
-
-<!--    <tr th:each="inneed : ${inneeds}">-->
-<!--        <td>-->
-<!--            <p>-->
-<!--                Name :-->
-<!--                <label th:text="${inneed.name}"></label>-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                City :-->
-<!--                <label th:text="${inneed.city}"></label>-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                State :-->
-<!--                <label th:text="${inneed.state}"></label>-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                Zipcode :-->
-<!--                <label th:text="${inneed.zipcode}"></label>-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                Need :-->
-<!--            <ul th:each="needy : ${inneed.needs}">-->
-<!--                <li >-->
-<!--                    <span th:text="${needy.need}"></span>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            </p>-->
-<!--        </td>-->
-<!--    </tr>-->
 </table>
 </div>
 </body>

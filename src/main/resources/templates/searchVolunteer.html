@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments::head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div class="container body-content">
+    <form th:action="@{/searchVolunteer/results}" method="post">
+        <h1>Volunteer Search</h1>
+        <h2>Search By: </h2>
+        <p>
+        <span th:each="column : ${columns}">
+        <input type="radio" th:id="${column.key}" th:value="${column.key}" name="searchType"
+               th:checked="${column.key == 'all'}"/>
+            <label th:for="${column.key}" th:text="${column.value}"></label>
+
+        </span>
+        </p>
+        <p>
+            <label for="searchTerm"></label>
+            <input type="text" name="searchTerm" id="searchTerm"/>
+        </p>
+        <input type="submit" value="Search">
+    </form>
+
+    <hr />
+    <table class="listing">
+        <h4 style="color:red;" th:text="${empty}"></h4>
+        <tr th:each="volunteer,iterationStatus : ${volunteers}">
+            <td>
+                <p>
+                    Volunteer :
+                    <label th:text="${iterationStatus.count}"></label>
+                </p>
+
+                <p>
+                    Name:
+                    <a th:href="@{'/volunteers/view/' + ${volunteer.id}}" th:text="${volunteer.name}"></a>
+                </p>
+                <p>
+                    Time Availability:
+                    <label th:text="${volunteer.timeAvailability}"></label>
+                </p>
+                <p>
+                    Volunteer Category:
+                    <label th:text="${volunteer.volunteerCategory}"></label>
+                </p>
+                <p>
+                    Days of Availability:
+                <ul th:each="day : ${volunteer.daysAvailability}">
+                    <li>
+                        <label th:text="${day.days}"></label>
+                    </li>
+                </ul>
+
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

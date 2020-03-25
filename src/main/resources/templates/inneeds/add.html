@@ -5,10 +5,24 @@
 <body>
 
 <nav th:replace="fragments :: page-header"></nav>
+<center>
+<img src="https://www.timeshare-advice.co.uk/wp-content/uploads/2018/07/Seek-Help.jpg"
+     alt="" height="300" width="360" style="width:70%">
+</center>
+<div class="wrapper">
+    <div id="sidebar">
+        <h2>Seeking Assistance</h2>
+        <ul>
+            <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
+            <li><a th:href="@{/inneeds/add}"><i class="far fa-registered"></i> Register</a></li>
+            <li><a th:href="@{/inneeds/search}"><i class="fas fa-search"></i>Search</a></li>
+        </ul>
+    </div>
+</div>
 <form method="post" style="max-width:600px;">
 <div class="container-fluid">
 
-    <h2 style="text-align:center;"><strong><i>In Need Requirement Form</i></strong></h2>
+    <h3><strong><i>Your Information</i></strong></h3><br>
     <div class="form-group">
         <label th:for="name">Name</label>
         <span class="required-field"></span>

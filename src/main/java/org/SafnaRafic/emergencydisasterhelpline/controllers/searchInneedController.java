@@ -45,6 +45,13 @@ public class searchInneedController {
         }else{
             inneeds= InneedData.findByColumnAndValue(searchType,searchTerm,inneedRepository.findAll());
         }
+        int counter = 0;
+        for (Object i : inneeds) {
+            counter++;
+        }
+        if(counter == 0) {
+            model.addAttribute("empty", "No results found !");
+        }
         model.addAttribute("inneeds",inneeds);
         model.addAttribute("needs",neededRepository.findAll());
         model.addAttribute("columns",columnChoices);

@@ -39,30 +39,14 @@
                 <label th:text="${iterationStatus.count}"></label>
             </p>
             <p>
+                Name:
+                <a th:href="@{'/bloodDonors/view/' + ${donor.id}}" th:text="${donor.name}"></a>
+            </p>
+            <p>
                 Blood Group:
                 <label th:text="${donor.bloodGroup}"></label>
             </p>
-            <p>
-                Name:
-                <label th:text="${donor.name}"></label>
-            </p>
-            <p>
-                City:
-                <label th:text="${donor.city}"></label>
-            </p>
-            <p>
-                State:
-                <label th:text="${donor.state}"></label>
-            </p>
 
-            <p>
-                Zipcode:
-                <label th:text="${donor.zipcode}"></label>
-            </p>
-            <p>
-                Email-Id:
-                <label th:text="${donor.emailId}"></label>
-            </p>
         </td>
     </tr>
 </table>

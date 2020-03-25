@@ -4,10 +4,24 @@
 </head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
+<center>
+    <img src="https://i.ytimg.com/vi/JjfrEU3Quwg/maxresdefault.jpg"
+         alt="" height="300" width="360" style="width:50%" >
+</center>
+<div class="wrapper">
+    <div id="sidebar">
+        <h2>Blood Donor</h2>
+        <ul>
+            <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
+            <li><a th:href="@{/bloodDonors/add}"><i class="far fa-registered"></i> Register</a></li>
+            <li><a th:href="@{/bloodDonors/search}"><i class="fas fa-search"></i>Search</a></li>
+        </ul>
+    </div>
+</div>
 <form method="post" style="max-width:600px;">
     <div class="container-fluid">
-    <h4 style="color:red;"><i>Give Blood Save life</i></h4>
-        <h2 style="text-align:center;"><strong><i>Donors Registration Form</i></strong></h2>
+
+        <h2 style="text-align:center;"><strong><i>Donor Registration Form</i></strong></h2>
     <div class="form-group">
         <label th:for="name">Name</label>
         <span class="required-field"></span>
