@@ -68,7 +68,7 @@
         <span class="required-field"></span><br>
         <th:block th:each="day : ${daysAvailabilities}">
             <input type="checkbox" name="days" th:value="${day.id}">
-            <label th:text="${day.days}"></label>
+            <label th:text="${day.days}"></label><br>
         </th:block>
 
     <div class="form-group">

@@ -30,7 +30,7 @@ public class NeededController {
            return "needs/add";
        }
        neededRepository.save(newNeeded);
-        return "redirect:/";
+        return "redirect:/needs/index";
     }
     @GetMapping("index")
     public String displayNeedsIndex(Model model){
