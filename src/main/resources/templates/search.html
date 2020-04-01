@@ -13,15 +13,25 @@
             name="searchType"
             th:id="${column.key}"
             th:value="${column.key}"
-            th:checked="${column.key == 'all'}"/>
+            th:checked="${column.key == 'all'}"
+               onclick="myFunction()"/>
             <label th:for="${column.key}" th:text="${column.value}"></label>
         </span>
+
 <!--         <select class="form-control" name="searchType" >-->
 <!--             <span th:each ="column :${columns}" >-->
 <!--                <option th:value="${column.key}" th:id="${column.key}" th:text="${column.key}" ></option>-->
 <!--             </span>-->
 <!--         </select>-->
 
+    <div class="form-group">
+        <label >Blood Group</label>
+        <select name="searchTerm1" id="searchTerm1">
+            <option th:each="group : ${bloodGroups}"
+                    th:text="${group.bloodType}"
+                    th:value="${group.id}" ></option>
+        </select>
+    </div>
     </p>
 
     <p>

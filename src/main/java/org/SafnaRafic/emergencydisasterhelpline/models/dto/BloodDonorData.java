@@ -5,7 +5,7 @@ import org.SafnaRafic.emergencydisasterhelpline.models.BloodDonor;
 import java.util.ArrayList;
 
 public class BloodDonorData {
-    public static ArrayList<BloodDonor> findByColumnAndValue(String column, String value, Iterable<BloodDonor> bloodDonors){
+    public static ArrayList<BloodDonor> findByColumnAndValue(String column, String value,String value1, Iterable<BloodDonor> bloodDonors){
         ArrayList<BloodDonor> results=new ArrayList<>();
         if(value.toLowerCase().equals("all")){
             return (ArrayList<BloodDonor>)bloodDonors;
@@ -19,6 +19,7 @@ public class BloodDonorData {
             if(aValue!=null && aValue.toLowerCase().equals(value.toLowerCase())){
                 results.add(bloodDonor);
             }
+//
         }
         return results;
     }

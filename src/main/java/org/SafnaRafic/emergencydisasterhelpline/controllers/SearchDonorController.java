@@ -21,6 +21,8 @@ public class SearchDonorController {
 
     @Autowired
     private BloodDonorRepository bloodDonorRepository;
+    @Autowired
+    private BloodGroupRepository bloodGroupRepository;
 
     static HashMap<String, String> columnChoices = new HashMap<>();
 
@@ -36,16 +38,17 @@ public class SearchDonorController {
     @RequestMapping("")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
         return "search";
     }
 
     @PostMapping("results")
-    public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
+    public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm, @RequestParam String searchTerm1) {
         Iterable<BloodDonor> bloodDonors;
         if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
             bloodDonors = bloodDonorRepository.findAll();
         } else {
-            bloodDonors= BloodDonorData.findByColumnAndValue(searchType, searchTerm,bloodDonorRepository.findAll());
+            bloodDonors= BloodDonorData.findByColumnAndValue(searchType, searchTerm,searchTerm1, bloodDonorRepository.findAll());
         }
         model.addAttribute("columns",columnChoices);
         model.addAttribute("bloodDonors",bloodDonors);
