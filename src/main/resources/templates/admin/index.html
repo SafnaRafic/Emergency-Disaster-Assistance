@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+
+<!--<table>-->
+<!--    <tr>-->
+<!--        <td>Username</td>-->
+<!--        <td><span sec:authentication="name"></span></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Authorities</td>-->
+<!--        <td><span sec:authentication="principal.authorities"></span></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<h2> Welcome <span sec:authentication="name"></span> !</h2>
+
+<ul class="nav navbar-nav">
+    <li><a th:href="@{/volunteers/index}">All Volunteers</a></li>
+    <li><a th:href="@{/bloodDonors/index}">All Blood Donors</a></li>
+    <li><a th:href="@{/inneeds/index}">All Needers</a></li>
+    <li><a th:href="@{/bloodgroups/index}">Blood Group </a></li>
+    <li><a th:href="@{/needs/index}">Needs</a></li>
+    <li><a th:href="@{/daysAvailability/index}">Days Of Availability</a></li>
+    <li><a th:href="@{/emergencyTips/index}">Emergency Tips</a></li>
+</ul>
+
+
+</body>
+</html>

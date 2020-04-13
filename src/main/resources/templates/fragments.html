@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
+    <title>Emergency Disaster Assistance</title>
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
     <link th:href="@{/css/disasters.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
     <script type="text/javascript" th:src="@{/js/disaster.js}"></script>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
+<head th:fragment="headerfiles">
+    <title>Emergency Disaster Assistance</title>
+    <meta charset="UTF-8"/>
+    <link th:href="@{~/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{~/css/all.css}" rel="stylesheet">
+</head>
+
 <body>
 
 <div th:fragment="page-header" class="jumbotron text-center" style="margin-bottom:0">
@@ -31,40 +40,40 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/}">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a th:href="@{/volunteers/info}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="true">
-                        <span class="nav-label">Volunteer</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/volunteers/add}">Register</a></li>
-                        <li><a class="dropdown-item" th:href="@{/searchVolunteer}">Search</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a th:href="@{/inneeds/info}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true"
-                       aria-expanded="true">
-                        <span class="nav-label">In Needs</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/inneeds/add}">Register</a></li>
-<!--                        <li><a class="dropdown-item" th:href="@{/inneeds/sponsor}">Sponsor</a></li>-->
-                        <li><a class="dropdown-item" th:href="@{/searchInneeds}">Search</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a th:href="@{/bloodDonors/info}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true"
-                       aria-expanded="true"> <span class="nav-label">Blood Donor</span> <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/bloodDonors/add}">Register</a></li>
-                        <li><a class="dropdown-item" th:href="@{/search}">Search </a></li>
-                    </ul>
-                </li>
-                <li><a th:href="@{/emergencyTips/view}">Emergency Tips</a></li>
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a th:href="@{/volunteers/info}" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+<!--                       aria-haspopup="true" aria-expanded="true">-->
+<!--                        <span class="nav-label">Volunteer</span>-->
+<!--                        <span class="caret"></span>-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu">-->
+<!--                        <li><a class="dropdown-item" th:href="@{/volunteers/add}">Register</a></li>-->
+<!--                        <li><a class="dropdown-item" th:href="@{/searchVolunteer}">Search</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a th:href="@{/inneeds/info}" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+<!--                       aria-haspopup="true"-->
+<!--                       aria-expanded="true">-->
+<!--                        <span class="nav-label">In Needs</span>-->
+<!--                        <span class="caret"></span>-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu">-->
+<!--                        <li><a class="dropdown-item" th:href="@{/inneeds/add}">Register</a></li>-->
+<!--&lt;!&ndash;                        <li><a class="dropdown-item" th:href="@{/inneeds/sponsor}">Sponsor</a></li>&ndash;&gt;-->
+<!--                        <li><a class="dropdown-item" th:href="@{/searchInneeds}">Search</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a th:href="@{/bloodDonors/info}" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+<!--                       aria-haspopup="true"-->
+<!--                       aria-expanded="true"> <span class="nav-label">Blood Donor</span> <span class="caret"></span></a>-->
+<!--                    <ul class="dropdown-menu">-->
+<!--                        <li><a class="dropdown-item" th:href="@{/bloodDonors/add}">Register</a></li>-->
+<!--                        <li><a class="dropdown-item" th:href="@{/search}">Search </a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li><a th:href="@{/emergencyTips/view}">Emergency Tips</a></li>-->
 <!--                <li><a th:href="@{/logout}">Logout</a></li>-->
 
                 <!--Admin Views-->
@@ -81,8 +90,14 @@
 <!--                        <li><a class="dropdown-item" th:href="@{/emergencyTips/index}">Emergency Tips</a></li>-->
 <!--                    </ul>-->
 <!--                </li>-->
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
+<!--            </ul>-->
+<!--            <ul class="nav navbar-nav navbar-right">-->
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                    <a class="nav-link" th:href="@{~/admin/index}">Admin</a>
+                </li>
+                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_COORDINATOR')" class="nav-item">
+                    <a class="nav-link" th:href="@{~/coordinator/index}">Coordinator</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/about}">About</a>
                 </li>
@@ -90,8 +105,13 @@
                     <a class="nav-link" th:href="@{/contact}">Contact Us</a>
                 </li>
             </ul>
+            <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
+                <button sec:authorize="isAuthenticated()"  class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
+                <button sec:authorize="isAnonymous()" th:href="@{~/login}" class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login</button>
+            </form>
         </div>
     </div>
 </div>
+
 </body>
 </html>
