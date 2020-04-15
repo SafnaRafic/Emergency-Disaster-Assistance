@@ -5,24 +5,29 @@
 <body>
 
 <nav th:replace="fragments :: page-header"></nav>
-<center>
-<img src="https://www.timeshare-advice.co.uk/wp-content/uploads/2018/07/Seek-Help.jpg"
-     alt="" height="300" width="360" style="width:70%">
-</center>
+<!--<center>-->
+<!--<img src="https://www.timeshare-advice.co.uk/wp-content/uploads/2018/07/Seek-Help.jpg"-->
+<!--     alt="" height="300" width="360" style="width:70%">-->
+    <img src="https://www.timeshare-advice.co.uk/wp-content/uploads/2018/07/Seek-Help.jpg"
+         alt="" height="400" align="right"  style="width:35%;margin-right: 150px;margin-top:100px;">
+<!--</center>-->
 <div class="wrapper">
     <div id="sidebar">
         <h2>Seeking Assistance</h2>
+
         <ul>
             <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
             <li><a th:href="@{/inneeds/add}"><i class="far fa-registered"></i> Register</a></li>
-            <li><a th:href="@{/inneeds/search}"><i class="fas fa-search"></i>Search</a></li>
+            <li><a th:href="@{/searchInneeds}"><i class="fas fa-search"></i>Search</a></li>
         </ul>
     </div>
 </div>
 <form method="post" style="max-width:600px;">
 <div class="container-fluid">
+    <div style="width:800px;margin-left: auto;margin-right:auto;margin-top:15px;padding: 24px;">
 
-    <h3><strong><i>Your Information</i></strong></h3><br>
+    <h3><strong><i>Need Help ? Please provide your Information</i></strong></h3><br>
+        <p style="text-transform: capitalize;"> Be strong enough to Stand Alone, smart enough to know when you need help and brave enough to ask for it</p>
     <div class="form-group">
         <label th:for="name">Name</label>
         <span class="required-field"></span>
@@ -101,7 +106,7 @@
     </div>
     <input type="submit" class="btn btn-primary center-block btn-lg" />
     </div>
-
+</div>
 </form>
 
 

@@ -75,7 +75,16 @@ label {
 .jumbotron {
   /* The image used */
   background-image: url("https://images.unsplash.com/photo-1475776408506-9a5371e7a068?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+ /* Full height */
+  height: 40%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+
+
+
 }
 /* Style the image inside the centered container, if needed */
 .centered img {
@@ -173,6 +182,14 @@ body{
    padding: 8px 0;
 }
 
+.wrapper #sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+   color: #818181;
+  display: block;
+}
+
+
 
 .wrapper #sidebar h2{
   color: #fff;
@@ -212,6 +229,7 @@ body{
 .wrapper .main_content{
   width: 100%;
   margin-left: 100px;
+
 }
 
 .wrapper .main_content .header{
@@ -256,3 +274,6 @@ body,html{
   background-size: cover;
   height:100%;
 }
+
+
+

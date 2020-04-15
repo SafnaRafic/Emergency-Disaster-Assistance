@@ -32,15 +32,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
-<head th:replace="fragments :: headerfiles">
+
+<head>
     <title>Log in</title>
+    <meta charset="UTF-8"/>
+    <link th:href="@{~/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{~/css/all.css}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 <body>
+
 <div class="container">
     <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
         <div class="card">
             <div class="card-header">
-                <i class="fas fa-user"></i> Please Login
+                <i class="fas fa-home"></i> Please Login
             </div>
             <div class="card-block" style="padding: 24px;">
                 <form name="f" th:action="@{/signin}" method="post">

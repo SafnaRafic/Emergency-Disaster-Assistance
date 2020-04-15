@@ -10,55 +10,159 @@
 
 <body>
 
+
 <nav th:replace="fragments :: page-header"></nav>
+<!--<div class="container-fluid">-->
 
-<div class="container-fluid">
+<!--    <div class="row">-->
+<!--        <div class="col-lg-4 mb-4">-->
+<!--            <div class="card h-100">-->
+<!--                <h4 class="card-header">Volunteer</h4>-->
+<!--                <a th:href="@{/volunteers/info}"><img class="card-img-top"-->
+<!--                        src="https://missoulacurrent.com/wp-content/uploads/2019/10/DRIMS_homepage_image_5-1.jpg"-->
+<!--                                                      alt="" height="300" width="360"></a>-->
+<!--                <br><br>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 mb-4">-->
+<!--            <div class="card h-100">-->
+<!--                <h4 class="card-header">Blood Donor</h4>-->
+<!--                <a th:href="@{/bloodDonors/info}"><img class="card-img-top"-->
+<!--                                                       src="https://www.pr-medicalevents.com/wp-content/uploads/2016/06/post-img.jpg"-->
+<!--                                                       alt="" height="300" width="360"></a>-->
+<!--                <br><br>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 mb-4">-->
+<!--            <div class="card h-100">-->
+<!--                <h4 class="card-header">Seeking Assistance</h4>-->
+<!--                <a th:href="@{/inneeds/info}"><img class="card-img-top"-->
+<!--                                                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTN5O4ENNpK0PMc6FJcwpaQzQZAykTqWHyCtcS5nGhVwU8z4T5O"-->
+<!--                                                   alt="" height="300" width="360"></a>-->
+<!--                <br><br>-->
+<!--                &lt;!&ndash;            <div class="card-footer">&ndash;&gt;-->
+<!--                &lt;!&ndash;                <a th:href="@{/inneeds/add}" class="btn btn-primary">Help Needed </a>&ndash;&gt;-->
+<!--                &lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 mb-4">-->
+<!--            <div class="card h-100">-->
+<!--                <h4 class="card-header">Emergency Tips</h4>-->
+<!--                <a th:href="@{/emergencyTips/view}">-->
+<!--                    <img class="card-img-top" src="http://www.cdc.gov/parents/essentials/images/hands-holding-letters-tips-500px.jpg"-->
+<!--                                                         alt="" height="300" width="360"></a>-->
+<!--                <br><br>-->
+<!--                <div class="card-footer">-->
+<!--                    <a th:href="@{/inneeds/add}" class="btn btn-primary">Help Needed </a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-    <div class="row">
-        <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-                <h4 class="card-header">Volunteer</h4>
-                <a th:href="@{/volunteers/info}"><img class="card-img-top"
-                                                      src="https://missoulacurrent.com/wp-content/uploads/2019/10/DRIMS_homepage_image_5-1.jpg"
-                                                      alt="" height="300" width="360"></a>
-                <br><br>
+<!--Seeking Assistance-->
+<div class="wrapper">
+    <div class="main_content">
+        <div class="info">
+            <div>
+                <h2>Seeking Assistance</h2>
+
+                <img src="https://blackdoginstitute.org.au/images/default-source/featured-images/3-4-3_seeking-help-suicide-prevention_feature.png?sfvrsn=0"
+                     alt="" height="300" width="360"  class="float-img">
+                <ul>
+                    <li>Emergency Disaster Assistance can
+                        help support your recovery from a major disaster. </li>
+                    <li> If you're ready to apply now for
+                        disaster assistance or would like more information on the types of assistance available please visit
+                        <a
+                                th:href="@{https://www.disasterassistance.gov/}">disasterassistance.gov .</a></li>
+                    <li>
+                        There is a limited timeframe to apply for assistance, so do not wait to apply. Not sure if
+                        you are in an area declared for disaster assistance? Visit <a
+                            th:href="@{https://www.disasterassistance.gov/}">disasterassistance.gov .</a> and enter your
+                        address to find out
+                        if your area is declared for Individual Assistance</li>
+                    </li>
+                </ul>
+                <br>
             </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-                <h4 class="card-header">Blood Donor</h4>
-                <a th:href="@{/bloodDonors/info}"><img class="card-img-top"
-                                                       src="https://www.pr-medicalevents.com/wp-content/uploads/2016/06/post-img.jpg"
-                                                       alt="" height="300" width="360"></a>
-                <br><br>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-                <h4 class="card-header">Seeking Assistance</h4>
-                <a th:href="@{/inneeds/info}"><img class="card-img-top"
-                                                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTN5O4ENNpK0PMc6FJcwpaQzQZAykTqWHyCtcS5nGhVwU8z4T5O"
-                                                   alt="" height="300" width="360"></a>
-                <br><br>
-                <!--            <div class="card-footer">-->
-                <!--                <a th:href="@{/inneeds/add}" class="btn btn-primary">Help Needed </a>-->
-                <!--            </div>-->
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card h-100">
-                <h4 class="card-header">Emergency Tips</h4>
-                <a th:href="@{/emergencyTips/view}">
-                    <img class="card-img-top" src="http://www.cdc.gov/parents/essentials/images/hands-holding-letters-tips-500px.jpg"
-                                                         alt="" height="300" width="360"></a>
-                <br><br>
-                <div class="card-footer">
-                    <a th:href="@{/inneeds/add}" class="btn btn-primary">Help Needed </a>
-                </div>
+
+            <div class="container-fluid">
+                <label style="font-size:20px;"> Need Assistance ?  </label>
+                <a th:href="@{/inneeds/add}">
+                    <button class="btn btn-primary btn-lg">Register</button>
+                </a>
             </div>
         </div>
     </div>
 </div>
+
+<!--Volunteer-->
+<div class="wrapper">
+    <div class="main_content">
+        <div class="info">
+            <div>
+                <h2>Volunteer</h2>
+
+                <img src="http://www.bonifasarts.org/wp-content/uploads/2017/06/Volunteer.jpg"
+                     alt="" height="300" width="360" class="float-img">
+                <p>Volunteer with a recognized organization involved in disaster response or
+                    recovery.</p>
+                <ul>
+                    <li>Volunteer with a non-profit organization and be trained to find meaningful volunteer
+                        opportunities following a disaster.
+                    </li>
+                    <li>There are many organizations and faith-based groups that work nationally and in your community,
+                        that have active disaster programs and need volunteers.
+                    </li>
+                    <li>These groups offer a wide range of services following a disaster. See National Voluntary
+                        Organizations Active in Disaster <a href="https://www.nvoad.org/">www.nvoad.org</a> for more
+                        information and to sign up for volunteer
+                        opportunities.
+                    </li>
+                </ul>
+            </div>
+<!--            <br><br><br><br><br>-->
+
+                <div class="container-fluid">
+                    <label style="font-size:20px;"> Ready to Volunteer ? </label>
+                    <a th:href="@{/volunteers/add}">
+                        <button class="btn btn-primary btn-lg">Register</button>
+                    </a>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+<!--//Blood Donation-->
+<div class="wrapper">
+    <div class="main_content">
+        <div class="info">
+            <div>
+                <h2>Blood Donation</h2>
+
+                <img src="https://www.pr-medicalevents.com/wp-content/uploads/2016/06/post-img.jpg"
+                     alt="" height="300" width="360"  class="float-img">
+                <ul>
+                    <li>Donation frequency: Every 56 days*</li>
+                    <li>You must be in good health and feeling well**</li>
+                    <li>You must be at least 16 years old in most states</li>
+                    <li>You must weigh at least 110 lbs</li>
+                </ul>
+            </div>
+            <div class="container-fluid">
+                <label style="font-size:20px;"> Ready to Donate ? </label>
+                <a th:href="@{/volunteers/add}">
+                <button class="btn btn-primary btn-lg">Register</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+//
 </body>
 </html>
 
