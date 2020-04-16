@@ -41,6 +41,7 @@
 
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
+
                 <li><a th:href="@{/}">Home</a></li>
                 <li class="nav-item dropdown">
                     <a th:href="@{/inneeds/info}" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -95,19 +96,22 @@
 <!--                </li>-->
 <!--            </ul>-->
 <!--            <ul class="nav navbar-nav navbar-right">-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-                    <a class="nav-link" th:href="@{~/admin/index}">Admin</a>
-                </li>
-                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_COORDINATOR')" class="nav-item">
-                    <a class="nav-link" th:href="@{~/coordinator/index}">Coordinator</a>
-                </li>
+
+<!--                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_COORDINATOR')" class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{~/coordinator/index}">Coordinator</a>-->
+<!--                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/about}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/contact}">Contact Us</a>
+                    <a class="nav-link" th:href="@{/contact-us}">Contact Us</a>
+                </li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                    <a class="nav-link" th:href="@{~/admin/index}">Admin</a>
                 </li>
             </ul>
+
+
             <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
                 <button sec:authorize="isAuthenticated()"  class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
                 <button sec:authorize="isAnonymous()" th:href="@{~/login}" class="btn btn-outline-info my-2 my-sm-0  navbar-right" type="submit">Login</button>

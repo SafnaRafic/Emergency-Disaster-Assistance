@@ -15,16 +15,19 @@
 <!--        <td><span sec:authentication="principal.authorities"></span></td>-->
 <!--    </tr>-->
 <!--</table>-->
-<h2> Welcome <span sec:authentication="name"></span> !</h2>
-
-<ul class="nav navbar-nav">
+<h2 align="center"> Welcome <span sec:authentication="name"></span> !</h2>
+<h4 >Registered User Details</h4>
+<ul style="margin-left:70px">
     <li><a th:href="@{/volunteers/index}">All Volunteers</a></li>
     <li><a th:href="@{/bloodDonors/index}">All Blood Donors</a></li>
-    <li><a th:href="@{/inneeds/index}">All Needers</a></li>
+    <li><a th:href="@{/inneeds/index}">All Seekers</a></li><br>
+</ul>
+    <h4>Admin CRUD </h4>
+<ul style="margin-left:70px" >
     <li><a th:href="@{/bloodgroups/index}">Blood Group </a></li>
-    <li><a th:href="@{/needs/index}">Needs</a></li>
+    <li><a th:href="@{/needs/index}">Things Needed</a></li>
     <li><a th:href="@{/daysAvailability/index}">Days Of Availability</a></li>
-    <li><a th:href="@{/emergencyTips/index}">Emergency Tips</a></li>
+<!--    <li><a th:href="@{/emergencyTips/index}">Emergency Tips</a></li>-->
 </ul>
 
 

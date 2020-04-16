@@ -5,7 +5,8 @@
 <body>
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="container body-content">
+<div class="container-fluid">
+    <a th:href="@{/admin/index}"><button class="btn btn-primary">Back</button></a>
     <table class="table table-striped">
         <thead>
         <th>Days of Availability</th>
@@ -19,6 +20,8 @@
         </tr>
     </table>
     <a th:href="@{/daysAvailability/add}"><button class="btn btn-primary">Add Days Of Availability</button> </a>
+
 </div>
+
 </body>
 </html>

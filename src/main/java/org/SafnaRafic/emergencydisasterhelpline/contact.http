@@ -1,0 +1,10 @@
+POST http://localhost:8082/contact-us
+Content-Type: application/json
+
+{
+  "name": "safna",
+  "email": "safna.usa@gmail.com",
+  "feedback": "You app is awesome :)"
+}
+
+###
