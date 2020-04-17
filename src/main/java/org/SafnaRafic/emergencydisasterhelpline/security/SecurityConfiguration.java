@@ -1,5 +1,6 @@
 package org.SafnaRafic.emergencydisasterhelpline.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -11,10 +12,21 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserPrincipalDetailsService userPrincipalDetailsService;
+
+//    @Autowired
+//    DataSource dataSource;
+//
+//    //Enable jdbc authentication
+//    @Autowired
+//    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.jdbcAuthentication().dataSource(dataSource);
+//    }
 
     public SecurityConfiguration(UserPrincipalDetailsService userPrincipalDetailsService){
         this.userPrincipalDetailsService=userPrincipalDetailsService;
@@ -44,11 +56,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 authorizeRequests()
 //                .anyRequest().authenticated()
                 .antMatchers("/index.html").permitAll()
+                .antMatchers("/bloodDonors/add").permitAll()
+                .antMatchers("/search").permitAll()
+                .antMatchers("/inneeds/**").permitAll()
+                .antMatchers("/searchInneeds").permitAll()
+                .antMatchers("/volunteers/**").permitAll()
+                .antMatchers("/searchVolunteer").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/coordinator/**").hasAnyRole("COORDINATOR","ADMIN")
-                .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
-                .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
-                .antMatchers("/api/public/users").hasRole("ADMIN")
+                .antMatchers("/emergencyTips/**").hasRole("ADMIN")
+//                .antMatchers("/coordinator/**").hasAnyRole("COORDINATOR","ADMIN")
+//                .antMatchers("/bloodDonors/add").hasAuthority("ADD")
+//                .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
+//                .antMatchers("/api/public/users").hasRole("ADMIN")
 
                 .and()
                 .formLogin()

@@ -34,6 +34,7 @@ public class BloodDonorController {
     @PostMapping("add")
     public String processAddDonorForm(@ModelAttribute @Valid BloodDonor newBloodDonor, @RequestParam int groupId,
                                          Errors errors, Model model) {
+        System.out.println("In processAddDonorForm method.");
 
         if (errors.hasErrors()) {
             return "bloodDonors/add";
@@ -74,66 +75,6 @@ public class BloodDonorController {
         return "bloodDonors/view";
     }
 
-    @GetMapping("delete/{donorId}")
-    public String displayDeleteDonorForm(Model model,@PathVariable int donorId) {
-        Optional donorToDelete = bloodDonorRepository.findById(donorId);
-        if (donorToDelete.isPresent()) {
-            BloodDonor bloodDonor = (BloodDonor) donorToDelete.get();
-            model.addAttribute("bloodDonor", bloodDonor);
-            return "bloodDonors/delete";
-        } else {
-            return "redirect:";
-        }
-    }
-
-    @PostMapping("delete")
-    public String processDeleteDonorForm(@RequestParam(required = false) int[] donorId) {
-
-        if (donorId != null) {
-            for (int id : donorId) {
-
-                bloodDonorRepository.deleteById(id);
-            }
-        }
-
-        return "redirect:/bloodDonors/index";
-    }
-
-    @GetMapping("update/{donorId}")
-    public String displayUpdateDonorForm(Model model,@PathVariable int donorId) {
-        model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
-        Optional donorToUpdate = bloodDonorRepository.findById(donorId);
-        if (donorToUpdate.isPresent()) {
-            BloodDonor bloodDonor = (BloodDonor) donorToUpdate.get();
-            model.addAttribute("bloodDonor", bloodDonor);
-            model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
-            return "bloodDonors/update";
-        } else {
-            return "redirect:";
-        }
-
-    }
-
-    @PostMapping("update")
-    public String processUpdateDonorForm(int donorId, String name, String address, String city,
-                                         String state, String zipcode, String contactNo,@RequestParam BloodGroup bloodGroup) {
-
-        Optional donorToUpdate = bloodDonorRepository.findById(donorId);
-        if (donorToUpdate.isPresent()) {
-            BloodDonor bloodDonor = (BloodDonor) donorToUpdate.get();
-            bloodDonor.setName(name);
-            bloodDonor.setAddress(address);
-            bloodDonor.setCity(city);
-            bloodDonor.setState(state);
-            bloodDonor.setZipcode(zipcode);
-            bloodDonor.setContactNo(contactNo);
-            bloodDonor.setBloodGroup(bloodGroup);
-            bloodDonorRepository.save(bloodDonor);
-            return "redirect:/bloodDonors/index";
-        }
-
-        return "redirect:/";
-    }
 
     @GetMapping("info")
     public String displayInfoBloodDonor(Model model){

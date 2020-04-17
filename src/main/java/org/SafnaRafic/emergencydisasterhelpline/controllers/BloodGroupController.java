@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("bloodgroups")
+@RequestMapping("admin/bloodgroups")
 public class BloodGroupController {
     @Autowired
     private BloodGroupRepository bloodGroupRepository;
@@ -23,22 +23,22 @@ public class BloodGroupController {
     public String displayAddGroupForm(Model model){
         model.addAttribute(new BloodGroup());
 
-        return "bloodgroups/add";
+        return "admin/bloodgroups/add";
     }
 
     @PostMapping("add")
     public String processAddGroupForm(@ModelAttribute @Valid BloodGroup newBloodGroup, Errors errors, Model model){
         if(errors.hasErrors()){
-            return "bloodgroups/add";
+            return "admin/bloodgroups/add";
         }
         bloodGroupRepository.save(newBloodGroup);
-        return "redirect:/bloodgroups/index";
+        return "redirect:/admin/bloodgroups/index";
     }
 
     @GetMapping("index")
     public String displayBloodGroupIndex(Model model){
         model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
-        return "bloodgroups/index";
+        return "admin/bloodgroups/index";
     }
 
     @GetMapping("delete/{bloodGroupId}")
@@ -48,7 +48,7 @@ public class BloodGroupController {
             BloodGroup bloodGroup=bloodGroupOptional.get();
             model.addAttribute("bloodGroup",bloodGroup);
         }
-        return "bloodgroups/delete";
+        return "admin/bloodgroups/delete";
     }
 
     @PostMapping("delete")
@@ -57,9 +57,9 @@ public class BloodGroupController {
         if (bloodGroupOptional.isPresent()) {
             BloodGroup bloodGroup = bloodGroupOptional.get();
             bloodGroupRepository.delete(bloodGroup);
-            return "bloodgroups/index";
+            return "admin/bloodgroups/index";
         }
-        return "bloodgroups/delete";
+        return "admin/bloodgroups/delete";
     }
 
     @GetMapping("update/{bloodGroupId}")
@@ -68,7 +68,7 @@ public class BloodGroupController {
         if(bloodGroupOptional.isPresent()){
             BloodGroup bloodGroup=bloodGroupOptional.get();
             model.addAttribute("bloodGroup",bloodGroup);
-            return "bloodgroups/update";
+            return "admin/bloodgroups/update";
         }else {
             return "redirect:";
         }
@@ -81,9 +81,9 @@ public class BloodGroupController {
             BloodGroup bloodGroup = bloodGroupOptional.get();
             bloodGroup.setBloodType(bloodType);
             bloodGroupRepository.save(bloodGroup);
-            return "redirect:/bloodgroups/index";
+            return "redirect:/admin/bloodgroups/index";
         }
-        return "bloodgroups/delete";
+        return "admin/bloodgroups/delete";
     }
 
 }

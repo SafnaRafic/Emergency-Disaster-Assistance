@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<nav th:replace="fragments :: page-header"></nav>
+<h1>In-Need List</h1>
+<table class="table table-striped">
+    <thead>
+    <th>Name</th>
+    <th>Disaster Type</th>
+    <th>In-Need</th>
+    <th>Quantity</th>
+    <th>Actions</th>
+
+
+    </thead>
+    <tr th:each="inneed : ${inneeds}">
+        <td><a th:href="@{'/inneeds/view/' + ${inneed.id}}" th:text="${inneed.name}"></a></td>
+        <td th:text="${inneed.disasterType}"></td>
+        <td>
+            <ul>
+                <li th:each="needy : ${inneed.needs}">
+                    <span th:text="${needy.need}"></span>
+                </li>
+            </ul>
+
+        </td>
+        <td th:text="${inneed.quantity}"></td>
+        <td><a th:href="@{/inneeds/delete/{id}(id=${inneed.id})}"><button class="btn btn-primary">Delete</button></a>
+            <a th:href="@{/inneeds/update/{id}(id=${inneed.id})}"><button class="btn btn-primary">Update</button></a></td>
+    </tr>
+    <a th:href="@{/admin/index}"><button class="btn btn-primary">Back</button></a>
+</table>
+
+</body>
+</html>
