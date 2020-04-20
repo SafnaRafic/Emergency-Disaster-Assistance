@@ -2,42 +2,73 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Contact</title>
+    <script language="JavaScript" type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript"
+            src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 </head>
+
 <nav th:replace="fragments :: page-header"></nav>
+
 <body>
-<h3>Contact Form</h3>
-<p th:text="${msg}"></p>
-<form method="post" th:action="@{/contact/send}">
-    <div class="container-fluid">
-    <div class="form-group">
-        <label th:for="name">Name</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${contact.name}" />
+<div class="container-fluid">
+    <h3 align="center"><strong> Contact Us</strong></h3><br>
+    <h4 style="margin-left:300px;"><i>Please call us regarding any questions, comments or concerns you may have
+        - </i><strong>1-800-733-2861</strong></h4>
+</div>
+<p align="center" style="font-size:18px;color:red; font-weight: bold;font-style: italic;" th:text="${msg}"></p>
+<div class="container body-content" style="width:700px">
+    <div class="card">
+        <div class="card-block">
 
-    </div>
-    <div class="form-group">
-        <label th:for="email">Email</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${contact.email}" />
-<!--        <span th:errors="${bloodDonor.name}" class="error"></span>-->
-    </div>
-        <div class="form-group">
-            <label th:for="subject">Subject</label>
-            <span class="required-field"></span>
-            <input class="form-control" th:field="${contact.subject}" />
-            <!--        <span th:errors="${bloodDonor.name}" class="error"></span>-->
+            <h3><b>Contact Form</b></h3>
+            Please use this form to contact us regarding any questions, comments or concerns you may have.<br><br>
+
+            <form method="post" th:action="@{/contact/send}">
+
+                <div class="form-group">
+                    <label th:for="name">Name</label>
+                    <span class="required-field"></span>
+                    <input class="form-control" th:field="${contact.name}" required/>
+                </div>
+
+                <div class="form-group">
+                    <label th:for="phone">Phone (Optional) </label>
+                    <input class="form-control" th:field="${contact.phone}"/>
+                </div>
+
+                <div class="form-group">
+                    <label th:for="email">Email</label>
+                    <span class="required-field"></span>
+                    <input type="email" class="form-control" th:field="${contact.email}" required/>
+                </div>
+
+                <div class="form-group">
+                    <label th:for="subject">Subject</label>
+                    <span class="required-field"></span>
+                    <select th:field="${contact.subject}">
+                        <option value="EDA-Blood-Donor">EDA - Blood Donor</option>
+                        <option value="EDA-Volunteer">EDA - Volunteer</option>
+                        <option value="EDA-Seeking-Assistance">EDA - Seeking Assisatnce</option>
+                        <option value="EDA-Others">EDA - Others..</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label th:for="content">Comments </label>
+                    <span class="required-field"></span>
+                    <textarea class="form-control" rows="4" cols="50" th:field="${contact.content}" required></textarea>
+                    <span th:errors="${contact.content}" class="error"></span>
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary btn-lg " value="Submit"/>
+                </div>
+
+            </form>
         </div>
-    <div class="form-group">
-        <label th:for="content">Content</label>
-        <span class="required-field"></span>
-        <textarea class="form-control" rows="4" cols="50" th:field="${contact.content}" ></textarea>
-<!--        <span th:errors="${bloodDonor.name}" class="error"></span>-->
     </div>
-
-    <input type="submit" value="submit"/>
-    </div>
-</form>
-<!--</div>-->
+</div>
 </body>
 </html>

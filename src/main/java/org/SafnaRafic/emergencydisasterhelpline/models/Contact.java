@@ -1,12 +1,28 @@
 package org.SafnaRafic.emergencydisasterhelpline.models;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 public class Contact {
+    @NotNull(message = "Please provide your name")
     private String name;
+
+    @NotBlank(message="Email is required")
+    @Email(message = "Invalid Email. Try Again!!")
     private String email;
+
     private String subject;
+
+
+    @NotNull(message = "Please provide your phone number")
+    @Size(min = 10,max = 10,message = "This entry can only contain numbers")
+    private String phone;
+
+    @Size(max=200,message = "Its too long !!")
     private String content;
 
     public String getName() {
@@ -31,6 +47,14 @@ public class Contact {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getContent() {
