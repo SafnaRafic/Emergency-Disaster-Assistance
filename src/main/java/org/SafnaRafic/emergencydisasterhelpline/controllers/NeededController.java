@@ -4,6 +4,7 @@ import org.SafnaRafic.emergencydisasterhelpline.models.BloodGroup;
 import org.SafnaRafic.emergencydisasterhelpline.models.Needed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.NeededRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -33,8 +34,8 @@ public class NeededController {
         return "redirect:/needs/index";
     }
     @GetMapping("index")
-    public String displayNeedsIndex(Model model){
-        model.addAttribute("needs",neededRepository.findAll());
+    public String displayNeedsIndex(Model model,@RequestParam(defaultValue = "0") int page){
+        model.addAttribute("needs",neededRepository.findAll(PageRequest.of(page,5)));
         return "needs/index";
     }
 

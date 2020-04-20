@@ -5,99 +5,104 @@
 <body>
 
 <nav th:replace="fragments :: page-header"></nav>
-<center>
-<img src="http://4.bp.blogspot.com/-oAtNCjrOPkI/UCn96zzizPI/AAAAAAAAAMo/KnbNDc3kyWo/s1600/Volunteer_become.jpg"
-     alt="" height="300" width="360" style="width:70%">
-</center>
-<div class="wrapper">
-    <div id="sidebar">
-        <h2>Volunteer</h2>
-        <ul>
-            <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
-            <li><a th:href="@{/volunteers/add}"><i class="far fa-registered"></i> Register</a></li>
-            <li><a th:href="@{/volunteers/search}"><i class="fas fa-search"></i>Search</a></li>
-        </ul>
-    </div>
-</div>
+
+<img src="https://www.kmymca.org/sites/kmymca.org/files/2019-04/volunteer-ymca.jpg"
+     alt="" height="400" align="right" style="width:30%;margin-right: 150px;margin-top:200px;">
+<!--<img src="https://www.timeshare-advice.co.uk/wp-content/uploads/2018/07/Seek-Help.jpg"-->
+<!--     alt="" height="400" align="right" style="width:35%;margin-right: 150px;margin-top:100px;">-->
+
+<!--Side bar-->
+<div th:replace="fragments :: page-sidebar"></div>
+
+<!--Main Content-->
 <form method="post" style="max-width:600px;">
-<div class="container-fluid" style="clear:right;">
-    <h2 style="text-align:center;"><strong><i>Volunteer Interest</i></strong></h2>
-    <div class="form-group">
-        <label th:for="name">Name</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.name}" />
-        <span th:errors="${volunteer.name}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="address">Address</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.address}">
-        <span th:errors="${volunteer.address}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="city">City</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.city}">
-        <span class="error" th:errors="${volunteer.city}"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="state">State</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.state}">
-        <span th:errors="${volunteer.state}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="zipcode">Zipcode</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.zipcode}">
-        <span th:errors="${volunteer.zipcode}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="contactNo" > Contact Number</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${volunteer.contactNo}">
-        <span th:errors="${volunteer.contactNo}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="emailId" > Email Id</label>
-        <input class="form-control" th:field="${volunteer.emailId}">
-        <span th:errors="${volunteer.emailId}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label> Days Of Availability</label>
-        <span class="required-field"></span><br>
-        <th:block th:each="day : ${daysAvailabilities}">
-            <input type="checkbox" name="days" th:value="${day.id}">
-            <label th:text="${day.days}"></label><br>
-        </th:block>
+    <div class="container-fluid">
 
-    <div class="form-group">
-        <label> Volunteer Category</label>
-        <span class="required-field"></span>
-        <select class="form-control" id="category"  th:field="${volunteer.volunteerCategory}">
-            <option value="DayVolunteer">Day Volunteer</option>
-            <option value="Residential">Residential Volunteer</option>
-        </select>
-    </div>
+        <div style="width:800px;margin-left: auto;margin-right:auto;margin-top:15px;padding: 24px;">
+            <h2 style="text-align:center;"><strong><i>Volunteer Interest</i></strong></h2>
+            <p>Please submit your name and email address below and will we reach out to
+                you.</p>
+            <div class="form-group">
+                <label th:for="name">Name</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${volunteer.name}" required/>
+                <span th:errors="${volunteer.name}" class="error"></span>
+            </div>
 
-    <div class="form-check">
-        <label>Time Availability</label>
-        <span class="required-field"></span><br>
-        &emsp;&emsp;<input type="checkbox" value="AnyTime" id="anyTime" th:field="${volunteer.timeAvailability}">
-        <label for="anyTime">Any Time</label><br>
-        &emsp;&emsp;<input type="checkbox" value="8am-Noon" id="am" th:field="${volunteer.timeAvailability}">
-        <label for="am">8 Am to Noon</label><br>
-        &emsp;&emsp;<input type="checkbox" value="1pm-5pm" id="pm" th:field="${volunteer.timeAvailability}">
-        <label for="pm">1 Pm to 5 Pm</label><br>
+            <div class="form-group">
+                <label th:for="address">Address</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${volunteer.address}" required/>
+                <span th:errors="${volunteer.address}" class="error"></span>
+            </div>
 
-<!--        <input type="checkbox" value="pm" id="pm">-->
-<!--        <label th:for="${timeAvailability}">5pm - 10pm</label>-->
+            <div class="form-group">
+                <label th:for="city">City</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${volunteer.city}" required/>
+                <span class="error" th:errors="${volunteer.city}"></span>
+            </div>
+
+            <div class="form-group">
+                <label th:for="state">State</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${volunteer.state}" required/>
+                <span th:errors="${volunteer.state}" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label th:for="zipcode">Zipcode</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${volunteer.zipcode}" required/>
+                <span th:errors="${volunteer.zipcode}" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label th:for="contactNo"> Contact Number</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${volunteer.contactNo}" required/>
+                <span th:errors="${volunteer.contactNo}" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label th:for="emailId"> Email Id</label>
+                <input class="form-control" th:field="${volunteer.emailId}" required/>
+                <span th:errors="${volunteer.emailId}" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label> Days Of Availability</label>
+                <span class="required-field"></span><br>
+                <th:block th:each="day : ${daysAvailabilities}">
+                    <input type="checkbox" name="days" th:value="${day.id}">
+                    <label th:text="${day.days}"></label><br>
+                </th:block>
+            </div>
+
+            <div class="form-group">
+                <label> Volunteer Category</label>
+                <span class="required-field"></span>
+                <select class="form-control" id="category" th:field="${volunteer.volunteerCategory}">
+                    <option value="DayVolunteer">Day Volunteer</option>
+                    <option value="Residential">Residential Volunteer</option>
+                </select>
+            </div>
+
+            <div class="form-check">
+                <label>Time Availability</label>
+                <span class="required-field"></span><br>
+                &emsp;&emsp;<input type="checkbox" value="AnyTime" id="anyTime"
+                                   th:field="${volunteer.timeAvailability}">
+                <label for="anyTime">Any Time</label><br>
+                &emsp;&emsp;<input type="checkbox" value="8am-Noon" id="am" th:field="${volunteer.timeAvailability}">
+                <label for="am">8 Am to Noon</label><br>
+                &emsp;&emsp;<input type="checkbox" value="1pm-5pm" id="pm" th:field="${volunteer.timeAvailability}">
+                <label for="pm">1 Pm to 5 Pm</label><br>
+            </div>
+
+            <input class="btn btn-primary center-block btn-lg" type="submit" value="Submit">
+        </div>
     </div>
-    <input class="btn btn-primary center-block btn-lg" type="submit" value="Submit">
-</div>
-</div>
 </form>
-
-
 </body>
 </html>

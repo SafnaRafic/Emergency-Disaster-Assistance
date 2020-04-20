@@ -39,6 +39,7 @@ public class SearchDonorController {
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
         model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
+        model.addAttribute("title", "Search Blood Donor");
         return "search";
     }
 

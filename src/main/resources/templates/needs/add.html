@@ -4,19 +4,21 @@
 </head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
+
+<!--Side bar-->
+<div th:replace="fragments :: page-adminsidebar"></div>
+
+<!--Main Content-->
 <form method="post" style="max-width:600px;">
     <div class="container-fluid">
-        <h2 >Needs Adding Form</h2>
+        <h2>Seeking things Adding Form</h2>
         <div class="form-group">
-
-            <label th:for ="need">Need:    </label>
+            <label th:for="need">Need: </label>
             <input class="form-control" th:field="${needed.need}"/>
             <span th:errors="${needed.need}" class="error"></span>
             <input type="submit" value="Add" class="btn btn-primary center-block btn-lg">
         </div>
-
     </div>
 </form>
-
 </body>
 </html>

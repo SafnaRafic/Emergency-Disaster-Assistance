@@ -4,20 +4,22 @@
 </head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
+
+<!--Side bar-->
+<div th:replace="fragments :: page-adminsidebar"></div>
+
+<!--Main Content-->
 <form method="post" style="max-width:600px;">
     <div class="container-fluid">
-
         <h2 style="text-align:center;"><strong><i>Blood Group Form</i></strong></h2>
         <div class="form-group">
             <label th:for="bloodType">Blood Group</label>
             <span class="required-field"></span>
-            <input class="form-control" th:field="${bloodGroup.bloodType}" />
+            <input class="form-control" th:field="${bloodGroup.bloodType}" required/>
             <span th:errors="${bloodGroup.bloodType}" class="error"></span>
         </div>
-
-        <input class="btn btn-primary center-block btn-lg" type="Submit" value="Add">
+        <input class="btn btn-primary center-block btn-lg" type="Submit" value="Add" />
     </div>
 </form>
-
 </body>
 </html>

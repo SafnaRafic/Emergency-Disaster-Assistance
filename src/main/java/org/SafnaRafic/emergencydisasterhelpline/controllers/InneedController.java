@@ -5,6 +5,7 @@ import org.SafnaRafic.emergencydisasterhelpline.models.Needed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.InneedRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.NeededRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -45,12 +46,11 @@ public class InneedController {
         List<Needed> needObj = (List<Needed>) neededRepository.findAllById(needs);
         newInneed.setNeeds(needObj);
         inneedRepository.save(newInneed);
-        return "redirect:/";
+        return "redirect:/confirm";
     }
     @GetMapping("index")
-    public String displayAllInneeds(Model model) {
-
-        model.addAttribute("inneeds", inneedRepository.findAll());
+    public String displayAllInneeds(Model model,@RequestParam(defaultValue = "0") int page) {
+        model.addAttribute("inneeds", inneedRepository.findAll(PageRequest.of(page,5)));
         model.addAttribute("needs",neededRepository.findAll());
         return "inneeds/index";
     }

@@ -12,13 +12,18 @@
 <nav th:replace="fragments :: page-header"></nav>
 
 <body>
+<!--Side bar-->
+<div th:replace="fragments :: page-sidebar"></div>
+
+<!--Main Content-->
 <div class="container-fluid">
     <h3 align="center"><strong> Contact Us</strong></h3><br>
     <h4 style="margin-left:300px;"><i>Please call us regarding any questions, comments or concerns you may have
         - </i><strong>1-800-733-2861</strong></h4>
 </div>
 <p align="center" style="font-size:18px;color:red; font-weight: bold;font-style: italic;" th:text="${msg}"></p>
-<div class="container body-content" style="width:700px">
+<div class="container body-content" style="width:700px;border: 2px solid;
+  border-radius: 25px;">
     <div class="card">
         <div class="card-block">
 

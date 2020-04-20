@@ -4,86 +4,85 @@
 </head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
-<center>
-    <img src="https://i.ytimg.com/vi/JjfrEU3Quwg/maxresdefault.jpg"
-         alt="" height="300" width="360" style="width:50%" >
-</center>
-<div class="wrapper">
-    <div id="sidebar">
-        <h2>Blood Donor</h2>
-        <ul>
-            <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
-            <li><a th:href="@{/bloodDonors/add}"><i class="far fa-registered"></i> Register</a></li>
-            <li><a th:href="@{/bloodDonors/search}"><i class="fas fa-search"></i>Search</a></li>
-        </ul>
-    </div>
-</div>
+
+<img src="https://miamioh.edu/_files/images/news/2017/03/donate-blood.jpg"
+     alt="" height="400" align="right" style="width:30%;margin-right: 200px;margin-top:150px;">
+
+<!--Side bar-->
+<div th:replace="fragments :: page-sidebar"></div>
+
+<!--Main Content-->
+<p align="center" style="font-size:18px;color:red; font-weight: bold;font-style: italic;" th:text="${msg}"></p>
 <form method="post" style="max-width:600px;">
     <div class="container-fluid">
+        <div style="width:800px;margin-left: auto;margin-right:auto;margin-top:15px;padding: 24px;">
+            <h2 style="text-align:center;"><strong><i>Blood Donor Registration Form</i></strong></h2>
+            <p>Every day, blood donors help patients of all ages: accident and burn victims, heart surgery and organ
+                transplant patients, and those battling cancer. In fact, every two seconds, someone in the U.S. needs
+                blood.</p>
 
-        <h2 style="text-align:center;"><strong><i>Donor Registration Form</i></strong></h2>
-    <div class="form-group">
-        <label th:for="name">Name</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${bloodDonor.name}" />
-        <span th:errors="${bloodDonor.name}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="address">Address</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${bloodDonor.address}">
-        <span th:errors="${bloodDonor.address}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="city">City</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${bloodDonor.city}">
-        <span class="error" th:errors="${bloodDonor.city}"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="state">State</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${bloodDonor.state}">
-        <span th:errors="${bloodDonor.state}" class="error"></span>
-    </div>
-    <div class="form-group">
+            <div class="form-group">
+                <label th:for="name">Name</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${bloodDonor.name}" required/>
+                <span th:errors="${bloodDonor.name}" class="error"></span>
+            </div>
 
-        <label th:for="zipcode">Zipcode</label>
+            <div class="form-group">
+                <label th:for="address">Address</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${bloodDonor.address}" required/>
+                <span th:errors="${bloodDonor.address}" class="error"></span>
+            </div>
 
-        <span class="required-field"></span>
+            <div class="form-group">
+                <label th:for="city">City</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${bloodDonor.city}" required/>
+                <span class="error" th:errors="${bloodDonor.city}"></span>
+            </div>
 
-        <input class="form-control" th:field="${bloodDonor.zipcode}"/>
+            <div class="form-group">
+                <label th:for="state">State</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${bloodDonor.state}" required/>
+                <span th:errors="${bloodDonor.state}" class="error"></span>
+            </div>
 
+            <div class="form-group">
+                <label th:for="zipcode">Zipcode</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${bloodDonor.zipcode}" required/>
+                <span th:errors="${bloodDonor.zipcode}" class="error"></span>
+            </div>
 
-        <span th:errors="${bloodDonor.zipcode}" class="error" ></span>
+            <div class="form-group">
+                <label th:for="contactNo"> Contact Number</label>
+                <span class="required-field"></span>
+                <input class="form-control" th:field="${bloodDonor.contactNo}" required/>
+                <span th:errors="${bloodDonor.contactNo}" class="error"></span>
+            </div>
 
-    </div>
-    <div class="form-group">
-        <label th:for="contactNo" > Contact Number</label>
-        <span class="required-field"></span>
-        <input class="form-control" th:field="${bloodDonor.contactNo}"/>
-        <span th:errors="${bloodDonor.contactNo}" class="error"></span>
-    </div>
-    <div class="form-group">
-        <label th:for="emailId" > Email Id</label>
-        <input class="form-control" th:field="${bloodDonor.emailId}">
-        <span th:errors="${bloodDonor.emailId}" class="error"></span>
-    </div>
+            <div class="form-group">
+                <label th:for="emailId"> Email Id</label>
+                <input class="form-control" th:field="${bloodDonor.emailId}" required/>
+                <span th:errors="${bloodDonor.emailId}" class="error"></span>
+            </div>
 
-        <div class="form-group">
-            <label th:for="bloodGroup">Blood Group</label>
-            <select name="groupId">
-                <option th:each="group : ${bloodGroups}"
-                        th:text="${group.bloodType}"
-                        th:value="${group.id}"></option>
-            </select>
-            <!--        <a th:href="@{'/employers/add'}">Add Employers</a>-->
+            <div class="form-group">
+                <label th:for="bloodGroup">Blood Group</label>
+                <select name="groupId">
+                    <option th:each="group : ${bloodGroups}"
+                            th:text="${group.bloodType}"
+                            th:value="${group.id}">
+                    </option>
+                </select>
+            </div>
+
+            <input class="btn btn-primary center-block btn-lg" type="Submit" value="Submit">
         </div>
-    <input class="btn btn-primary center-block btn-lg" type="Submit" value="Submit">
-</div>
+    </div>
 </form>
-
-
-
 </body>
 </html>
+

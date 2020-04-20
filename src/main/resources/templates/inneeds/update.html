@@ -7,34 +7,31 @@
 <nav th:replace="fragments :: page-header"></nav>
 
 <form method="post" th:action="@{/inneeds/update}">
-    <h1>Update In-need</h1>
+    <h1>Update Seekers</h1>
+
     <div class="form-group">
         <label th:for="name"> Name</label>
-        <input class="form-control" th:field="${inneed.name}" />
+        <input class="form-control" th:field="${inneed.name}"/>
         <span th:errors="${inneed.name}" class="error"></span>
     </div>
+
     <div class="form-group">
-
-        <label >In Need :  </label>
+        <label>In Need : </label>
         <span class="required-field"></span>
-
         <th:block th:each="needy : ${needs}">
             <input type="checkbox" name="needs" th:value="${needy.id}">
-            <label th:text="${needy.need}"></label><br>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label th:text="${needy.need}"></label><br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
         </th:block>
         <span th:errors="${inneed.emailId}" class="error"></span>
     </div>
-    </div>
+
     <div class="quantity">
         <label th:for="quantity">Quantity</label>
-        <input class="form-control" th:field="${inneed.quantity}" />
+        <input class="form-control" th:field="${inneed.quantity}"/>
         <span th:errors="${inneed.quantity}" class="error"></span>
     </div>
-    <input type="hidden" th:value="${inneed.id}" name="inneedId">
-    <input type="submit" value="Update " />
-
+    <input type="hidden" th:value="${inneed.id}" name="inneedId"/>
+    <input type="submit" class="btn btn-primary" value="Update "/>
 </form>
-
 </body>
 </html>

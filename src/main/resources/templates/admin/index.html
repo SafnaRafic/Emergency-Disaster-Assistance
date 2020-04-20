@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<nav th:replace="fragments :: page-header"></nav>
+<div th:replace="fragments :: page-adminsidebar"></div>
+<h2 align="center"> Welcome Admin !!</h2>
+<h4 >Registered CRUD Details</h4>
+<ul style="margin-left:70px">
+    <li><a th:href="@{/volunteers/index}">All Volunteers</a></li>
+    <li><a th:href="@{/bloodDonors/index}">All Blood Donors</a></li>
+    <li><a th:href="@{/inneeds/index}">All Seekers</a></li><br>
+</ul>
+<h4>Admin CRUD Details </h4>
+<ul style="margin-left:70px" >
+    <li><a th:href="@{/bloodgroups/index}">Blood Group </a></li>
+    <li><a th:href="@{/needs/index}">Things Needed</a></li>
+    <li><a th:href="@{/daysAvailability/index}">Days Of Availability</a></li>
+
+</ul>
+
+
+</body>
+</html>

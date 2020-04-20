@@ -7,6 +7,7 @@ import org.SafnaRafic.emergencydisasterhelpline.models.Volunteer;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.DaysAvailabilityRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.VolunteerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -46,13 +47,13 @@ public class VolunteerController {
         List<DaysAvailability> daysAvailabilities = (List<DaysAvailability>) daysAvailabilityRepository.findAllById(days);
         newVolunteer.setDaysAvailability(daysAvailabilities);
         volunteerRepository.save(newVolunteer);
-        return "redirect:/";
+        return "redirect:/confirm";
     }
 
     @GetMapping("index")
-    public String displayAllVolunteers(Model model) {
+    public String displayAllVolunteers(Model model,@RequestParam(defaultValue = "0") int page) {
 
-        model.addAttribute("volunteers", volunteerRepository.findAll());
+        model.addAttribute("volunteers", volunteerRepository.findAll(PageRequest.of(page,5)));
         model.addAttribute("daysAvailabilities",daysAvailabilityRepository.findAll());
         return "volunteers/index";
     }

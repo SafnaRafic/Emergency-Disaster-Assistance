@@ -3,39 +3,44 @@
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 
-
 <nav th:replace="fragments :: page-header"></nav>
 
 <form method="post" th:action="@{/bloodDonors/update}">
     <h1>Update Blood Donor</h1>
+
     <div class="form-group">
         <label th:for="name"> Name</label>
-        <input class="form-control" th:field="${bloodDonor.name}" />
+        <input class="form-control" th:field="${bloodDonor.name}"/>
         <span th:errors="${bloodDonor.name}" class="error"></span>
     </div>
+
     <div class="form-group">
         <label th:for="address"> Address</label>
-        <input class="form-control" th:field="${bloodDonor.address}" />
+        <input class="form-control" th:field="${bloodDonor.address}"/>
         <span th:errors="${bloodDonor.address}" class="error"></span>
     </div>
+
     <div class="form-group">
         <label th:for="city"> City</label>
-        <input class="form-control" th:field="${bloodDonor.city}" />
+        <input class="form-control" th:field="${bloodDonor.city}"/>
         <span th:errors="${bloodDonor.city}" class="error"></span>
     </div>
+
     <div class="form-group">
         <label th:for="state"> State</label>
-        <input class="form-control" th:field="${bloodDonor.state}" />
+        <input class="form-control" th:field="${bloodDonor.state}"/>
         <span th:errors="${bloodDonor.state}" class="error"></span>
     </div>
+
     <div class="form-group">
         <label th:for="zipcode"> Zip code</label>
-        <input class="form-control" th:field="${bloodDonor.zipcode}" />
+        <input class="form-control" th:field="${bloodDonor.zipcode}"/>
         <span th:errors="${bloodDonor.zipcode}" class="error"></span>
     </div>
+
     <div class="form-group">
         <label th:for="contactNo"> Contact No</label>
-        <input class="form-control" th:field="${bloodDonor.contactNo}" />
+        <input class="form-control" th:field="${bloodDonor.contactNo}"/>
         <span th:errors="${bloodDonor.contactNo}" class="error"></span>
     </div>
 
@@ -46,10 +51,10 @@
                     th:text="${group.bloodType}"
                     th:value="${group.id}"></option>
         </select>
-
     </div>
-    <input type="hidden" th:value="${bloodDonor.id}" name="donorId">
-    <input type="submit" value="Update Donor" />
+
+    <input type="hidden" th:value="${bloodDonor.id}" name="donorId" />
+    <input type="submit" value="Update Donor"/>
 </form>
 
 </body>

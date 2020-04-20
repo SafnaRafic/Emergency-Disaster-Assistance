@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container  body-content">
-
+<body class="container">
 
 <nav th:replace="fragments :: page-header"></nav>
 
 <form method="post" th:action="@{/volunteers/delete}">
     <h1>Delete Volunteer</h1>
+
     <div class="form-group">
         <label th:for="name"> Name</label>
-        <input class="form-control" th:field="${volunteer.name}" />
+        <input class="form-control" th:field="${volunteer.name}"/>
         <span th:errors="${volunteer.name}" class="error"></span>
     </div>
 
     <div class="form-group">
-    <label th:for="State">State</label>
-    <input class="form-control" th:field="${volunteer.state}" />
-    <span th:errors="${volunteer.state}" class="error"></span>
-</div>
+        <label th:for="State">State</label>
+        <input class="form-control" th:field="${volunteer.state}"/>
+        <span th:errors="${volunteer.state}" class="error"></span>
+    </div>
+
     <div class="form-group">
         <label th:for="contactNo">Contact No</label>
-        <input class="form-control" th:field="${volunteer.contactNo}" />
+        <input class="form-control" th:field="${volunteer.contactNo}"/>
         <span th:errors="${volunteer.contactNo}" class="error"></span>
     </div>
+
     <input type="hidden" th:value="${volunteer.id}" name="volunteerId">
-    <input type="submit" value="Delete Volunteer" />
+    <input type="submit" class="btn btn-primary" value="Delete Volunteer"/>
 </form>
 
 </body>

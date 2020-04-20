@@ -4,9 +4,16 @@
 </head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
-<div class="container body-content">
+
+<!--Side bar-->
+<div th:replace="fragments :: page-sidebar"></div>
+
+<!--Main Content-->
+<div class="container body-content" style="width:700px;border: 2px solid;">
+    <div class="card">
+        <div class="card-block">
     <form th:action="@{/searchInneeds/results}" method="post">
-        <h1>In Need Search</h1>
+        <h1>Seekers Search</h1>
         <h2>Search By: </h2>
         <p>
         <span th:each="column : ${columns}">
@@ -16,43 +23,43 @@
 
         </span>
         </p>
+
         <p>
             <label for="searchTerm"></label>
-        <input type="text" name="searchTerm" id="searchTerm"/>
+            <input type="text" name="searchTerm" id="searchTerm"/>
         </p>
         <input type="submit" value="Search">
     </form>
+        </div>
+    </div>
 
-<hr />
 
-<table class="listing">
-    <h4 style="color:red;" th:text="${empty}"></h4>
-    <tr th:each="inneed,iterationStatus : ${inneeds}">
-        <td>
-            <p>
-                Person :
-                <label th:text="${iterationStatus.count}"></label>
-            </p>
-            <p>
-                Name :
-                <a th:href="@{'/inneeds/view/' + ${inneed.id}}" th:text="${inneed.name}"></a>
-            </p>
+    <hr/>
 
-            <p>
-                Need :
-                 <ul th:each="needy : ${inneed.needs}">
-                   <li >
-                    <span th:text="${needy.need}"></span>
-                    </li>
-                 </ul>
-            </p>
-            <p>
-                Quantity :
-                <label th:text="${inneed.quantity}"></label>
-            </p>
-        </td>
-    </tr>
-</table>
+    <table class="listing">
+        <h4 style="color:red;" th:text="${empty}"></h4>
+        <tr th:each="inneed,iterationStatus : ${inneeds}">
+            <td>
+                <p>Person :
+                    <label th:text="${iterationStatus.count}"></label>
+                </p>
+
+                <p>Name :
+                    <a th:href="@{'/inneeds/view/' + ${inneed.id}}" th:text="${inneed.name}"></a>
+                </p>
+
+                <p>Need :
+                <ul th:each="needy : ${inneed.needs}">
+                    <li><span th:text="${needy.need}"></span></li>
+                </ul>
+                </p>
+
+                <p>Quantity :
+                    <label th:text="${inneed.quantity}"></label>
+                </p>
+            </td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

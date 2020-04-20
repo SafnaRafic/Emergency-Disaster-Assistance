@@ -3,24 +3,56 @@
 <head th:replace="fragments:: head"></head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
-<div class="container-fluid">
-    <table class="table table-striped">
-        <thead>
-        <th>Need</th>
-        <th>Actions</th>
 
-        </thead>
-        <tr th:each="needy : ${needs}">
-            <td th:text="${needy.need}"></td>
-            <td><a th:href="@{'/needs/delete/' + ${needy.id}}"><button class="btn btn-primary">Delete</button> </a>
-                <a th:href="@{'/needs/update/' + ${needy.id}}"><button class="btn btn-primary">Update</button> </a></td>
-        </tr>
+<!--Side bar-->
+<div th:replace="fragments :: page-adminsidebar"></div>
 
-    </table>
-    <a th:href="@{/needs/add}"><button class="brn btn-primary">Add Needs Item</button> </a>
+<!--Main Content-->
+<div class="container" style="width:1000px;">
+    <div class="card">
+        <div class="card-block">
 
+            <a th:href="@{/admin}">
+                <button class="btn btn-primary btn-lg pull-right" style='margin-right:16px'>Back</button>
+            </a>
+            <a th:href="@{/needs/add}">
+                <button class="btn btn-primary btn-lg pull-right" style='margin-right:16px'>Add</button>
+            </a>
+            <h1>Needs List</h1><br>
+            <table class="table table-striped table-hover">
+                <thead>
+                <th>Need</th>
+                <th>Actions</th>
+                </thead>
+
+                <tr th:each="needy : ${needs}">
+                    <td th:text="${needy.need}"></td>
+                    <td><a th:href="@{'/needs/delete/' + ${needy.id}}">
+                        <button class="btn btn-primary">Delete</button>
+                    </a>
+                        <a th:href="@{'/needs/update/' + ${needy.id}}">
+                            <button class="btn btn-primary">Update</button>
+                        </a></td>
+                </tr>
+
+                <hr/>
+            </table>
+            <div class="pagination">
+                <ul class="nav nav-pills">
+                    <li class="nav-item" th:each="i: ${#numbers.sequence(0,needs.totalPages-1)}">
+                        <a th:href="@{/needs/index/(page=${i})}" th:text="${i}" class="nav-link"
+                        ></a>
+
+                    </li>
+                </ul>
+            </div>
+            <div style="float:right;font-size:18px;">
+                Total pages:
+                <th:block th:text="${needs.totalPages}"></th:block>
+            </div>
+        </div>
+    </div>
 </div>
-
-
+</div>
 </body>
 </html>

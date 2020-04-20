@@ -4,64 +4,66 @@
 </head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
-<div class="container body-content">
-<form th:action="@{/search/results}" method="post">
-    <h2> Search by: </h2>
-    <p>
-        <span th:each ="column :${columns}" >
+
+<!--Side bar-->
+<div th:replace="fragments :: page-sidebar"></div>
+
+<!--Main Content-->
+<div class="container body-content" style="width:700px;border: 2px solid;">
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <form th:action="@{/search/results}" method="post">
+        <h2> Search by: </h2>
+
+        <p>
+        <span th:each="column :${columns}">
         <input type="radio"
-            name="searchType"
-            th:id="${column.key}"
-            th:value="${column.key}"
-            th:checked="${column.key == 'all'}"
+               name="searchType"
+               th:id="${column.key}"
+               th:value="${column.key}"
+               th:checked="${column.key == 'all'}"
                onclick="myFunction()"/>
             <label th:for="${column.key}" th:text="${column.value}"></label>
         </span>
 
-<!--         <select class="form-control" name="searchType" >-->
-<!--             <span th:each ="column :${columns}" >-->
-<!--                <option th:value="${column.key}" th:id="${column.key}" th:text="${column.key}" ></option>-->
-<!--             </span>-->
-<!--         </select>-->
+        <div class="form-group">
+            <label>Blood Group</label>
+            <select name="searchTerm1" id="searchTerm1">
+                <option th:each="group : ${bloodGroups}"
+                        th:text="${group.bloodType}"
+                        th:value="${group.id}"></option>
+            </select>
+        </div>
+        </p>
 
-    <div class="form-group">
-        <label >Blood Group</label>
-        <select name="searchTerm1" id="searchTerm1">
-            <option th:each="group : ${bloodGroups}"
-                    th:text="${group.bloodType}"
-                    th:value="${group.id}" ></option>
-        </select>
-    </div>
-    </p>
+        <p>
+            <input type="text" name="searchTerm" id="searchTerm">
+        </p>
+        <input type="submit" value="Search">
+    </form>
 
-    <p>
-        <input type="text" name="searchTerm" id="searchTerm">
-    </p>
-    <input type="submit" value="Search">
-</form>
     <hr/>
-<table class="listing">
-    <h4 style="color:red;" th:text="${empty}"></h4>
-    <tr th:each="donor,iterationStatus : ${bloodDonors}">
-        <td>
-            <p>
-                Donor :
-                <label th:text="${iterationStatus.count}"></label>
-            </p>
-            <p>
-                Name:
-                <a th:href="@{'/bloodDonors/view/' + ${donor.id}}" th:text="${donor.name}"></a>
-            </p>
-            <p>
-                Blood Group:
-                <label th:text="${donor.bloodGroup}"></label>
-            </p>
 
-        </td>
-    </tr>
-</table>
+    <table class="listing">
+        <h4 style="color:red;" th:text="${empty}"></h4>
+        <tr th:each="donor,iterationStatus : ${bloodDonors}">
+
+            <td>
+                <p>Donor :
+                    <label th:text="${iterationStatus.count}"></label>
+                </p>
+                <p>Name:
+                    <a th:href="@{'/bloodDonors/view/' + ${donor.id}}" th:text="${donor.name}"></a>
+                </p>
+                <p>Blood Group:
+                    <label th:text="${donor.bloodGroup}"></label>
+                </p>
+
+            </td>
+
+        </tr>
+    </table>
+
+
 </div>
-
-
 </body>
 </html>

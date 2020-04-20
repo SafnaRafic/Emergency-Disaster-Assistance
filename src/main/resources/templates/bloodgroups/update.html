@@ -9,11 +9,11 @@
     <div class="container-fluid">
         <div class="form-group">
             <label th:for="bloodType">Blood Group</label>
-            <input class="form-control" th:field="${bloodGroup.bloodType}">
+            <input class="form-control" th:field="${bloodGroup.bloodType}" />
             <span class="error" th:errors="${bloodGroup.bloodType}"></span>
         </div>
         <input type="hidden" th:value="${bloodGroup.id}" name="bloodGroupId">
-        <input type="submit" value="Update">
+        <input type="submit" class="btn btn-primary" value="Update" />
     </div>
 </form>
 

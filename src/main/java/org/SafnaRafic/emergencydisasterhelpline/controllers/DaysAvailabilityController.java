@@ -3,6 +3,7 @@ package org.SafnaRafic.emergencydisasterhelpline.controllers;
 import org.SafnaRafic.emergencydisasterhelpline.models.DaysAvailability;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.DaysAvailabilityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -33,8 +34,8 @@ public class DaysAvailabilityController {
     }
 
     @GetMapping("index")
-    public String displayIndexDaysForm(Model model){
-        model.addAttribute("days",daysAvailabilityRepository.findAll());
+    public String displayIndexDaysForm(Model model,@RequestParam(defaultValue = "0") int page){
+        model.addAttribute("days",daysAvailabilityRepository.findAll(PageRequest.of(page,5)));
         return "daysAvailability/index";
     }
 

@@ -4,7 +4,12 @@
 </head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
-<div class="container body-content">
+
+<!--Side bar-->
+<div th:replace="fragments :: page-sidebar"></div>
+
+<!--Main Content-->
+<div class="container body-content" style="width:700px;border: 2px solid;">
     <form th:action="@{/searchVolunteer/results}" method="post">
         <h1>Volunteer Search</h1>
         <h2>Search By: </h2>
@@ -23,30 +28,25 @@
         <input type="submit" value="Search">
     </form>
 
-    <hr />
+    <hr/>
     <table class="listing">
         <h4 style="color:red;" th:text="${empty}"></h4>
         <tr th:each="volunteer,iterationStatus : ${volunteers}">
             <td>
-                <p>
-                    Volunteer :
+                <p>Volunteer :
                     <label th:text="${iterationStatus.count}"></label>
                 </p>
 
-                <p>
-                    Name:
+                <p>Name:
                     <a th:href="@{'/volunteers/view/' + ${volunteer.id}}" th:text="${volunteer.name}"></a>
                 </p>
-                <p>
-                    Time Availability:
+                <p>Time Availability:
                     <label th:text="${volunteer.timeAvailability}"></label>
                 </p>
-                <p>
-                    Volunteer Category:
+                <p>Volunteer Category:
                     <label th:text="${volunteer.volunteerCategory}"></label>
                 </p>
-                <p>
-                    Days of Availability:
+                <p>Days of Availability:
                 <ul th:each="day : ${volunteer.daysAvailability}">
                     <li>
                         <label th:text="${day.days}"></label>

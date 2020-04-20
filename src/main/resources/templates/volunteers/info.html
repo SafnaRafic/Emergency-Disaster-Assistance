@@ -4,16 +4,12 @@
 </head>
 <body>
 <nav th:replace="fragments :: page-header"></nav>
-<div class="wrapper">
-    <div id="sidebar">
-        <h2>Volunteer</h2>
-        <ul>
-            <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
-            <li><a th:href="@{/volunteers/add}"><i class="far fa-registered"></i> Register</a></li>
-            <li><a th:href="@{/searchVolunteer}"><i class="fas fa-search"></i>Search</a></li>
-        </ul>
-    </div>
 
+<!--Side bar-->
+<div th:replace="fragments :: page-adminsidebar"></div>
+
+<!--Main Content-->
+<div class="wrapper">
     <div class="main_content">
         <div class="info">
             <div>

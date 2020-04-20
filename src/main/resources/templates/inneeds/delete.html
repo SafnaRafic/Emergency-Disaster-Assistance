@@ -3,24 +3,23 @@
 <head th:replace="fragments :: head"></head>
 <body class="container  body-content">
 
-
 <nav th:replace="fragments :: page-header"></nav>
 
 <form method="post" th:action="@{/inneeds/delete}">
-    <h1>Delete In-Need</h1>
+    <h1>Delete Seekers</h1>
     <div class="form-group">
         <label th:for="name"> Name</label>
-        <input class="form-control" th:field="${inneed.name}" />
+        <input class="form-control" th:field="${inneed.name}"/>
         <span th:errors="${inneed.name}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="disasterType">Type Of Disaster</label>
-        <input class="form-control" th:field="${inneed.disasterType}" />
+        <input class="form-control" th:field="${inneed.disasterType}"/>
         <span th:errors="${inneed.disasterType}" class="error"></span>
     </div>
     <input type="hidden" th:value="${inneed.id}" name="inneedId">
-    <input type="submit" value="Delete " />
+    <input type="submit" class="btn btn-primary" value="Delete "/>
 </form>
 
 </body>

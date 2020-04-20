@@ -5,33 +5,68 @@
 <body>
 
 <nav th:replace="fragments :: page-header"></nav>
-<h1>In-Need List</h1>
-<table class="table table-striped">
-    <thead>
-    <th>Name</th>
-    <th>Disaster Type</th>
-    <th>In-Need</th>
-    <th>Quantity</th>
-    <th>Actions</th>
+
+<!--Side bar-->
+<div th:replace="fragments :: page-adminsidebar"></div>
+
+<!--Main Content-->
+<div class="container" style="width:1000px;">
+    <div class="card">
+        <div class="card-block">
+
+            <a th:href="@{/admin}">
+                <button class="btn btn-primary btn-lg pull-right">Back</button>
+            </a>
+            <h1>Seeking Assistance</h1><br>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                <th>Name</th>
+                <th>Disaster Type</th>
+                <th>In-Need</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+                </thead>
+
+                <tr th:each="inneed : ${inneeds}">
+                    <td><a th:href="@{'/inneeds/view/' + ${inneed.id}}" th:text="${inneed.name}"></a></td>
+                    <td th:text="${inneed.disasterType}"></td>
+                    <td>
+                        <ul>
+                            <!--Getting data from needed Entity-->
+                            <li th:each="needy : ${inneed.needs}">
+                                <span th:text="${needy.need}"></span>
+                            </li>
+                        </ul>
+
+                    </td>
+                    <td th:text="${inneed.quantity}"></td>
+                    <td><a th:href="@{/inneeds/delete/{id}(id=${inneed.id})}">
+                        <button class="btn btn-primary">Delete</button>
+                    </a>
+                        <a th:href="@{/inneeds/update/{id}(id=${inneed.id})}">
+                            <button class="btn btn-primary">Update</button>
+                        </a></td>
+                </tr>
+            </table>
+            <div class="pagination">
+                <ul class="nav nav-pills">
+                    <li class="nav-item" th:each="i: ${#numbers.sequence(0,inneeds.totalPages-1)}">
+                        <a th:href="@{/inneeds/index/(page=${i})}" th:text="${i}" class="nav-link"
+                        ></a>
+
+                    </li>
+                </ul>
+            </div>
+            <div style="float:right;font-size:18px;">
+                Total pages:
+                <th:block th:text="${inneeds.totalPages}"></th:block>
+            </div>
 
 
-    </thead>
-    <tr th:each="inneed : ${inneeds}">
-        <td><a th:href="@{'/inneeds/view/' + ${inneed.id}}" th:text="${inneed.name}"></a></td>
-        <td th:text="${inneed.disasterType}"></td>
-        <td>
-            <ul>
-                <li th:each="needy : ${inneed.needs}">
-                    <span th:text="${needy.need}"></span>
-                </li>
-            </ul>
-
-        </td>
-        <td th:text="${inneed.quantity}"></td>
-        <td><a th:href="@{/inneeds/delete/{id}(id=${inneed.id})}"><button class="btn btn-primary">Delete</button></a>
-            <a th:href="@{/inneeds/update/{id}(id=${inneed.id})}"><button class="btn btn-primary">Update</button></a></td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

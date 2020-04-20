@@ -6,6 +6,7 @@ import org.SafnaRafic.emergencydisasterhelpline.models.Inneed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.BloodDonorRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.BloodGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -45,25 +46,17 @@ public class BloodDonorController {
             model.addAttribute("group",bloodGroup.getBloodType());
         }
         bloodDonorRepository.save(newBloodDonor);
-        return "redirect:/";
+        return "redirect:/confirm";
     }
     @GetMapping("index")
-    public String displayAllDonors(Model model) {
+    public String displayAllDonors(Model model,@RequestParam(defaultValue = "0") int page) {
         model.addAttribute("title", "All Blood Donors");
-        model.addAttribute("donors", bloodDonorRepository.findAll());
+        model.addAttribute("donors", bloodDonorRepository.findAll(PageRequest.of(page,5)));
         model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
+        model.addAttribute("currentPage",page);
         return "bloodDonors/index";
     }
 
-//    @GetMapping("view/{id}")
-//    public String displayViewBloodDonor(Model model,@PathVariable int id){
-//        Optional<BloodDonor> optionalBloodDonor=bloodDonorRepository.findById(id);
-//        if(optionalBloodDonor.isPresent()){
-//            BloodDonor bloodDonor=(BloodDonor) optionalBloodDonor.get();
-//            model.addAttribute("bloodDonor",bloodDonor);
-//        }
-//        return "bloodDonors/view";
-//    }
     @GetMapping("view/{id}")
     public String displayViewInneed(Model model, @PathVariable int id){
         Optional<BloodDonor> optBloodDonor=bloodDonorRepository.findById(id);
@@ -88,14 +81,11 @@ public class BloodDonorController {
 
     @PostMapping("delete")
     public String processDeleteDonorForm(@RequestParam(required = false) int[] donorId) {
-
         if (donorId != null) {
             for (int id : donorId) {
-
                 bloodDonorRepository.deleteById(id);
             }
         }
-
         return "redirect:/bloodDonors/index";
     }
 

@@ -4,6 +4,7 @@ import org.SafnaRafic.emergencydisasterhelpline.models.BloodGroup;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.BloodGroupRepository;
 import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
@@ -36,8 +37,8 @@ public class BloodGroupController {
     }
 
     @GetMapping("index")
-    public String displayBloodGroupIndex(Model model){
-        model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
+    public String displayBloodGroupIndex(Model model, @RequestParam(defaultValue = "0") int page){
+        model.addAttribute("bloodGroups",bloodGroupRepository.findAll(PageRequest.of(page,5)));
         return "bloodgroups/index";
     }
 
@@ -57,7 +58,7 @@ public class BloodGroupController {
         if (bloodGroupOptional.isPresent()) {
             BloodGroup bloodGroup = bloodGroupOptional.get();
             bloodGroupRepository.delete(bloodGroup);
-            return "bloodgroups/index";
+            return "redirect:/bloodgroups/index";
         }
         return "bloodgroups/delete";
     }
