@@ -17,9 +17,6 @@ public class Contact {
 
     private String subject;
 
-
-    @NotNull(message = "Please provide your phone number")
-    @Size(min = 10,max = 10,message = "This entry can only contain numbers")
     private String phone;
 
     @Size(max=200,message = "Its too long !!")

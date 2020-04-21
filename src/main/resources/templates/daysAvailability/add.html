@@ -10,9 +10,10 @@
 
 <!--Main Content-->
 <form method="post">
-    <div class="container body-content">
+    <div class="container body-content" style="width:700px">
         <div class="form-group">
-            <label th:for="days"> Days of Availability</label>
+
+            <label th:for="days"> Days of Availability</label><br>
             <input class="form-control" th:field="${daysAvailability.days}" required/>
             <span th:errors="${daysAvailability.days}" class="errors"></span>
         </div>
