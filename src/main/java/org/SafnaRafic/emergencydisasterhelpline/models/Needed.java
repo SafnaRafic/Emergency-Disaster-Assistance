@@ -46,8 +46,6 @@ public class Needed extends AbstractEntityAdmin{
 
     @Override
     public String toString() {
-        return "Needed{" +
-                "need='" + need + '\'' +
-                '}';
+        return need;
     }
 }

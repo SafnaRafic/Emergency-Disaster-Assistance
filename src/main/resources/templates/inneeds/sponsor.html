@@ -5,29 +5,43 @@
 <body>
 <nav th:replace="fragments :: page-header"></nav>
 
+
 <div class="container-fluid">
-    <table class="table table-striped">
-        <thead>
-        <th>Name</th>
-        <th>Email-Id</th>
-        <th>Zipcode</th>
-        <th>Needs</th>
-        <th>Quantity</th>
-        </thead>
-        <tr th:each="inneed : ${inneeds}">
-            <td th:text="${inneed.name}"></td>
-            <td th:text="${inneed.emailId}"></td>
-            <td th:text="${inneed.zipcode}"></td>
-            <td >
-                <ul>
-                    <li th:each="needy : ${inneed.needs}">
-                        <span th:text="${needy.need}"></span>
-                    </li>
-                </ul>
-            </td>
-            <td th:text="${inneed.quantity}"></td>
-        </tr>
-    </table>
+    <div class="row">
+        <div class="col-md-12">
+            <h2> All Seekers
+                <a th:href="@{/createExcel}" style="float:right"><img
+                        src="https://www.cleverducks.com/wp-content/uploads/2018/01/Excel-Icon.png" style="width:40px;margin-left: 10px;"></a>
+                <a th:href="@{/createPdf}" style="float:right"><img
+                        src="https://www.oakdaleent.com/wp-content/uploads/pdf-icon-download.png" style="width:40px;margin-left: 10px;"></a>
+            </h2>
+            <div style="margin-top:20px">
+                <table class="table table-striped table bordered" style="width:100%">
+                    <thead>
+                    <th>Name</th>
+                    <th>Email-Id</th>
+                    <th>Zipcode</th>
+                    <th>Needs</th>
+                    <th>Quantity</th>
+                    </thead>
+                    <tr th:each="inneed : ${inneeds}">
+                        <td th:text="${inneed.name}"></td>
+                        <td th:text="${inneed.emailId}"></td>
+                        <td th:text="${inneed.zipcode}"></td>
+                        <td>
+                            <ul>
+                                <li th:each="needy : ${inneed.needs}">
+                                    <span th:text="${needy.need}"></span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td th:text="${inneed.quantity}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 

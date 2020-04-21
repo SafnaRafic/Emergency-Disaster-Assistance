@@ -3,11 +3,12 @@ package org.SafnaRafic.emergencydisasterhelpline.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Inneed extends AbstractEntity {
+public class Inneed extends AbstractEntity implements Serializable {
 
     //Relationship of Inneed and Needed class
 
