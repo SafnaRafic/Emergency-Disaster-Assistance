@@ -11,4 +11,6 @@ public interface SeekersService {
     List<Inneed> getAllSeekers();
 
     boolean createPdf(List<Inneed> inneeds, ServletContext context, HttpServletRequest request, HttpServletResponse response);
+
+    boolean createExcel(List<Inneed> inneeds, ServletContext context, HttpServletRequest request, HttpServletResponse response);
 }

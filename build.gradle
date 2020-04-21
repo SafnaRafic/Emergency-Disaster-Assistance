@@ -26,14 +26,16 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-crypto'
 	implementation 'mysql:mysql-connector-java'
 	compile 'org.springframework.boot:spring-boot-starter-mail'
+	//mail depencies for contact form
 	compile group: 'javax.servlet.jsp.jstl', name: 'javax.servlet.jsp.jstl-api', version: '1.2.1'
 	compile group: 'taglibs', name: 'standard', version: '1.1.2'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '1.2.1.RELEASE'
 
 	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '8.0.36'
+	//pdf and excel
 	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
 	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
-// https://mvnrepository.com/artifact/com.itextpdf/itextpdf
+	// https://mvnrepository.com/artifact/com.itextpdf/itextpdf
 	compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13.1'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

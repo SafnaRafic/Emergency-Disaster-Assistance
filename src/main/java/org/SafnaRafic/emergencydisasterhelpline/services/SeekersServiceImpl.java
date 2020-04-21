@@ -7,18 +7,20 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.SafnaRafic.emergencydisasterhelpline.models.Inneed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.InneedRepository;
+import org.apache.poi.hssf.usermodel.*;
+
+import org.apache.poi.hssf.util.HSSFColor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 
-import static com.itextpdf.text.PageSize.A4;
 
 @Service
 @Transactional
@@ -30,7 +32,7 @@ public class SeekersServiceImpl implements SeekersService {
     public List<Inneed> getAllSeekers() {
         return (List<Inneed>) inneedRepository.findAll();
     }
-
+// PDF File
     @Override
     public boolean createPdf(List<Inneed> inneeds, ServletContext context, HttpServletRequest request, HttpServletResponse response) {
         Document document=new Document(PageSize.A4,15,15,45,30);
@@ -163,5 +165,86 @@ public class SeekersServiceImpl implements SeekersService {
         }catch (Exception e){
             return false;
         }
+    }
+// Create Excel
+    @Override
+    public boolean createExcel(List<Inneed> inneeds, ServletContext context, HttpServletRequest request, HttpServletResponse response) {
+        String filePath= context.getRealPath("/resources/reports");
+        File file=new File(filePath);
+        boolean exists=new File(filePath).exists();
+        if(!exists){
+            new File(filePath).mkdirs();
+        }
+        try{
+            FileOutputStream outputStream=new FileOutputStream(file+"/"+"seekers"+".xls");
+            HSSFWorkbook workbook= new HSSFWorkbook();
+            HSSFSheet workSheet = workbook.createSheet("Seekers");
+            workSheet.setDefaultColumnWidth(30);
+            HSSFCellStyle headerCellStyle = workbook.createCellStyle();
+//            headerCellStyle.setFillForegroundColor(HSSFColor.BLUE.index));
+//            headerCellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+
+            HSSFRow headerRow = workSheet.createRow(0);
+
+            HSSFCell name =headerRow.createCell(0);
+            name.setCellValue("Name");
+            name.setCellStyle(headerCellStyle);
+
+            HSSFCell email =headerRow.createCell(1);
+            email.setCellValue("Email ID");
+            email.setCellStyle(headerCellStyle);
+
+            HSSFCell zipcode =headerRow.createCell(2);
+            zipcode.setCellValue("Zipcode");
+            zipcode.setCellStyle(headerCellStyle);
+
+            HSSFCell need =headerRow.createCell(3);
+            need.setCellValue("Needs");
+            need.setCellStyle(headerCellStyle);
+
+            HSSFCell quantity =headerRow.createCell(4);
+            quantity.setCellValue("Quantity");
+            quantity.setCellStyle(headerCellStyle);
+
+            int i=1; // next row
+            for(Inneed inneed : inneeds){
+                HSSFRow  bodyRow=  workSheet.createRow(i);
+
+                HSSFCellStyle bodyCellStyle =workbook.createCellStyle();
+//                bodyCellStyle.setFillForegroundColor(HSSFColor.WHITE.index);
+
+                HSSFCell nameValue=bodyRow.createCell(0);
+                nameValue.setCellValue(inneed.getName());
+                nameValue.setCellStyle(bodyCellStyle);
+
+                HSSFCell emailValue=bodyRow.createCell(1);
+                emailValue.setCellValue(inneed.getEmailId());
+                emailValue.setCellStyle(bodyCellStyle);
+
+                HSSFCell zipcodeValue=bodyRow.createCell(2);
+                zipcodeValue.setCellValue(inneed.getZipcode());
+                zipcodeValue.setCellStyle(bodyCellStyle);
+
+                HSSFCell needsValue=bodyRow.createCell(3);
+                needsValue.setCellValue(String.valueOf(inneed.getNeeds()));
+                needsValue.setCellStyle(bodyCellStyle);
+
+                HSSFCell quantityValue=bodyRow.createCell(4);
+                quantityValue.setCellValue(String.valueOf(inneed.getQuantity()));
+                quantityValue.setCellStyle(bodyCellStyle);
+
+                i++;
+
+            }
+            workbook.write(outputStream);
+            outputStream.flush();
+            outputStream.close();
+            return true;
+
+        }
+        catch (Exception e){
+            return false;
+        }
+
     }
 }

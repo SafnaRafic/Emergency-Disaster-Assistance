@@ -47,10 +47,21 @@ public class PdfExcelController {
         boolean isFlag = seekersService.createPdf(inneeds, context, request, response);
         if (isFlag) {
             String fullPath = request.getServletContext().getRealPath("/resources/reports/"+"seekers"+".pdf");
-            filedownload(fullPath, response, "seekers.pdf");
+            filedownload(fullPath, response, "SeekersDetails.pdf");
         }
-
     }
+
+    // create Excel
+    @GetMapping(value="/createExcel")
+    public void createExcel(HttpServletRequest request, HttpServletResponse response){
+        List<Inneed> inneeds = seekersService.getAllSeekers();
+        boolean isFlag = seekersService.createExcel(inneeds, context, request, response);
+        if (isFlag) {
+            String fullPath = request.getServletContext().getRealPath("/resources/reports/"+"seekers"+".xls");
+            filedownload(fullPath, response, "SeekersDetails.xls");
+        }
+    }
+
 
     private void filedownload(String fullPath, HttpServletResponse response, String fileName) {
         File file = new File(fullPath);
