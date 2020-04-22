@@ -36,13 +36,16 @@
                 <p>Volunteer :
                     <label th:text="${iterationStatus.count}"></label>
                 </p>
+                <p>Volunteer ID:
+                    <label th:text="${volunteer.id}"></label>
+                </p>
 
                 <p>Name:
                     <a th:href="@{'/volunteers/view/' + ${volunteer.id}}" th:text="${volunteer.name}"></a>
                 </p>
-                <p>Time Availability:
-                    <label th:text="${volunteer.timeAvailability}"></label>
-                </p>
+<!--                <p>Time Availability:-->
+<!--                    <label th:text="${volunteer.timeAvailability}"></label>-->
+<!--                </p>-->
                 <p>Volunteer Category:
                     <label th:text="${volunteer.volunteerCategory}"></label>
                 </p>
