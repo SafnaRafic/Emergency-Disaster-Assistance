@@ -19,7 +19,7 @@ public class Contact {
 
     private String phone;
 
-    @Size(max=200,message = "Its too long !!")
+    @Size(max=1200,message = "Its too long !!")
     private String content;
 
     public String getName() {

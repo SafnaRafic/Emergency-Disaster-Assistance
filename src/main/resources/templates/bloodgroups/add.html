@@ -15,7 +15,7 @@
         <div class="form-group">
             <label th:for="bloodType">Blood Group</label>
             <span class="required-field"></span>
-            <input class="form-control" th:field="${bloodGroup.bloodType}" required/>
+            <input class="form-control" th:field="${bloodGroup.bloodType}" required pattern="^[a-zA-Z].*[\s\.]*$"/>
             <span th:errors="${bloodGroup.bloodType}" class="error"></span>
         </div>
         <input class="btn btn-primary center-block btn-lg" type="Submit" value="Add" />

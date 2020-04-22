@@ -14,8 +14,8 @@ public class Volunteer extends AbstractEntity{
     @NotBlank(message = "Please mention volunteer Category")
     private String volunteerCategory ;
 
-    @NotBlank(message = "Please mention time of availability")
-    private String timeAvailability;
+//    @NotBlank(message = "Please mention time of availability")
+//    private String timeAvailability;
 
     //getter and setter
 
@@ -35,13 +35,13 @@ public class Volunteer extends AbstractEntity{
         this.volunteerCategory = volunteerCategory;
     }
 
-    public String getTimeAvailability() {
-        return timeAvailability;
-    }
-
-    public void setTimeAvailability(String timeAvailability) {
-        this.timeAvailability = timeAvailability;
-    }
+//    public String getTimeAvailability() {
+//        return timeAvailability;
+//    }
+//
+//    public void setTimeAvailability(String timeAvailability) {
+//        this.timeAvailability = timeAvailability;
+//    }
 
     // No arg constructor
     public Volunteer() {
@@ -52,7 +52,7 @@ public class Volunteer extends AbstractEntity{
         return "Volunteer{" +
                 "daysAvailability=" + daysAvailability +
                 ", volunteerCategory='" + volunteerCategory + '\'' +
-                ", timeAvailability='" + timeAvailability + '\'' +
+
                 '}';
     }
 }

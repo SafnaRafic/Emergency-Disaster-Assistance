@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments::head">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -23,7 +25,7 @@
             <div class="form-group">
                 <label th:for="name">Name</label>
                 <span class="required-field"></span>
-                <input class="form-control" th:field="${inneed.name}" required/>
+                <input class="form-control" th:field="${inneed.name}" required pattern="^[a-zA-Z].*[\s\.]*$"/>
                 <span th:errors="${inneed.name}" class="error"></span>
             </div>
 
@@ -37,7 +39,7 @@
             <div class="form-group">
                 <label th:for="city">City</label>
                 <span class="required-field"></span>
-                <input class="form-control" th:field="${inneed.city}" required/>
+                <input class="form-control" th:field="${inneed.city}" required pattern="^[a-zA-Z].*[\s\.]*$"/>
                 <span class="error" th:errors="${inneed.city}"></span>
             </div>
 
@@ -51,25 +53,27 @@
             <div class="form-group">
                 <label th:for="zipcode">Zipcode</label>
                 <span class="required-field"></span>
-                <input class="form-control" th:field="${inneed.zipcode}" required/>
+                <input class="form-control" th:field="${inneed.zipcode}" required pattern="(\d{5}([\-]\d{4})?)" title="Please enter 5 digit number" minlength="5" maxlength="5"/>
                 <span th:errors="${inneed.zipcode}" class="error"></span>
             </div>
 
             <div class="form-group">
                 <label th:for="contactNo"> Contact Number</label>
                 <span class="required-field"></span>
-                <input class="form-control" th:field="${inneed.contactNo}" required/>
+                <input type='tel' pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit number " maxlength="10" class="form-control" th:field="${inneed.contactNo}" required/>
                 <span th:errors="${inneed.contactNo}" class="error"></span>
             </div>
 
             <div class="form-group">
                 <label th:for="emailId"> Email Id</label>
+                <span class="required-field"></span>
                 <input type="email" class="form-control" th:field="${inneed.emailId}" required/>
                 <span th:errors="${inneed.emailId}" class="error"></span>
             </div>
 
             <div class="form-group">
                 <label> Type Of Disaster</label>
+                <span class="required-field"></span>
                 <select id="Disaster" th:field="${inneed.disasterType}">
                     <option value="earthquake">EarthQuake</option>
                     <option value="hurricane">Hurricane</option>
@@ -78,6 +82,7 @@
                     <option value="tsunami">Tsunami</option>
                     <option value="wildfire">Wild Fire</option>
                     <option value="extremeheat">Extreme Heat</option>
+                    <option value="others">Others</option>
                 </select>
             </div>
 
@@ -86,8 +91,8 @@
                 <span class="required-field"></span>
 
                 <th:block th:each="needy : ${needs}">
-                    <input type="checkbox" name="needs" th:value="${needy.id}">
-                    <label th:text="${needy.need}"></label><br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <input type="checkbox" name="needs" th:value="${needy.id}" >
+                    <label th:text="${needy.need}" ></label><br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                 </th:block>
 
             </div>
@@ -98,9 +103,24 @@
                 <input type="number" min="1" max="100" th:field="${inneed.quantity}"/>
             </div>
 
-            <input type="submit" class="btn btn-primary center-block btn-lg"/>
+            <input type="submit" class="btn btn-primary center-block btn-lg" id="checkBtn" />
         </div>
+
     </div>
 </form>
 </body>
 </html>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#checkBtn').click(function() {
+      checked = $("input[type=checkbox]:checked").length;
+
+      if(!checked) {
+        alert("Please choose your needs !!");
+        return false;
+      }
+
+    });
+});
+
+</script>

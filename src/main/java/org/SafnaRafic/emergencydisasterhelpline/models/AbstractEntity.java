@@ -1,6 +1,6 @@
 package org.SafnaRafic.emergencydisasterhelpline.models;
 
-import javax.persistence.Column;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;

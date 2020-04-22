@@ -51,6 +51,9 @@
                 <p>Donor :
                     <label th:text="${iterationStatus.count}"></label>
                 </p>
+                <p>BloodDonor ID:
+                    <label th:text="${donor.id}"></label>
+                </p>
                 <p>Name:
                     <a th:href="@{'/bloodDonors/view/' + ${donor.id}}" th:text="${donor.name}"></a>
                 </p>

@@ -14,7 +14,7 @@
         <div class="form-group">
 
             <label th:for="days"> Days of Availability</label><br>
-            <input class="form-control" th:field="${daysAvailability.days}" required/>
+            <input class="form-control" th:field="${daysAvailability.days}" required pattern="^[a-zA-Z].*[\s\.]*$"/>
             <span th:errors="${daysAvailability.days}" class="errors"></span>
         </div>
         <input type="submit" class="btn btn-primary" value="Add Days"/>

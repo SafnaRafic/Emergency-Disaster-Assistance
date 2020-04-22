@@ -44,6 +44,10 @@
                     <label th:text="${iterationStatus.count}"></label>
                 </p>
 
+                <p>Seekers ID :
+                    <label th:text="${inneed.id}"></label>
+                </p>
+
                 <p>Name :
                     <a th:href="@{'/inneeds/view/' + ${inneed.id}}" th:text="${inneed.name}"></a>
                 </p>

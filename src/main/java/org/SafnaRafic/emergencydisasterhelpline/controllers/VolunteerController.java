@@ -129,7 +129,7 @@ public class VolunteerController {
             List<DaysAvailability> daysAvailabilities = (List<DaysAvailability>) daysAvailabilityRepository.findAllById(daysAvailability);
             volunteer.setDaysAvailability(daysAvailabilities);
 
-            volunteer.setTimeAvailability(timeAvailability);
+//            volunteer.setTimeAvailability(timeAvailability);
             volunteer.setVolunteerCategory(volunteerCategory);
             volunteerRepository.save(volunteer);
             return "redirect:/volunteers/index";
