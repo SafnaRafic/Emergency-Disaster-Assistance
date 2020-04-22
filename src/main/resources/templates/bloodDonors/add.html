@@ -24,7 +24,8 @@
             <div class="form-group">
                 <label th:for="name">Name</label>
                 <span class="required-field"></span>
-                <input class="form-control" th:field="${bloodDonor.name}" required pattern="^[a-zA-Z].*[\s\.]*$"/>
+                <input class="form-control" th:field="${bloodDonor.name}" required pattern="^[a-zA-Z].[a-zA-Z ]*$"
+                       maxlength="150" title="Alphabets only allowed with space !! "/>
                 <span th:errors="${bloodDonor.name}" class="error"></span>
                 <span th:errors="${bloodDonor.name}" class="error"></span>
             </div>
@@ -39,34 +40,39 @@
             <div class="form-group">
                 <label th:for="city">City</label>
                 <span class="required-field"></span>
-                <input class="form-control" th:field="${bloodDonor.city}" required pattern="^[a-zA-Z].*[\s\.]*$"/>
+                <input class="form-control" th:field="${bloodDonor.city}" required
+                       pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
+                       title="Alphabets with special character allowed"/>
                 <span class="error" th:errors="${bloodDonor.city}"></span>
             </div>
 
             <div class="form-group">
                 <label th:for="state">State</label>
                 <span class="required-field"></span>
-                <input class="form-control" th:field="${bloodDonor.state}" required/>
+                <input class="form-control" th:field="${bloodDonor.state}" required pattern="^[a-zA-Z].[a-zA-Z]*$"
+                       maxlength="2" title="Please provide state abbreviation"/>
                 <span th:errors="${bloodDonor.state}" class="error"></span>
             </div>
 
             <div class="form-group">
                 <label th:for="zipcode">Zipcode</label>
                 <span class="required-field"></span>
-                <input class="form-control" th:field="${bloodDonor.zipcode}" required pattern="(\d{5}([\-]\d{4})?)" title="Please enter 5 digit number" minlength="5" maxlength="5"/>
+                <input class="form-control" th:field="${bloodDonor.zipcode}" required pattern="(\d{5}([\-]\d{4})?)"
+                       title="Please enter 5 digit number" minlength="5" maxlength="5"/>
                 <span th:errors="${bloodDonor.zipcode}" class="error"></span>
             </div>
 
             <div class="form-group">
                 <label th:for="contactNo"> Contact Number</label>
                 <span class="required-field"></span>
-                <input type='tel' pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit number " maxlength="10" class="form-control" th:field="${bloodDonor.contactNo}" required/>
+                <input type='tel' pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit number " maxlength="10"
+                       class="form-control" th:field="${bloodDonor.contactNo}" required/>
                 <span th:errors="${bloodDonor.contactNo}" class="error"></span>
             </div>
 
             <div class="form-group">
                 <label th:for="emailId"> Email Id</label>
-                <input type="email" class="form-control" th:field="${bloodDonor.emailId}" required/>
+                <input type="email" class="form-control" th:field="${bloodDonor.emailId}" required title="Please enter valid EmailID"/>
                 <span th:errors="${bloodDonor.emailId}" class="error"></span>
             </div>
 

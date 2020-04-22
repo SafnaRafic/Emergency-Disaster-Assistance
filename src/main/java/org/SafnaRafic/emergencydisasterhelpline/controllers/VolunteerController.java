@@ -113,7 +113,7 @@ public class VolunteerController {
 
     @PostMapping("update")
     public String processUpdateVolunteerForm(int volunteerId, String name, String address, String city, String state, String zipcode,
-                                             String contactNo,@RequestParam List<Integer> daysAvailability, String timeAvailability,
+                                             String contactNo,@RequestParam List<Integer> daysAvailability,
                                              String volunteerCategory) {
 
         Optional volunteerToUpdate = volunteerRepository.findById(volunteerId);

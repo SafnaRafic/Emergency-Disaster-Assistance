@@ -23,7 +23,7 @@
                 <th>Name</th>
                 <th>Days Of Availability</th>
                 <th>Volunteer Category</th>
-                <th>Time Availability</th>
+<!--                <th>Time Availability</th>-->
                 <th>Actions</th>
                 </thead>
 
@@ -37,7 +37,7 @@
                         </ul>
                     </td>
                     <td th:text="${volunteer.volunteerCategory}"></td>
-                    <td th:text="${volunteer.timeAvailability}"></td>
+<!--                    <td th:text="${volunteer.timeAvailability}"></td>-->
 
                     <td><a th:href="@{/volunteers/delete/{id}(id=${volunteer.id})}">
                         <button class="btn btn-primary">Delete</button>

@@ -60,18 +60,34 @@
         </select>
     </div>
 
-    <div class="form-check">
-        <label th:for="timeAvailability">Time Availability</label><br>
-        &emsp;&emsp;<input type="checkbox" value="AnyTime" id="anyTime" th:field="${volunteer.timeAvailability}">
-        <label for="anyTime">Any Time</label><br>
-        &emsp;&emsp;<input type="checkbox" value="8am-Noon" id="am" th:field="${volunteer.timeAvailability}">
-        <label for="am">8 Am to Noon</label><br>
-        &emsp;&emsp;<input type="checkbox" value="1pm-5pm" id="pm" th:field="${volunteer.timeAvailability}">
-        <label for="pm">1 Pm to 5 Pm</label><br>
-    </div>
+<!--    <div class="form-check">-->
+<!--        <label th:for="timeAvailability">Time Availability</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="AnyTime" id="anyTime" th:field="${volunteer.timeAvailability}">-->
+<!--        <label for="anyTime">Any Time</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="8am-Noon" id="am" th:field="${volunteer.timeAvailability}">-->
+<!--        <label for="am">8 Am to Noon</label><br>-->
+<!--        &emsp;&emsp;<input type="checkbox" value="1pm-5pm" id="pm" th:field="${volunteer.timeAvailability}">-->
+<!--        <label for="pm">1 Pm to 5 Pm</label><br>-->
+<!--    </div>-->
 
     <input type="hidden" th:value="${volunteer.id}" name="volunteerId"/>
-    <input type="submit" class="btn btn-primary" value="Update Volunteer"/>
+    <input type="submit" class="btn btn-primary" value="Update Volunteer" id="checkBtn"/>
 </form>
 </body>
 </html>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#checkBtn').click(function() {
+      checked = $("input[type=checkbox]:checked").length;
+
+      if(!checked) {
+        alert("Please choose days of availability !!");
+        return false;
+      }
+    });
+
+});
+
+
+
+</script>

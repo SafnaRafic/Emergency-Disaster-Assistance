@@ -39,7 +39,7 @@ public class SearchDonorController {
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
         model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
-        model.addAttribute("title", "Search Blood Donor");
+        model.addAttribute("title", "Blood Donor");
         return "search";
     }
 
@@ -53,6 +53,7 @@ public class SearchDonorController {
         }
         model.addAttribute("columns",columnChoices);
         model.addAttribute("bloodDonors",bloodDonors);
+        model.addAttribute("bloodGroups",bloodGroupRepository.findAll());
         int counter = 0;
         for (Object i : bloodDonors) {
             counter++;

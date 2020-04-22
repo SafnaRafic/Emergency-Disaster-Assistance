@@ -1,11 +1,9 @@
 package org.SafnaRafic.emergencydisasterhelpline.controllers;
 
-import org.SafnaRafic.emergencydisasterhelpline.models.BloodDonor;
 import org.SafnaRafic.emergencydisasterhelpline.models.Inneed;
 import org.SafnaRafic.emergencydisasterhelpline.models.Needed;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.InneedRepository;
 import org.SafnaRafic.emergencydisasterhelpline.models.data.NeededRepository;
-import org.SafnaRafic.emergencydisasterhelpline.services.SeekersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -13,14 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.OutputStream;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,58 +23,6 @@ public class InneedController {
 
     @Autowired
     private NeededRepository neededRepository;
-
-//    // Service for getAllSeekers
-//    @Autowired
-//    private SeekersService seekersService;
-//
-//    // Generate pdf
-//    @Autowired
-//    private ServletContext context;
-//
-//    // Pdf generate controller
-//    @GetMapping("sponsor")
-//    public String displaySponsorNeeds(Model model){
-//        List<Inneed> inneeds= seekersService.getAllSeekers();
-//        model.addAttribute("inneeds",inneeds);
-//        return "inneeds/sponsor";
-//    }
-//    // create pdf
-//    @GetMapping("/createPdf")
-//    public void createPdf(HttpServletRequest request, HttpServletResponse response){
-//        List<Inneed> inneeds= seekersService.getAllSeekers();
-//        boolean isFlag= seekersService.createPdf(inneeds,context,request,response);
-//        if(isFlag){
-//            String fullPath = request.getServletContext().getRealPath("/resources/reports/"+"seekers"+".pdf");
-//            filedownload(fullPath,response,"seekers.pdf");
-//        }
-//
-//    }
-//
-//    private void filedownload(String fullPath, HttpServletResponse response, String fileName) {
-//        File file = new File(fullPath);
-//        final int BUFFER_SIZE =4096;
-//        if(file.exists()){
-//            try{
-//                FileInputStream inputStream=new FileInputStream(file);
-//                String mimeType = context.getMimeType(fullPath);
-//                response.setContentType(mimeType);
-//                response.setHeader("content-disposition","attachment: filename="+fileName);
-//                OutputStream outputStream=response.getOutputStream();
-//                byte[] buffer = new byte[BUFFER_SIZE];
-//                int bytesRead = -1;
-//                while((bytesRead = inputStream.read(buffer))!= -1){
-//                    outputStream.write(buffer,0,bytesRead);
-//                }
-//                inputStream.close();
-//                outputStream.close();
-//                file.delete();
-//            }catch (Exception e){
-//                e.printStackTrace();
-//
-//            }
-//        }
-//    }
 
     @GetMapping("info")
     public String displayInfoInNeedPage(){
@@ -168,13 +107,13 @@ public class InneedController {
     }
 
     @PostMapping("update")
-    public String processUpdateInneedForm(int inneedId, String name, List<Integer> needId,int quantity) {
-
+    public String processUpdateInneedForm(int inneedId, String name, @RequestParam List<Integer> needs,int quantity) {
+            System.out.println("enterint post method update ");
         Optional inneedToUpdate = inneedRepository.findById(inneedId);
             if (inneedToUpdate.isPresent()) {
             Inneed inneed = (Inneed) inneedToUpdate.get();
             inneed.setName(name);
-            List<Needed> needObj = (List<Needed>) neededRepository.findAllById(needId);
+            List<Needed> needObj = (List<Needed>) neededRepository.findAllById(needs);
             inneed.setNeeds(needObj);
             inneed.setQuantity(quantity);
             inneedRepository.save(inneed);
