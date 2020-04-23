@@ -5,7 +5,25 @@ import org.SafnaRafic.emergencydisasterhelpline.models.BloodDonor;
 import java.util.ArrayList;
 
 public class BloodDonorData {
-    public static ArrayList<BloodDonor> findByColumnAndValue(String column, String value,String value1, Iterable<BloodDonor> bloodDonors){
+    public static ArrayList<BloodDonor> findByColumnAndValue(String column, String value, Iterable<BloodDonor> bloodDonors){
+        ArrayList<BloodDonor> results=new ArrayList<>();
+        if(value.toLowerCase().equals("all")){
+            return (ArrayList<BloodDonor>)bloodDonors;
+        }
+        if(column.equals("all")){
+            results=findByValue(value,bloodDonors);
+            return results;
+        }
+        for(BloodDonor bloodDonor: bloodDonors){
+            String aValue=getFieldValue(bloodDonor,column);
+            if(aValue!=null && aValue.toLowerCase().equals(value.toLowerCase())){
+                results.add(bloodDonor);
+            }
+//
+        }
+        return results;
+    }
+    public static ArrayList<BloodDonor> findByColumnAndValue1(String column, String value, Iterable<BloodDonor> bloodDonors){
         ArrayList<BloodDonor> results=new ArrayList<>();
         if(value.toLowerCase().equals("all")){
             return (ArrayList<BloodDonor>)bloodDonors;

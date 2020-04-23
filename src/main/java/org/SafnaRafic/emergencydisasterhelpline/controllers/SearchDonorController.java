@@ -46,10 +46,14 @@ public class SearchDonorController {
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm, @RequestParam String searchTerm1) {
         Iterable<BloodDonor> bloodDonors;
-        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
+        if(searchType.equals("bloodgroup") ){
+            System.out.println("Enter blood group");
+            bloodDonors= BloodDonorData.findByColumnAndValue(searchType, searchTerm1, bloodDonorRepository.findAll());
+        }
+        else if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
             bloodDonors = bloodDonorRepository.findAll();
         } else {
-            bloodDonors= BloodDonorData.findByColumnAndValue(searchType, searchTerm,searchTerm1, bloodDonorRepository.findAll());
+            bloodDonors= BloodDonorData.findByColumnAndValue(searchType, searchTerm,bloodDonorRepository.findAll());
         }
         model.addAttribute("columns",columnChoices);
         model.addAttribute("bloodDonors",bloodDonors);

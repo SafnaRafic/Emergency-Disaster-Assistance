@@ -27,10 +27,10 @@
 
         <div class="form-group">
             <label>Blood Group</label>
-            <select name="searchTerm1" id="searchTerm1">
+            <select name="searchTerm1" class="dropdown">
                 <option th:each="group : ${bloodGroups}"
                         th:text="${group.bloodType}"
-                        th:value="${group.id}"></option>
+                        th:value="${group.bloodType}"></option>
             </select>
         </div>
         </p>
